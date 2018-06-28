@@ -12,6 +12,7 @@
  */
 
 @import "global/vars";
+@import "global/functions/colors";
 @import "global/layout";
 @import "global/typography";
-@import "components/header";
+@import "global/structure/header";

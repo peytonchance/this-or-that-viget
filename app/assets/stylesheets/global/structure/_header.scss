@@ -1,16 +1,15 @@
 .header {
-  background-color: #ffffff;
-  box-shadow: 1px 6px 10px #BDBDBD;
+  background-color: #fff;
+  box-shadow: 1px 6px 10px colors(shadow-gray);
   display: flex;
   height: 69px;
   justify-content: space-between;
-  padding: 0.5rem 3.5rem 0.5rem 2.5rem;
+  padding: 8px 50px 8px 35px;
 }
 
-.header__logo {
-  margin-bottom: -44px;
+.header__logo a {
   align-self: flex-end;
-  width: 135px;
+  margin-bottom: -44px;
 }
 
 .header__utility-nav {
@@ -35,7 +34,7 @@
 
   a {
     align-items: center;
-    background-color: #FCB92C;
+    background-color: colors(yellow);
     border-radius: 999px;
     display: flex;
     font-weight: 600;
@@ -48,7 +47,7 @@
   }
 
   &::before {
-    background-color: #61B7F2;
+    background-color: colors(light-blue);
     content: '';
     height: 7px;
     left: 0;
@@ -62,7 +61,7 @@
   position: relative;
 
   &::before {
-    background-color: #61B7F2;
+    background-color: colors(light-blue);
     content: '';
     height: 7px;
     position: absolute;
