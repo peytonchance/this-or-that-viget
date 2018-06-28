@@ -1,7 +1,9 @@
 <header class="header">
-    <img src="<%= image_url("logo.svg") %>" class="header__logo">
-    <ul class="header__utility-nav">
-        <li class="header__create"><a href="">Create <span class="header__create-plus">+</span></a></li>
-        <li class="header__log-in"><a href="">superCoolUser1</a></li>
-    </ul>
+  <a href="/">
+    <%= inline_svg "logo.svg", class: 'header__logo' %>
+  </a>
+  <ul class="header__utility-nav">
+    <li class="header__create"><a href="">Create <span class="header__create-plus">+</span></a></li>
+    <li class="header__log-in"><a href="">superCoolUser1</a></li>
+  </ul>
 </header>
