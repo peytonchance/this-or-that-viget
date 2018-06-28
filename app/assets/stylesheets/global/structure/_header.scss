@@ -1,6 +1,6 @@
 .header {
   background-color: #fff;
-  box-shadow: 1px 6px 10px colors(shadow-gray);
+  box-shadow: 1px 6px 10px color(shadow-gray);
   display: flex;
   height: 69px;
   justify-content: space-between;
@@ -34,7 +34,7 @@
 
   a {
     align-items: center;
-    background-color: colors(yellow);
+    background-color: color(yellow);
     border-radius: 999px;
     display: flex;
     font-weight: 600;
@@ -47,7 +47,7 @@
   }
 
   &::before {
-    background-color: colors(light-blue);
+    background-color: color(light-blue);
     content: '';
     height: 7px;
     left: 0;
@@ -61,7 +61,7 @@
   position: relative;
 
   &::before {
-    background-color: colors(light-blue);
+    background-color: color(light-blue);
     content: '';
     height: 7px;
     position: absolute;
