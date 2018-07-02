@@ -32,6 +32,8 @@ gem 'inline_svg'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+gem 'devise', '~> 4.4', '>= 4.4.3'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
