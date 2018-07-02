@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :comments
   has_many :votes
   has_many :follows
+  has_many :followed_polls, through: :follows, source: :poll
 end

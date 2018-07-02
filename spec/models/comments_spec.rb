@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  context "with an Article already created" do
+  context "with an Poll already created" do
     let!(:poll) {create(:poll)}
     let!(:comment_user) {create(:user, username: 'commenter', email: 'commenter@viget.com')}
     
