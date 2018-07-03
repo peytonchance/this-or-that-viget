@@ -18,14 +18,8 @@ RSpec.describe Vote, type: :model do
 
     it "determines the correct percentage of two choices" do
       #populating the votes
-      (-2..2).each do |n|
-        vote_user = create(:user, username: "demouser#{n}", email: "demo#{n}@example.com")
-        if n >= 0
-           create(:vote, poll: poll, user: vote_user, option: 1)
-        else
-          create(:vote, poll: poll, user: vote_user)
-        end
-      end
+      2.times { create(:vote, poll: poll, option: 0) }
+      3.times { create(:vote, poll: poll, option: 1) }
       
       expect(poll.total_votes(0)).to eq(2)
       expect(poll.total_votes(1)).to eq(3)

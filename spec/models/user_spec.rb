@@ -6,14 +6,14 @@ RSpec.describe User, type: :model do
   end
 
   context "has already one user created" do
-    let!(:user) {create(:user)}
+    let!(:existing_user) {create(:user)}
     
     it "has only one" do
       expect(User.count).to eq 1
     end
 
     it "doesn't add user with same username" do
-      user = build(:user, email: 'another@example.com')
+      user = build(:user, username: existing_user.username)
       user.save
 
       expect(user.save).to eq false
@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
     end
 
     it "doesn't add user with same email" do
-      user = build(:user, username: 'johndoe')
+      user = build(:user, email: existing_user.email)
       user.save
 
       expect(user.save).to eq false

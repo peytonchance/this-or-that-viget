@@ -14,23 +14,23 @@ class Poll < ApplicationRecord
   has_one_attached :option_a_img
   has_one_attached :option_b_img
 
-  def parent_is?(user)
-    self.user.id == user.id
+  def parent_is?(child)
+    self.user.id == child.id
   end
 
   def total_votes(option)
-    self.votes.where(option: option).count
+    votes.where(option: option).count
   end
 
   def fraction_of_votes(option)
-    (total_votes(option).to_f / self.votes.count.to_f).round(2)
+    (total_votes(option).to_f / votes.count.to_f).round(2)
   end
-  
+
   def option_a_img
-    self.option_a_img.attached? ? self.option_a_img : self.option_a_url
+    option_a_img.attached? ? option_a_img : option_a_url
   end
-  
+
   def option_b_img
-    self.option_b_img.attached? ? self.option_b_img : self.option_b_url
+    option_b_img.attached? ? option_b_img : option_b_url
   end
 end
