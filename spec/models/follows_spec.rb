@@ -7,7 +7,7 @@ RSpec.describe Follow, type: :model do
     
     it "poll & user currently follows no posts" do
       expect(user.follows.count).to eq(0)
-      expect(poll.follows.count). to eq(0)
+      expect(poll.follows.count).to eq(0)
     end
     
     #let!(:follow) {}

@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :votes
   has_many :follows
   has_many :followed_polls, through: :follows, source: :poll
+  has_many :voted_polls, through: :votes, source: :poll
 end
