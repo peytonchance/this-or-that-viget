@@ -27,10 +27,10 @@ class Poll < ApplicationRecord
   end
   
   def option_a_img
-    self.option_a_img.attached? ? url_for(self.option_a_img) : self.option_a_url
+    self.option_a_img.attached? ? self.option_a_img : self.option_a_url
   end
   
   def option_b_img
-    self.option_b_img.attached? ? url_for(self.option_b_img) : self.option_b_url
+    self.option_b_img.attached? ? self.option_b_img : self.option_b_url
   end
 end
