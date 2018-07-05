@@ -1,0 +1,143 @@
+.poll__wrapper {
+  align-items: center;
+  background-color: #F3F8FC;
+  border-radius: 0px 170px 170px 0px;
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  justify-content: space-around;
+  margin: 15px auto;
+  max-width: 1000px;
+  padding: 30px 50px;
+  width: 70%;
+}
+
+
+.poll__meta {
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    margin-top: 15px;
+  }
+}
+
+.poll__meta-votes {
+  position: relative;
+
+  &::before {
+    background: image-url("fire-icon.svg") no-repeat;
+    background-position: center;
+    background-size: 19px 25px;
+    content: '';
+    height: 25px;
+    left: -30px;
+    position: absolute;
+    width: 19px;
+  }
+}
+
+.poll__meta-active {
+  position: relative;
+   &::before {
+    background: image-url("lightning-icon.svg") no-repeat;
+    background-position: center;
+    background-size: 19px 25px;
+    content: '';
+    height: 25px;
+    left: -30px;
+    position: absolute;
+    width: 19px;
+  }
+}
+
+.poll__options {
+  display: flex;
+  height: 225px;
+  width: 600px;
+}
+
+
+.poll__options-1 {
+  background-color: #61B7F2;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  margin-right: 10px;
+  transition: 1s ease-in-out;
+  width: 50%;
+}
+
+.poll__options-2 {
+  background-color: #FCB92C;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: 1s ease-in-out;
+  width: 50%;
+}
+
+
+.poll__actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style-type: none;
+  padding-left: 30px;
+  width: 75%;
+}
+
+.poll__actions-comments {
+  position: relative;
+
+  a {
+    &::before {
+      background: image-url("comment-icon.svg") no-repeat;
+      background-position: center;
+      background-size: 19px 19px;
+      content: '';
+      height: 19px;
+      left: -30px;
+      position: absolute;
+      width: 19px;
+    }
+  }
+
+}
+
+.poll__actions-follow {
+  position: relative;
+
+  a {
+    text-decoration: none;
+
+    &::before {
+      background: image-url("follow-icon.svg") no-repeat;
+      background-position: center;
+      background-size: 25px 25px;
+      content: '';
+      height: 25px;
+      left: -33px;
+      top: -4px;
+      position: absolute;
+      width: 24px;
+    }
+  }
+}
+
+.poll__actions-link {
+  position: relative;
+
+  a {
+    text-decoration: none;
+
+    &::before {
+      background: image-url("link-icon.svg") no-repeat;
+      background-position: center;
+      background-size: 23px 15px;
+      content: '';
+      height: 19px;
+      left: -35px;
+      position: absolute;
+      width: 23px;
+    }
+  }
+}
