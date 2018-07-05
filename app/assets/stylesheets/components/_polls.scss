@@ -1,9 +1,8 @@
 .poll {
   align-items: center;
   background-color: #F3F8FC;
-  border-radius: 0px 170px 170px 0px;
+  border-radius: 0 170px 170px 0;
   display: flex;
-  flex-direction: row;
   height: 300px;
   justify-content: space-around;
   margin: 15px auto;
@@ -13,21 +12,15 @@
 }
 
 .poll__meta {
-
-  ul {
-    list-style-type: none;
-  }
-
   li {
     margin-top: 15px;
   }
 }
 
-.poll__meta-votes {
+.poll__meta__item {
   position: relative;
 
   &::before {
-    background: image-url("fire-icon.svg") no-repeat;
     background-position: center;
     background-size: 19px 25px;
     content: '';
@@ -38,18 +31,15 @@
   }
 }
 
-.poll__meta-active {
-  position: relative;
+.poll__meta__votes {
+  &::before {
+    background: image-url("fire-icon.svg") no-repeat;
+  }
+}
 
+.poll__meta__active {
    &::before {
     background: image-url("lightning-icon.svg") no-repeat;
-    background-position: center;
-    background-size: 19px 25px;
-    content: '';
-    height: 25px;
-    left: -30px;
-    position: absolute;
-    width: 19px;
   }
 }
 
@@ -59,58 +49,56 @@
   width: 600px;
 }
 
-.poll__options-1 {
+.poll__options__option-1 {
   background-color: #61B7F2;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 6px rgba(#000, 0.25);
   margin-right: 10px;
   transition: 1s ease-in-out;
   width: 50%;
 }
 
-.poll__options-2 {
+.poll__options__option-2 {
   background-color: #FCB92C;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 6px rgba(#000, 0.25);
   transition: 1s ease-in-out;
   width: 50%;
 }
 
 .poll__actions {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  list-style-type: none;
   padding-left: 30px;
   width: 75%;
 }
 
-.poll__actions-comments {
+.poll__actions__action {
   position: relative;
 
   a {
     &::before {
-      background: image-url("comment-icon.svg") no-repeat;
-      background-position: center;
-      background-size: 19px 19px;
       content: '';
-      height: 19px;
-      left: -30px;
-      position: absolute;
-      width: 19px;
     }
   }
 }
 
-.poll__actions-follow {
-  position: relative;
+.poll__actions__comments {
+  a {
+    &::before {
+      background: image-url("comment-icon.svg") no-repeat center, 18px 18px;
+      height: 22px;
+      left: -30px;
+      position: absolute;
+      width: 24px;
+    }
+  }
+}
 
+.poll__actions__follow {
   a {
     text-decoration: none;
 
     &::before {
-      background: image-url("follow-icon.svg") no-repeat;
-      background-position: center;
-      background-size: 25px 25px;
-      content: '';
+      background: image-url("follow-icon.svg") no-repeat center, 25px 25px;
       height: 25px;
       left: -33px;
       position: absolute;
@@ -120,21 +108,17 @@
   }
 }
 
-.poll__actions-link {
-  position: relative;
+.poll__actions__link {
 
   a {
     text-decoration: none;
 
     &::before {
-      background: image-url("link-icon.svg") no-repeat;
-      background-position: center;
-      background-size: 23px 15px;
-      content: '';
+      background: image-url("link-icon.svg") no-repeat center, 23px 15px;
       height: 19px;
       left: -35px;
       position: absolute;
-      width: 23px;
+      width: 26px;
     }
   }
 }
