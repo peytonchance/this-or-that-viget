@@ -1,4 +1,4 @@
-.poll__wrapper {
+.poll {
   align-items: center;
   background-color: #F3F8FC;
   border-radius: 0px 170px 170px 0px;
@@ -11,7 +11,6 @@
   padding: 30px 50px;
   width: 70%;
 }
-
 
 .poll__meta {
 
@@ -41,6 +40,7 @@
 
 .poll__meta-active {
   position: relative;
+
    &::before {
     background: image-url("lightning-icon.svg") no-repeat;
     background-position: center;
@@ -59,7 +59,6 @@
   width: 600px;
 }
 
-
 .poll__options-1 {
   background-color: #61B7F2;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
@@ -74,7 +73,6 @@
   transition: 1s ease-in-out;
   width: 50%;
 }
-
 
 .poll__actions {
   display: flex;
@@ -100,7 +98,6 @@
       width: 19px;
     }
   }
-
 }
 
 .poll__actions-follow {
