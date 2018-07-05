@@ -83,6 +83,8 @@
 
 .poll__actions__comments {
   a {
+    text-decoration: underline;
+
     &::before {
       background: image-url("comment-icon.svg") no-repeat center, 18px 18px;
       height: 22px;
@@ -95,8 +97,6 @@
 
 .poll__actions__follow {
   a {
-    text-decoration: none;
-
     &::before {
       background: image-url("follow-icon.svg") no-repeat center, 25px 25px;
       height: 25px;
@@ -109,10 +109,7 @@
 }
 
 .poll__actions__link {
-
   a {
-    text-decoration: none;
-
     &::before {
       background: image-url("link-icon.svg") no-repeat center, 23px 15px;
       height: 19px;
