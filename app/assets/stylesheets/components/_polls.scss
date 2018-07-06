@@ -12,34 +12,24 @@
 }
 
 .poll__meta {
+  align-self: flex-start;
+
+  p {
+    margin-top: 7px;
+  }
+
+  ul {
+    padding: 0;
+  }
+
   li {
+    align-items: center;
+    display: flex;
     margin-top: 15px;
   }
-}
 
-.poll__meta__item {
-  position: relative;
-
-  &::before {
-    background-position: center;
-    background-size: 19px 25px;
-    content: '';
-    height: 25px;
-    left: -30px;
-    position: absolute;
-    width: 19px;
-  }
-}
-
-.poll__meta__votes {
-  &::before {
-    background: image-url("fire-icon.svg") no-repeat;
-  }
-}
-
-.poll__meta__active {
-   &::before {
-    background: image-url("lightning-icon.svg") no-repeat;
+  span {
+    margin-left: 5px;
   }
 }
 
@@ -67,16 +57,21 @@
 .poll__actions {
   display: flex;
   justify-content: space-between;
-  padding-left: 30px;
+  padding-left: 0;
   width: 75%;
-}
 
-.poll__actions__action {
-  position: relative;
+  li {
+    display: flex;
+    align-items: center;
 
-  a {
-    &::before {
-      content: '';
+    a {
+      align-items: center;
+      display: flex;
+      justify-content: space-around;
+
+      span {
+        margin-left: 10px;
+      }
     }
   }
 }
@@ -84,38 +79,5 @@
 .poll__actions__comments {
   a {
     text-decoration: underline;
-
-    &::before {
-      background: image-url("comment-icon.svg") no-repeat center, 18px 18px;
-      height: 22px;
-      left: -30px;
-      position: absolute;
-      width: 24px;
-    }
-  }
-}
-
-.poll__actions__follow {
-  a {
-    &::before {
-      background: image-url("follow-icon.svg") no-repeat center, 25px 25px;
-      height: 25px;
-      left: -33px;
-      position: absolute;
-      top: -4px;
-      width: 24px;
-    }
-  }
-}
-
-.poll__actions__link {
-  a {
-    &::before {
-      background: image-url("link-icon.svg") no-repeat center, 23px 15px;
-      height: 19px;
-      left: -35px;
-      position: absolute;
-      width: 26px;
-    }
   }
 }

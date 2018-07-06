@@ -1,0 +1,22 @@
+$icons: (
+  fire,
+  lightning,
+  comment,
+  follow,
+  link
+);
+
+@mixin icons {
+  @each $name in $icons {
+    &-#{$name} {
+      background: image-url('#{$name}-icon.svg') no-repeat center;
+      content: '';
+      height: 25px;
+      width: 26px;
+    }
+  }
+}
+
+.icon {
+  @include icons;
+}
