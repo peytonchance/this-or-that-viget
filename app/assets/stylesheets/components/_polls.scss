@@ -12,20 +12,24 @@
 }
 
 .poll__meta {
+  align-items: center;
   align-self: flex-start;
+  display: flex;
+  flex-direction: column;
 
   p {
-    margin-top: 7px;
+    margin-top: 0;
   }
 
   ul {
+    margin-left: -25px;
     padding: 0;
   }
 
   li {
     align-items: center;
     display: flex;
-    margin-top: 15px;
+    margin-top: 10px;
   }
 
   span {
