@@ -21,4 +21,23 @@ RSpec.describe Poll, type: :model do
       end
     end
   end
+
+  describe "expiry time poll instance methods" do
+    context "with a poll created" do 
+      let!(:poll) {create(:poll)}
+
+      it "correctly gives the time left" do
+        expect(poll.time_left).to eq("7 days")
+      end
+
+      it "returns false for it being expired" do
+        expect(poll.is_expired?).to be false
+      end
+
+      it "returns true for it being expired" do
+        poll.expired = true
+        expect(poll.is_expired?).to be true
+      end
+    end
+  end
 end

@@ -6,5 +6,7 @@ FactoryBot.define do
     option_a_url ""
     option_b_url ""
     user
+    expiry_time 1.week.from_now
+    expired false
   end
 end
