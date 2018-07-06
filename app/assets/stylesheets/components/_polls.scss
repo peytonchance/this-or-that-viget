@@ -22,14 +22,18 @@
   }
 
   ul {
-    margin-left: -25px;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 76px;
+    min-width: 110px;
     padding: 0;
   }
 
   li {
     align-items: center;
     display: flex;
-    margin-top: 10px;
   }
 
   span {
