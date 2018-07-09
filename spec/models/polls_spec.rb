@@ -31,12 +31,12 @@ RSpec.describe Poll, type: :model do
       end
 
       it "returns false for it being expired" do
-        expect(poll.is_expired?).to be false
+        expect(poll.expired?).to be false
       end
 
       it "returns true for it being expired" do
         poll.expired = true
-        expect(poll.is_expired?).to be true
+        expect(poll.expired?).to be true
       end
     end
   end

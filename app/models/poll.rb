@@ -36,10 +36,6 @@ class Poll < ApplicationRecord
     option_b_img.attached? ? option_b_img : option_b_url
   end
   
-  def is_expired?
-    expired
-  end
-  
   def time_left
     distance_of_time_in_words(DateTime.now, expiry_time).capitalize
   end
