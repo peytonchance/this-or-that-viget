@@ -1,0 +1,30 @@
+.sign-up {
+  border-radius: 10px;
+  border: solid 2px #BDBDBD;
+  margin: auto;
+  max-width: 530px;
+  padding: 35px 45px;
+}
+
+.sign-up__title {
+  font-size: 3.4em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.sign-up__form {
+  margin: 30px auto;
+  width: 85%;
+}
+
+.sign-up__field {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.sign-up__field__password__minchar {
+
+}
