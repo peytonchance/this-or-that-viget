@@ -15,6 +15,18 @@
 .sign-up__form {
   margin: 30px auto;
   width: 85%;
+
+  input {
+    background-color: #F2F2F2;
+    border-radius: 3px;
+    border: 2px solid rgb(224, 224, 224);
+    height: 22px;
+    width: 70%;
+  }
+
+  label {
+    width: 105px;
+  }
 }
 
 .sign-up__field {
