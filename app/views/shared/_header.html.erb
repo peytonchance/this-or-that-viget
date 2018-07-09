@@ -3,7 +3,15 @@
     <%= inline_svg "logo.svg", class: 'header__logo' %>
   </a>
   <ul class="header__utility-nav">
-    <li class="header__create"><a href="">Create <span class="header__create-plus">+</span></a></li>
-    <li class="header__log-in"><a href="">superCoolUser1</a></li>
+    <li class="header__feed"><a href="">Feed</a></li>
+    <li class="header__create">
+      <a href="">
+        <%= inline_svg "create_poll.svg" %>
+      </a>
+    </li>
+    <li class="header__your-polls header__utility-nav--active"><a href="">Your Polls</a></li>
+    <li class="header__following"><a href="">Following</a></li>
+    <li class="header__log-in"><a href="/users/sign_in">superCoolUser1<span class="header__log-in__arrow"></span></a></li>
   </ul>
 </header>
+
