@@ -69,10 +69,14 @@
   }
 }
 
-.header__create__text {
+.header__create__text-vector {
   position: absolute;
   top: 0;
   transform: scale(0.9) translate(2px, -20px);
+}
+
+.header__create__text--hidden {
+  @include screenreader
 }
 
 .header__log-in {
@@ -80,10 +84,8 @@
 }
 
 .header__log-in__arrow {
-  border: solid 8px;
-  border-bottom: 6px solid transparent;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
+  border: 6px solid transparent;
+  border-top: 7px solid;
   position: absolute;
   right: 16px;
   top: 4px;
