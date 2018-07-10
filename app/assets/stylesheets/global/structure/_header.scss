@@ -69,6 +69,13 @@
   }
 }
 
+.header__create--fixed {
+  left: 50%;
+  position: fixed;
+  top: 9%;
+  transform: translate(-50%, -50%);
+}
+
 .header__create__text-vector {
   position: absolute;
   top: 0;
@@ -79,11 +86,11 @@
   @include screenreader
 }
 
-.header__log-in {
+.header__username {
   position: relative;
 }
 
-.header__log-in__arrow {
+.header__username__arrow {
   border: 6px solid transparent;
   border-top: 7px solid;
   position: absolute;
