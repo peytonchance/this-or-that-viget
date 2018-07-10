@@ -7,4 +7,10 @@ body {
 a {
   color: color(dark-blue);
   text-decoration: none;
+
+  &::hover {
+    cursor: pointer;
+  }
 }
+
+

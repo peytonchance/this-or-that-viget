@@ -1,35 +1,44 @@
 <div class="sign-up">
-  <h2 class="sign-up__title">Sign up</h2>
+  <div class="sign-up__wrapper">
+    <div class="sign-up__top">
+      <h2 class="sign-up__title">Sign up</h2>
+      <a class="sign-up__cancel">Cancel<i class="icon-expired"></i></a>
+    </div>
 
-  <div class="sign-up__form">
-    <%= form_for(:user, url: registration_path(:user)) do |f| %>
 
-      <div class="sign-up__field">
-        <%= f.label :username %><br />
-        <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-      </div>
+    <div class="sign-up__form">
+      <%= form_for(:user, url: registration_path(:user)) do |f| %>
 
-      <div class="sign-up__field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
+        <div class="sign-up__field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
 
-      <div class="sign-up__field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em class="sign-up__field__password__minchar">(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
+        <div class="sign-up__field">
+          <%= f.label :username %><br />
+          <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+        </div>
 
-      <div class="sign-up__field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
+        <div class="sign-up__field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em class="sign-up__field__password__minchar">(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
 
-      <div class="sign-up__actions">
-        <%= f.submit "Sign up" %>
-      </div>
-    <% end %>
+        <div class="sign-up__field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+
+        <div class="sign-up__actions">
+          <%= f.submit "Sign up", class: "sign-up__button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="sign-up__log-in-prompt">
+    <p>Already have an account?</p><a href="#TODO">Log in</a>
   </div>
 </div>
