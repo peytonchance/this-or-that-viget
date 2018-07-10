@@ -1,38 +1,42 @@
-<div class="sign-up">
-  <h2 class="sign-up__title">Sign up</h2>
+<div class="form">
+  <div class="form__wrapper">
+    <div class="form__top">
+      <h2 class="form__title">Sign up</h2>
+      <a href="#TODO" class="form__cancel">Cancel<i class="icon-expired"></i></a>
+    </div>
 
-  <div class="sign-up__form">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+    <div class="form__fields">
+      <%= form_for(:user, url: registration_path(:user)) do |f| %>
+        <div class="form__fields__field">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
 
-      <div class="sign-up__field">
-        <%= f.label :username %><br />
-        <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-      </div>
+        <div class="form__fields__field">
+          <%= f.label :username %>
+          <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+        </div>
 
-      <div class="sign-up__field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
+        <div class="form__fields__field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+            <em class="sign-up__field__password__minchar">(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
 
-      <div class="sign-up__field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em class="sign-up__field__password__minchar">(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
+        <div class="form__fields__field">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
 
-      <div class="sign-up__field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-
-      <div class="sign-up__actions">
-        <%= f.submit "Sign up" %>
-      </div>
-    <% end %>
+        <div class="form__fields__action">
+          <%= f.submit "Sign up", class: "form__button" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <%= render "devise/shared/links" %>
+  <div class="form__bottom-prompt">
+    <p>Already have an account?</p><a href="#TODO">Log in</a>
+  </div>
 </div>
