@@ -6,19 +6,24 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= render partial: 'shared/header' %>
+    <div class="body__main">
+      <%= render partial: 'shared/header' %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+      <%= yield %>
 
-    <%= render partial: 'shared/poll' %>
-    <%= render partial: 'shared/footer' %>
-    <%= render partial: 'shared/signup' %>
+      <%= render partial: 'shared/poll' %>
+      <%= render partial: 'shared/footer' %>
+    </div>
+    <% if !user_signed_in? %>
+      <%= render partial: 'shared/signup' %>
+      <%= render partial: 'shared/login' %>
+    <% end %>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>

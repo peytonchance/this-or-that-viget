@@ -2,6 +2,7 @@
   background: color(white);
   border-radius: 10px;
   border: solid 2px color(shadow-gray);
+  filter: none;
   left: 50%;
   margin: auto;
   padding-top: 20px;
@@ -95,4 +96,17 @@
     margin-left: 5px;
     text-decoration: underline;
   }
+}
+
+.form--hidden {
+  display: none;
+}
+
+.body__main {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.body__main--muted {
+  opacity: 0.2;
+  transition: opacity 0.5s;
 }
