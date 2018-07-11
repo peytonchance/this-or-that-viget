@@ -1,10 +1,16 @@
 .header {
   background-color: #fff;
+  color: color(medium-blue);
   display: flex;
   font-size: 0.8em;
+  font-weight: 600;
   height: 69px;
   justify-content: space-between;
   padding: 8px 50px 8px 35px;
+
+  a {
+    color: color(medium-blue);
+  }
 }
 
 .header__logo a {
@@ -86,8 +92,14 @@
   @include screenreader
 }
 
+li.header__session-links {
+  min-width: 100px;
+  text-transform: none;
+}
+
 .header__username {
   position: relative;
+  text-transform: none;
 }
 
 .header__username__arrow {

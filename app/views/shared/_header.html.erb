@@ -18,20 +18,20 @@
     </li>
     <% if user_signed_in? %>
       <li class="header__your-polls header__utility-nav--active">
-        <a href="#TODO">Your Polls</a>
+        <a href="#TODO">My Polls</a>
       </li>
       <li class="header__following">
         <a href="#TODO">Following</a>
       </li>
-      <li class="header__username" id="sign-up__toggle">
+      <li class="header__username">
         <%= current_user.username %>
         <span class="header__username__arrow"></span>
       </li>
     <% else %>
-      <li class="header__sign-up" id="sign-up__toggle">
+      <li class="header__sign-up header__session-links">
         Sign Up
       </li>
-      <li class="header__log-in" id="sign-up__toggle">
+      <li class="header__log-in header__session-links">
         Log in
       </li>
     <% end %>
