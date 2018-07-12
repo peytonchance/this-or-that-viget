@@ -13,6 +13,10 @@
   width: 620px;
 }
 
+[hidden] {
+  display: none;
+}
+
 .form__inner {
   margin: auto;
   width: 87%;
@@ -110,10 +114,6 @@
   a {
     margin-left: 10px;
   }
-}
-
-.form--hidden {
-  display: none;
 }
 
 .body__main {

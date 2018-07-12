@@ -16,10 +16,12 @@ export default class Modal {
   }
 
   toggleModal() {
-    if (this.targetModal.classList.contains('form--hidden')) {
+    if (this.targetModal.hidden) {
+      console.log('trying to show')
       this.showModal()
       this.fadeBackground()
     } else {
+      console.log('trying to hide')
       this.hideModal()
       this.unfadeBackground()
     }
@@ -27,13 +29,13 @@ export default class Modal {
 
   showModal() {
     this.allTargets.forEach((target) => {
-      target.classList.add('form--hidden')
+      target.setAttribute('hidden', '')
     })
-    this.targetModal.classList.remove('form--hidden')
+    this.targetModal.removeAttribute('hidden')
   }
 
   hideModal() {
-    this.targetModal.classList.add('form--hidden')
+    this.targetModal.setAttribute('hidden', '')
     this.targetModal.classList.add('form--no-blur')
   }
 
