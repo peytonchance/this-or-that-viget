@@ -40,6 +40,7 @@
 .form__fields {
   margin: 30px auto;
   width: 85%;
+
   label {
     width: 105px;
   }
@@ -71,8 +72,8 @@
   border: solid 1px color(shadow-gray);
   color: color(dark-blue);
   font-family: $sans-serif;
-  font-weight: 600;
   font-size: 0.9em;
+  font-weight: 600;
   height: 33px;
   width: 119px;
 
@@ -100,11 +101,11 @@
 }
 
 .log-in__submit {
+  align-items: center;
   display: flex;
+  justify-content: center;
   padding-right: 72px;
   width: 510px;
-  justify-content: center;
-  align-items: center;
 
   a {
     margin-left: 10px;
