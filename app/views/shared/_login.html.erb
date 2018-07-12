@@ -2,7 +2,7 @@
   <form class="form__inner">
     <div class="form__top">
       <h2 class="form__title">Log in</h2>
-      <button href="/" class="form__cancel" data-module="modal" data-modal="log-in">Cancel<i class="icon-expired"></i></button>
+      <button href="/" class="form__cancel" data-module="modal" aria-controls="log-in">Cancel<i class="icon-expired"></i></button>
     </div>
     <div class="form__fields">
       <%= form_for(:user, url: registration_path(:user)) do |f| %>
@@ -25,6 +25,6 @@
   </form>
   <div class="form__bottom-prompt">
     <p>New here?</p>
-    <button data-module="modal" data-modal="sign-up">Sign up</button>
+    <button data-module="modal" aria-controls="sign-up">Sign up</button>
   </div>
 </dialog>
