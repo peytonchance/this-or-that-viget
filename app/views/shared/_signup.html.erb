@@ -1,5 +1,5 @@
 <dialog class="form sign-up form--hidden">
-  <%= form_for(:user, url: registration_path(:user), remote: true, html: {id: "signup-form", class: "form__inner"}) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), remote: true, html: {id: "signup-form", class: "form__inner"}) do |f| %>
     <div class="form__top">
       <h2 class="form__title">Sign up</h2>
       <a href="#TODO" class="form__cancel" data-module="modal" data-modal="sign-up">Cancel<i class="icon-expired"></i></a>

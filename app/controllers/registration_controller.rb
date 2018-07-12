@@ -2,7 +2,6 @@ class RegistrationController < Devise::RegistrationsController
   include ActionView::Helpers::TagHelper
 
   def create
-    session[:return_to] ||= request.referer
     @user = User.new(sign_up_params)
     @user.save
     if @user.persisted?
