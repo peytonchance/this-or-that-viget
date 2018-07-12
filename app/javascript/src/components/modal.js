@@ -15,18 +15,6 @@ export default class Modal {
     this.el.addEventListener('click', this.toggleModal.bind(this))
   }
 
-  toggleModal() {
-    if (this.targetModal.hidden) {
-      console.log('trying to show')
-      this.showModal()
-      this.fadeBackground()
-    } else {
-      console.log('trying to hide')
-      this.hideModal()
-      this.unfadeBackground()
-    }
-  }
-
   showModal() {
     this.allTargets.forEach((target) => {
       target.setAttribute('hidden', '')
@@ -45,5 +33,15 @@ export default class Modal {
 
   unfadeBackground() {
     this.bodyMain.classList.remove('body__main--muted')
+  }
+
+  toggleModal() {
+    if (this.targetModal.hidden) {
+      this.showModal()
+      this.fadeBackground()
+    } else {
+      this.hideModal()
+      this.unfadeBackground()
+    }
   }
 }
