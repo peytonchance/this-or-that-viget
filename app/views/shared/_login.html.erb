@@ -2,7 +2,7 @@
   <form class="form__inner">
     <div class="form__top">
       <h2 class="form__title">Log in</h2>
-      <a href="/" class="form__cancel" data-modal="log-in">Cancel<i class="icon-expired"></i></a>
+      <a href="/" class="form__cancel" data-module="modal" data-modal="log-in">Cancel<i class="icon-expired"></i></a>
     </div>
     <div class="form__fields">
       <%= form_for(:user, url: registration_path(:user)) do |f| %>
@@ -16,14 +16,15 @@
           <%= f.password_field :password, autocomplete: "off" %>
         </div>
 
-        <div class="form__fields__actions">
+        <div class="form__fields__actions log-in__submit">
           <%= f.submit "Log in", class: "form__button" %>
+          <a href="#TODO">Forgot Password?</a>
         </div>
       <% end %>
     </div>
   </form>
   <div class="form__bottom-prompt">
     <p>New here?</p>
-    <a href="#" data-modal="sign-up">Sign up</a>
+    <a href="#" data-module="modal" data-modal="sign-up">Sign up</a>
   </div>
 </dialog>

@@ -6,7 +6,7 @@
   filter: none;
   left: 50%;
   margin: auto;
-  padding: 10px 0 0;
+  padding: 20px 0 0;
   position: fixed;
   top: 55%;
   transform: translate(-50%, -50%);
@@ -96,6 +96,18 @@
     color: white;
     margin-left: 5px;
     text-decoration: underline;
+  }
+}
+
+.log-in__submit {
+  display: flex;
+  padding-right: 72px;
+  width: 510px;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    margin-left: 10px;
   }
 }
 

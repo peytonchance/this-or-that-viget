@@ -7,4 +7,14 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
+import 'es6-promise/auto'
+
+
+const jsModules = document.querySelectorAll('[data-module]')
+
+jsModules.forEach((el) => {
+
+  import(`../src/components/${el.dataset.module}`).then(Module => {
+    new Module.default(el)
+  })
+})
