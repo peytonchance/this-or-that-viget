@@ -9,7 +9,7 @@
     <% if user_signed_in? %>
       <li class="header__create">
     <% else %>
-      <li class="header__create header__create--fixed" data-modal="sign-up">
+      <li class="header__create header__create--fixed" data-module="modal" data-modal="sign-up">
     <% end %>
       <a href="#TODO">
         <span class="header__create__text--hidden">Create a Poll</span>
@@ -29,12 +29,12 @@
       </li>
     <% else %>
       <li class="header__sign-up header__session-links">
-        <a href="#" data-modal="sign-up">
+        <a href="#" data-module="modal" data-modal="sign-up">
           Sign Up
         </a>
       </li>
       <li class="header__log-in header__session-links">
-        <a href="#" data-modal="log-in">
+        <a href="#" data-module="modal" data-modal="log-in">
           Log in
         </a>
       </li>
