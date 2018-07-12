@@ -8,7 +8,7 @@ export default class Modal {
   setVars() {
     this.bodyMain = document.querySelector('.body__main')
     this.allTargets = Array.from(document.querySelectorAll('.form'))
-    this.targetModal = document.querySelector('.' + this.el.dataset.modal)
+    this.targetModal = document.querySelector(`.${this.el.dataset.modal}`)
   }
 
   setUpListeners() {
@@ -19,8 +19,8 @@ export default class Modal {
     if (this.targetModal.classList.contains('form--hidden')) {
       this.allTargets.forEach((target) => {
         target.classList.add('form--hidden')
-        this.bodyMain.classList.add('body__main--muted')
       })
+      this.bodyMain.classList.add('body__main--muted')
       this.targetModal.classList.remove('form--hidden')
     } else {
       this.targetModal.classList.add('form--hidden')
@@ -29,14 +29,3 @@ export default class Modal {
     }
   }
 }
-
-
-//  this.allTargets.forEach((target) => {
-// //
-// //     })
-// //      currentModal.classList.remove('form--hidden')
-// //      currentModal.classList.add('form--no-blur')
-// //   } else {
-// //
-// //
-// //   }
