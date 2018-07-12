@@ -17,6 +17,18 @@
   display: none;
 }
 
+.form button {
+  background: none;
+  border: none;
+  font-family: $sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .form__inner {
   margin: auto;
   width: 87%;
@@ -97,9 +109,8 @@
   margin: auto;
   width: 100%;
 
-  a {
+  button {
     color: white;
-    margin-left: 5px;
     text-decoration: underline;
   }
 }
