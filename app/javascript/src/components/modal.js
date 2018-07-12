@@ -17,15 +17,31 @@ export default class Modal {
 
   toggleModal() {
     if (this.targetModal.classList.contains('form--hidden')) {
-      this.allTargets.forEach((target) => {
-        target.classList.add('form--hidden')
-      })
-      this.bodyMain.classList.add('body__main--muted')
-      this.targetModal.classList.remove('form--hidden')
+      this.showModal()
+      this.fadeBackground()
     } else {
-      this.targetModal.classList.add('form--hidden')
-      this.targetModal.classList.add('form--no-blur')
-      this.bodyMain.classList.remove('body__main--muted')
+      this.hideModal()
+      this.unfadeBackground()
     }
+  }
+
+  showModal() {
+    this.allTargets.forEach((target) => {
+      target.classList.add('form--hidden')
+    })
+    this.targetModal.classList.remove('form--hidden')
+  }
+
+  hideModal() {
+    this.targetModal.classList.add('form--hidden')
+    this.targetModal.classList.add('form--no-blur')
+  }
+
+  fadeBackground() {
+    this.bodyMain.classList.add('body__main--muted')
+  }
+
+  unfadeBackground() {
+    this.bodyMain.classList.remove('body__main--muted')
   }
 }
