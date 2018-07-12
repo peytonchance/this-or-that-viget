@@ -10,9 +10,9 @@ feature 'User signs out' do
 
     click_link 'Sign out'
 
-    expect(page).to have_text 'Signed out successfully.'
-    expect(page).to have_no_link 'Sign out'
-    expect(page).to have_link 'Sign in'
+    expect(page).to have_link 'Log in'
+    expect(page).to have_link 'Sign Up'
+    expect(page).to_not have_content user.username
     expect(page).to have_current_path root_path
   end
 end
