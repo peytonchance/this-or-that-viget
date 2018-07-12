@@ -1,5 +1,5 @@
-<div class="form log-in form--hidden">
-  <div class="form__inner">
+<dialog class="form log-in form--hidden">
+  <form class="form__inner">
     <div class="form__top">
       <h2 class="form__title">Log in</h2>
       <a href="/" class="form__cancel" data-modal="log-in">Cancel<i class="icon-expired"></i></a>
@@ -16,21 +16,14 @@
           <%= f.password_field :password, autocomplete: "off" %>
         </div>
 
-        <% if devise_mapping.rememberable? -%>
-          <div class="form__fields__field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-        <% end -%>
-
         <div class="form__fields__actions">
           <%= f.submit "Log in", class: "form__button" %>
         </div>
       <% end %>
     </div>
-  </div>
+  </form>
   <div class="form__bottom-prompt">
     <p>New here?</p>
     <a href="#" data-modal="sign-up">Sign up</a>
   </div>
-</div>
+</dialog>
