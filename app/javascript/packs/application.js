@@ -9,7 +9,6 @@
 
 import 'es6-promise/auto'
 
-
 const jsModules = document.querySelectorAll('[data-module]')
 
 jsModules.forEach((el) => {

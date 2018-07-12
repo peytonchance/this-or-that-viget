@@ -1,26 +1,22 @@
 class RegistrationController < Devise::RegistrationsController
   include ActionView::Helpers::TagHelper
-  
-  def create
-    @user = User.new(sign_up_params)
 
+  def create
+    session[:return_to] ||= request.referer
+    @user = User.new(sign_up_params)
     @user.save
     if @user.persisted?
-      if @user.active_for_authentication?
-        set_flash_message! :notice, :signed_up
-        sign_up("user", @user)
-        respond_with @user, location: after_sign_up_path_for(@user)
-      else
-        set_flash_message! :notice, :"signed_up_but_#{@user.inactive_message}"
-        expire_data_after_sign_in!
-        respond_with @user, location: after_inactive_sign_up_path_for(@user)
-      end
+      set_flash_message! :notice, :signed_up
+      sign_up("user", @user)
+      render json: {
+        "status": "success",
+        }
     else
       clean_up_passwords @user
       set_minimum_password_length
-      #binding.pry
       render json: {
-        "status": "success"
+        "status": "error",
+        "message": error_messages.to_s
         }
     end
   end

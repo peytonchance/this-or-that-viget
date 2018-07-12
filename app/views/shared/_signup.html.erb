@@ -1,5 +1,5 @@
 <dialog class="form sign-up form--hidden">
-  <form class="form__inner">
+  <%= form_for(:user, url: registration_path(:user), remote: true, html: {id: "signup-form", class: "form__inner"}) do |f| %>
     <div class="form__top">
       <h2 class="form__title">Sign up</h2>
       <a href="#TODO" class="form__cancel" data-module="modal" data-modal="sign-up">Cancel<i class="icon-expired"></i></a>
@@ -10,7 +10,6 @@
       <div id="signup-error-messages" class="error-message">
       
       </div>
-      <%= form_for(:user, url: registration_path(:user), remote: true, html: {id: "signup-form"}) do |f| %>
         <div class="form__fields__field">
           <%= f.label :email %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -37,9 +36,11 @@
         <div class="form__fields__action">
           <%= f.submit "Sign up", class: "form__button" %>
         </div>
-      <% end %>
+      
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      
     </div>
-  </form>
+  <% end %>
   <div class="form__bottom-prompt">
     <p>Already have an account?</p>
     <a href="#" data-module="modal" data-modal="log-in">Log in</a>

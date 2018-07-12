@@ -1,5 +1,5 @@
 <dialog class="form log-in form--hidden">
-  <form class="form__inner">
+  <%= form_for(:user, url: registration_path(:user), html: {id: "login-form", class: "form__inner"}) do |f| %>
     <div class="form__top">
       <h2 class="form__title">Log in</h2>
       <a href="/" class="form__cancel" data-module="modal" data-modal="log-in">Cancel<i class="icon-expired"></i></a>
@@ -10,7 +10,7 @@
       
       </div>
       
-      <%= form_for(:user, url: registration_path(:user), id: "login-form") do |f| %>
+      
         <div class="form__fields__field">
          <%= f.label :email %>
          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -25,9 +25,8 @@
           <%= f.submit "Log in", class: "form__button" %>
           <a href="#TODO">Forgot Password?</a>
         </div>
-      <% end %>
     </div>
-  </form>
+   <% end %>
   <div class="form__bottom-prompt">
     <p>New here?</p>
     <a href="#" data-module="modal" data-modal="sign-up">Sign up</a>
