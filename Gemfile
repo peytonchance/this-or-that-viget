@@ -36,6 +36,8 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 
 gem "sentry-raven"
 
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem "aws-sdk-s3", require: false

@@ -1,0 +1,8 @@
+$(document).ready(function(){
+    $('#signup-form').on('ajax:success', function(evt, data, status, xhr){
+        response = evt["detail"];
+        console.log("making change")
+        console.log($('#signup-error-messages'))
+        $('#signup-error-messages').html("<li>test</li>");
+    });
+});

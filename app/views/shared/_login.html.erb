@@ -5,7 +5,12 @@
       <a href="/" class="form__cancel" data-module="modal" data-modal="log-in">Cancel<i class="icon-expired"></i></a>
     </div>
     <div class="form__fields">
-      <%= form_for(:user, url: registration_path(:user)) do |f| %>
+      <!-- Error messages from Devise -->
+      <div class="error-messages">
+      
+      </div>
+      
+      <%= form_for(:user, url: registration_path(:user), id: "login-form") do |f| %>
         <div class="form__fields__field">
          <%= f.label :email %>
          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

@@ -1,13 +1,6 @@
-<!-- 
-Leaving blank
-
-This page is for where the user will see a list of all current polls, filtered or not. 
--->
-
-Polls index
-
-<% if user_signed_in? %>
-<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-<% else %>
-<%= link_to "Sign in", new_user_session_path %>
+<!-- because drop down hasn't been implemented yet -->
+<% if current_user %>
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 <% end %>
+
+<%= render partial: 'shared/poll' %>

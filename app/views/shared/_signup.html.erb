@@ -6,7 +6,11 @@
     </div>
 
     <div class="form__fields">
-      <%= form_for(:user, url: registration_path(:user)) do |f| %>
+      <!-- Eror messages from Devise  -->
+      <div id="signup-error-messages" class="error-message">
+      
+      </div>
+      <%= form_for(:user, url: registration_path(:user), remote: true, html: {id: "signup-form"}) do |f| %>
         <div class="form__fields__field">
           <%= f.label :email %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
