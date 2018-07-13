@@ -4,20 +4,16 @@
   position: absolute;
   top: 75%;
   width: 75%;
-
   h3 {
     font-weight: 400;
   }
-
   h4 {
     color: color(white);
   }
-
   form {
     display: flex;
     flex-direction: column;
   }
-
   input {
     background: color(form-gray);
     border: solid 1px color(shadow-gray);
@@ -30,21 +26,17 @@
     width: 75%;
   }
 }
-
 .create-modal .modal__title {
   font-size: 3em;
   text-transform: none;
 }
-
 .create-modal__subtitle {
   font-size: 1.3em;
   margin: 0;
 }
-
 .create-modal__fields__photos {
   display: flex;
   justify-content: space-between;
-
   label {
     background: color(form-gray);
     border-radius: 999px;
@@ -53,34 +45,28 @@
     height: 40px;
     padding: 4px 25px;
     width: 100px;
-
     &:hover {
       cursor: pointer;
     }
   }
 }
-
 .create-modal__fields__photo {
     border-radius: 5px;
     height: 200px;
     padding: 20px 15px 50px;
     position: relative;
     width: 45%;
-
     &--left {
       background: color(light-blue);
     }
-
     &--right {
       background: color(yellow);
     }
-
     h4 {
       align-items: center;
       display: flex;
     }
 }
-
 .photo--left__preview {
   color: color(white);
   font-style: italic;
@@ -89,7 +75,6 @@
   position: absolute;
   top: 26%;
 }
-
 .photo--right__preview {
   color: color(white);
   font-style: italic;
@@ -98,54 +83,43 @@
   position: absolute;
   top: 26%;
 }
-
 .create-modal__OR {
   color: color(white);
   font-size: 2em;
   margin: 20px 0 10px;
 }
-
 .icon-upload {
   display: inline-block;
 }
-
 .create-modal__fields__photo__browse {
   display: none;
 }
-
 .create-modal__fields__option-labels {
   display: flex;
   justify-content: space-around;
 }
-
 .create-modal__fields__option-label {
   width: 50%;
 }
-
 .create-modal__fields__option-label--right {
   margin-left: 27px;
 }
-
 .create-modal__fields__duration {
   display: flex;
   flex-direction: row;
-
   input {
     margin-right: 10px;
     width: 30px;
   }
-
   label {
     font-style: italic;
     font-weight: 100;
   }
 }
-
 .create-modal__fields__duration__input {
   display: flex;
   flex-direction: column;
 }
-
 input.create-modal__submit {
   border-radius: 999px;
   box-shadow: 0 2px 4px rgba(#000, 0.15);
