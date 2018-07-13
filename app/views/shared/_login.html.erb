@@ -24,8 +24,13 @@
     </div>
 
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  </div>
+
+    <div class="form__fields__actions log-in__submit">
+      <%= f.submit "Log in", class: "form__button" %>
+      <button>Forgot Password?</button>
+    </div>
   <% end %>
+  </div>
   <div class="form__bottom-prompt">
     <p>New here?</p>
     <button data-module="modal" aria-controls="sign-up">Sign up</button>
