@@ -8,7 +8,7 @@ export default class Modal {
   setVars() {
     this.bodyMain = document.querySelector('.body__main')
     this.allTargets = Array.from(document.querySelectorAll('.form'))
-    this.targetModal = document.querySelector(`.${this.el.getAttribute('aria-controls')}`)
+    this.targetModal = document.getElementById(this.el.getAttribute('aria-controls'))
   }
 
   setUpListeners() {
