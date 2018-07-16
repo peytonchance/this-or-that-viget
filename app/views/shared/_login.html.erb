@@ -1,5 +1,5 @@
 <dialog class="form log-in form--hidden">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), remote: true, html: {id: "login-form", class: "form__inner"}) do |f| %>
+  <%= form_for(User.new, as: :user, url: session_path(:user), remote: true, html: {id: "login-form", class: "form__inner"}) do |f| %>
   <div class="form__top">
     <h2 class="form__title">Log in</h2>
     <a href="/" class="form__cancel" data-module="modal" data-modal="log-in">Cancel<i class="icon-expired"></i></a>
