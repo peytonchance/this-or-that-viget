@@ -1,19 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "Creating a poll", type: :feature do
+RSpec.describe "Creating a poll", type: :feature, js:true do
   let!(:user) {create(:user)}
   
-  #temporary before block until this branch is merged in with current changes
   before do
-    visit new_user_session_path
-    within(".new_user") do
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: 'password'
-      click_on 'Log in'
-    end
+    login_user(user)
   end
 
-  describe "entering form information", js:true do 
+  describe "entering form information" do 
     it "properly creates a form" do
       #inputting form fields
       click_on "Create a Poll"
@@ -27,8 +21,24 @@ RSpec.describe "Creating a poll", type: :feature do
       fill_in 'poll_expire_mins', with: '0'
       click_on 'Submit poll'
       
-      #testing if poll is in DB. Viewing poll on index page will come in another PR. When done, I will refactor this test to check if new poll appears on page. 
-      binding.pry
+      #testing if poll is in DB. Viewing poll on index page will come in another PR. When done, I will refactor this test to check if new poll appears on page.
+      visit root_path
+      poll = Poll.first
+      expect(poll.title).to eq "Demo Poll with Options"
+      expect(poll.option_a).to eq "Pizza"
+      expect(poll.option_b).to eq "Taco"
+    end
+    
+    it "error shows when two images given for one option" do
+      path = "#{Rails.root}/spec/fixtures/rspec_test_image.png"
+      click_on "Create a Poll"
+      fill_in 'poll-title', with: 'Demo Poll with Options'
+      fill_in 'poll_option_a_url', with: 'https://www.gstatic.com/webp/gallery3/1.sm.png'
+      find('#poll_option_a_img', visible: false).set(path)
+      click_on 'Submit poll'
+            
+      expect(Poll.count).to eq(0)
+      expect(page).to have_content 'Cannot have both a file attached and an image link. Please choose one option'
     end
   end
 end

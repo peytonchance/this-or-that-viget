@@ -40,4 +40,16 @@ RSpec.describe Poll, type: :model do
       end
     end
   end
+  
+  describe "testing poll validations" do
+    it "validates characters of title" do
+      poll = build(:poll, title: "Poll")
+      expect(poll.save).to eq false
+      expect(poll.errors.full_messages.first).to eq "Title is too short (minimum is 10 characters)"
+      
+      poll = build(:poll, title: "This is a really really really long poll title")
+      expect(poll.save).to eq false
+      expect(poll.errors.full_messages.first).to eq "Title is too long (maximum is 45 characters)"
+    end
+  end
 end
