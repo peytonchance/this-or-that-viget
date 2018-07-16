@@ -13,8 +13,7 @@
       <%= render partial: 'shared/header' %>
 
       <%= yield %>
-
-      <%= render partial: 'shared/poll' %>
+      
       <%= render partial: 'shared/footer' %>
     </div>
     <% if !user_signed_in? %>
@@ -23,7 +22,8 @@
     <% else %>
       <%= render partial: 'shared/create' %>
     <% end %>
-
+                
+    <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
