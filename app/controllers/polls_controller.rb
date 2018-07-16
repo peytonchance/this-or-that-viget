@@ -8,6 +8,7 @@ class PollsController < ApplicationController
     #basic information
     @poll = current_user.polls.new(poll_params.except(:expire_days, :expire_hours, :expire_mins))
 
+    
     #expiry time
     @poll.expired = false
     @poll.expiry_time = generate_expire_time(poll_params.slice(:expire_days, :expire_hours, :expire_mins))
