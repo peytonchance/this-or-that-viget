@@ -42,14 +42,6 @@ class PollsController < ApplicationController
     DateTime.now.utc
   end
 
-  def both_option_img(img_params)
-    opt_a_img = !(img_params[:option_a_img].nil?)
-    opt_b_img = !(img_params[:option_b_img].nil?)
-    opt_a_url = !(img_params[:option_a_url].empty?)
-    opt_b_url = !(img_params[:option_b_url].empty?)
-    (opt_a_img and opt_a_url) or (opt_b_img and opt_b_url)
-  end
-
   def poll_error_messages
     if @poll
       return "" if @poll.errors.empty?
