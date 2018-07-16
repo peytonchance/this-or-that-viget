@@ -1,10 +1,10 @@
-<dialog hidden class="form log-in" id="log-in">
-  <form class="form__inner">
-    <div class="form__top">
-      <h2 class="form__title">Log in</h2>
-      <button href="/" class="form__cancel" data-module="modal" aria-controls="log-in">Cancel<i class="icon-expired"></i></button>
+<dialog hidden class="modal log-in" id="log-in">
+  <form class="modal__inner">
+    <div class="modal__top">
+      <h2 class="modal__title">Log in</h2>
+      <button href="/" class="modal__cancel" data-module="modal" aria-controls="log-in">Cancel<i class="icon-expired"></i></button>
     </div>
-    <div class="form__fields">
+    <form class="form__fields">
       <%= form_for(:user, url: registration_path(:user)) do |f| %>
         <div class="form__fields__field">
          <%= f.label :email %>
@@ -21,8 +21,8 @@
           <button>Forgot Password?</button>
         </div>
       <% end %>
-    </div>
-  </form>
+    </form>
+  </div>
   <div class="form__bottom-prompt">
     <p>New here?</p>
     <button data-module="modal" aria-controls="sign-up">Sign up</button>

@@ -7,7 +7,7 @@ export default class Modal {
 
   setVars() {
     this.bodyMain = document.querySelector('.body__main')
-    this.allTargets = Array.from(document.querySelectorAll('.form'))
+    this.allTargets = Array.from(document.querySelectorAll('.modal'))
     this.targetModal = document.getElementById(this.el.getAttribute('aria-controls'))
   }
 

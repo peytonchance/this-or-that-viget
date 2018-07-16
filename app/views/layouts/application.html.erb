@@ -20,6 +20,8 @@
     <% if !user_signed_in? %>
       <%= render partial: 'shared/signup' %>
       <%= render partial: 'shared/login' %>
+    <% else %>
+      <%= render partial: 'shared/create' %>
     <% end %>
 
     <%= javascript_pack_tag 'application' %>
