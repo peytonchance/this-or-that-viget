@@ -22,8 +22,6 @@ class Poll < ApplicationRecord
   
   def both_image_options
     if (option_a_img.attached? and option_a_url.present?) or (option_b_img.attached? and option_b_url.present?)
-      binding.pry
-
       errors.add(:base, "Cannot have both a file attached and an image link. Please choose one option")
     end
   end

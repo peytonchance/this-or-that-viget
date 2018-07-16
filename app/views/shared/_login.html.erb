@@ -18,11 +18,6 @@
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
 
-    <div class="form__fields__actions log-in__submit">
-      <%= f.submit "Log in", class: "form__button" %>
-      <button>Forgot Password?</button>
-    </div>
-
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
     <div class="form__fields__actions log-in__submit">
