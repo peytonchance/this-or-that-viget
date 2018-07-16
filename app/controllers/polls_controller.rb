@@ -1,19 +1,25 @@
 class PollsController < ApplicationController
+  include ActionView::Helpers::TagHelper
   def index
+    @polls = Poll.all
   end
 
   def create
-    if both_option_img(poll_params.slice(:option_a_img, :option_b_img, :option_a_url, :option_b_url))
-      render json: {
-        "status": "error",
-        "message": "Cannot have both a file attached and an image link. Please choose one option"
-        }
-    else
-      @poll = current_user.polls.new(poll_params.slice(:title, :option_a, :option_b))
-      @poll.expired = false
-      @poll.expiry_time = generate_expire_time(poll_params.slice(:expire_days, :expire_hours, :expire_mins))
+    #basic information
+    @poll = current_user.polls.new(poll_params.except(:expire_days, :expire_hours, :expire_mins))
+
+    #expiry time
+    @poll.expired = false
+    @poll.expiry_time = generate_expire_time(poll_params.slice(:expire_days, :expire_hours, :expire_mins))
+
+    if @poll.save 
       render json: {
         "status": "success"
+        }
+    else
+      render json: {
+        "status": "error",
+        "message": poll_error_messages.to_s
         }
     end
   end
@@ -32,7 +38,7 @@ class PollsController < ApplicationController
   end
 
   def current_datetime
-    DateTime.now.change(offset: "+0000")
+    DateTime.now.utc
   end
 
   def both_option_img(img_params)
@@ -41,5 +47,13 @@ class PollsController < ApplicationController
     opt_a_url = !(img_params[:option_a_url].empty?)
     opt_b_url = !(img_params[:option_b_url].empty?)
     (opt_a_img and opt_a_url) or (opt_b_img and opt_b_url)
+  end
+
+  def poll_error_messages
+    if @poll
+      return "" if @poll.errors.empty?
+
+      messages = @poll.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
+    end
   end
 end

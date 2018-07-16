@@ -11,6 +11,7 @@ class Poll < ApplicationRecord
   validates :title, presence: true, length: {in: 10..45}
   validates :option_a, presence: true, length: {in: 1..25}
   validates :option_b, presence: true, length: {in: 1..25}
+  validate :both_image_options
 
   has_many :comments
   has_many :votes
@@ -18,6 +19,12 @@ class Poll < ApplicationRecord
 
   has_one_attached :option_a_img
   has_one_attached :option_b_img
+  
+  def both_image_options
+    if (option_a_img and option_a_url.present?) or (option_b_img and option_b_url.present?)
+      errors.add(:base, "Cannot have both a file attached and an image link. Please choose one option")
+    end
+  end
 
   def parent_is?(child)
     self.user.id == child.id
@@ -31,11 +38,11 @@ class Poll < ApplicationRecord
     (total_votes(option).to_f / votes.count.to_f).round(2)
   end
 
-  def option_a_img
+  def get_option_a_img
     option_a_img.attached? ? option_a_img : option_a_url
   end
 
-  def option_b_img
+  def get_option_b_img
     option_b_img.attached? ? option_b_img : option_b_url
   end
   
