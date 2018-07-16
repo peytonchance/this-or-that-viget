@@ -3,8 +3,7 @@ class RegistrationController < Devise::RegistrationsController
 
   def create
     @user = User.new(sign_up_params)
-    @user.save
-    if @user.persisted?
+    if @user.save
       set_flash_message! :notice, :signed_up
       sign_up("user", @user)
       render json: {
@@ -16,7 +15,7 @@ class RegistrationController < Devise::RegistrationsController
       render json: {
         "status": "error",
         "message": error_messages.to_s
-        }
+        }, status: :unprocessable_entity
     end
   end
 
