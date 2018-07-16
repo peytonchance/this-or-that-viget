@@ -1,13 +1,16 @@
 class Poll < ApplicationRecord
   belongs_to :user
+  attr_accessor :expire_days
+  attr_accessor :expire_hours
+  attr_accessor :expire_mins
   
   include ActionView::Helpers::DateHelper
 
   #Validationd
   validates :user, presence: true
-  validates :title, presence: true, length: {in: 10..180}
-  validates :option_a, presence: true, length: {in: 1..130}
-  validates :option_b, presence: true, length: {in: 1..130}
+  validates :title, presence: true, length: {in: 10..45}
+  validates :option_a, presence: true, length: {in: 1..25}
+  validates :option_b, presence: true, length: {in: 1..25}
 
   has_many :comments
   has_many :votes
