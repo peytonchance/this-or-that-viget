@@ -7,11 +7,11 @@
       <li class="header__feed"><a href="#TODO">Feed</a></li>
     <% end %>
     <% if user_signed_in? %>
-      <li class="header__create">
+      <li class="header__create" data-module="modal" aria-controls="create-modal">
     <% else %>
-      <li class="header__create header__create--fixed" data-module="modal" data-modal="sign-up">
+      <li class="header__create header__create--fixed" data-module="modal" aria-controls="sign-up">
     <% end %>
-      <a href="#TODO">
+      <a href="#">
         <span class="header__create__text--hidden">Create a Poll</span>
         <%= inline_svg "create_poll.svg" %>
       </a>
@@ -29,12 +29,12 @@
       </li>
     <% else %>
       <li class="header__sign-up header__session-links">
-        <a href="#" data-module="modal" data-modal="sign-up">
+        <a href="#" data-module="modal" aria-controls="sign-up">
           Sign Up
         </a>
       </li>
       <li class="header__log-in header__session-links">
-        <a href="#" data-module="modal" data-modal="log-in">
+        <a href="#" data-module="modal" aria-controls="log-in">
           Log in
         </a>
       </li>

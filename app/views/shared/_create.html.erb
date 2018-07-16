@@ -1,0 +1,70 @@
+<dialog hidden class="create-modal modal" id="create-modal">
+  <div class="modal__inner">
+    <div class="modal__top">
+      <div>
+        <h2 class="modal__title">Create a poll</h2>
+        <p class="create-modal__subtitle">This or That can take it from here.</p>
+      </div>
+      <button href="/" class="modal__cancel" data-module="modal" aria-controls="create-modal">Cancel<i class="icon-expired"></i></button>
+    </div>
+    <form>
+      <div class="create-modal__fields__name-poll">
+        <h3><span class="form__required">*</span>Give your poll a title <em>(max 45 characters)</em></h3>
+        <input value="ex: should I buy this or that?">
+      </div>
+
+      <h3>Upload photos <em>(optional)</em></h3>
+      <div class="create-modal__fields__photos">
+        <div class="create-modal__fields__photo create-modal__fields__photo--left">
+          <h4><i class="icon-upload"></i> Choose from your device</h4>
+          <label for="image_uploads">browse+</label>
+          <input class="create-modal__fields__photo__browse" type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png">
+          <div class="photo--left__preview">
+             <p>no file chosen</p>
+          </div>
+          <p class="create-modal__OR">OR</p>
+          <h4>Copy and paste a URL<h4>
+          <input type="url">
+        </div>
+        <div class="create-modal__fields__photo create-modal__fields__photo--right">
+          <h4><i class="icon-upload"></i> Choose from your device</h4>
+          <label for="image_uploads">browse+</label>
+          <input class="create-modal__fields__photo__browse" type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png">
+          <div class="photo--right__preview">
+             <p>no file chosen</p>
+          </div>
+          <p class="create-modal__OR">OR</p>
+          <h4>Copy and paste a URL<h4>
+          <input type="url">
+        </div>
+      </div>
+      <div class="create-modal__fields__option-labels">
+        <div class="create-modal__fields__option-label">
+          <h3><span class="form__required">*</span>Option A</h3>
+          <input type="text" value="ex: tacos">
+        </div>
+        <div class="create-modal__fields__option-label create-modal__fields__option-label--right">
+          <h3><span class="form__required">*</span>Option B</h3>
+          <input type="text" value="ex:tacos">
+        </div>
+      </div>
+      <h3>Allow others to vote for:</h3>
+      <div class="create-modal__fields__duration">
+          <div class="create-modal__fields__duration__input">
+            <input type="number" value=0 id="days">
+            <label for="days">days</label>
+          </div>
+          <div class="create-modal__fields__duration__input">
+            <input type="number" value=0 id="hours">
+            <label for="hours">hours</label>
+          </div>
+          <div class="create-modal__fields__duration__input">
+            <input type="number" value=0 id="minutes">
+            <label for="minutes">minutes</label>
+          </div>
+      </div>
+
+      <input type="submit" value="Submit poll" class="create-modal__submit">
+    </form>
+  </div>
+</dialog>

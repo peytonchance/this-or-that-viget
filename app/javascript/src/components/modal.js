@@ -7,36 +7,41 @@ export default class Modal {
 
   setVars() {
     this.bodyMain = document.querySelector('.body__main')
-    this.allTargets = Array.from(document.querySelectorAll('.form'))
-    this.targetModal = document.querySelector('.' + this.el.dataset.modal)
+    this.allTargets = Array.from(document.querySelectorAll('.modal'))
+    this.targetModal = document.getElementById(this.el.getAttribute('aria-controls'))
   }
 
   setUpListeners() {
     this.el.addEventListener('click', this.toggleModal.bind(this))
   }
 
+  showModal() {
+    this.allTargets.forEach((target) => {
+      target.setAttribute('hidden', '')
+    })
+    this.targetModal.removeAttribute('hidden')
+  }
+
+  hideModal() {
+    this.targetModal.setAttribute('hidden', '')
+    this.targetModal.classList.add('form--no-blur')
+  }
+
+  fadeBackground() {
+    this.bodyMain.classList.add('body__main--muted')
+  }
+
+  unfadeBackground() {
+    this.bodyMain.classList.remove('body__main--muted')
+  }
+
   toggleModal() {
-    if (this.targetModal.classList.contains('form--hidden')) {
-      this.allTargets.forEach((target) => {
-        target.classList.add('form--hidden')
-        this.bodyMain.classList.add('body__main--muted')
-      })
-      this.targetModal.classList.remove('form--hidden')
+    if (this.targetModal.hidden) {
+      this.showModal()
+      this.fadeBackground()
     } else {
-      this.targetModal.classList.add('form--hidden')
-      this.targetModal.classList.add('form--no-blur')
-      this.bodyMain.classList.remove('body__main--muted')
+      this.hideModal()
+      this.unfadeBackground()
     }
   }
 }
-
-
-//  this.allTargets.forEach((target) => {
-// //
-// //     })
-// //      currentModal.classList.remove('form--hidden')
-// //      currentModal.classList.add('form--no-blur')
-// //   } else {
-// //
-// //
-// //   }

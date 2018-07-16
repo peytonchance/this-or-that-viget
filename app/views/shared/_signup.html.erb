@@ -1,8 +1,8 @@
-<dialog class="form sign-up form--hidden">
-  <%= form_for(User.new, as: :user, url: registration_path(:user), remote: true, html: {id: "signup-form", class: "form__inner"}) do |f| %>
-    <div class="form__top">
-      <h2 class="form__title">Sign up</h2>
-      <a href="#TODO" class="form__cancel" data-module="modal" data-modal="sign-up">Cancel<i class="icon-expired"></i></a>
+<dialog hidden class="modal sign-up" id="sign-up">
+  <%= form_for(User.new, as: :user, url: registration_path(:user), remote: true, html: {id: "signup-form", class: "modal__inner"}) do |f| %>
+    <div class="modal__top">
+      <h2 class="modal__title">Sign up</h2>
+      <button href="#TODO" class="modal__cancel" data-module="modal" aria-controls="sign-up">Cancel<i class="icon-expired"></i></button>
     </div>
 
     <div class="form__fields">
@@ -42,6 +42,6 @@
   <% end %>
   <div class="form__bottom-prompt">
     <p>Already have an account?</p>
-    <a href="#" data-module="modal" data-modal="log-in">Log in</a>
+    <button href="#" data-module="modal" aria-controls="log-in">Log in</button>
   </div>
 </dialog>
