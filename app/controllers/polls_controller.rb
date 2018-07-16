@@ -20,7 +20,7 @@ class PollsController < ApplicationController
       render json: {
         "status": "error",
         "message": poll_error_messages.to_s
-        }
+        }, status: :unprocessable_entity
     end
   end
 
