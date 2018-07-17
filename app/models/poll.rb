@@ -20,6 +20,16 @@ class Poll < ApplicationRecord
   has_one_attached :option_a_img
   has_one_attached :option_b_img
   
+  scope :recent, -> { all.order(created_at: :desc) }
+  
+  def comment_count
+    @count = self.comments.count
+  end
+  
+  def vote_count
+    @count = self.votes.count
+  end
+  
   def both_image_options
     if (option_a_img.attached? and option_a_url.present?) or (option_b_img.attached? and option_b_url.present?)
       errors.add(:base, "Cannot have both a file attached and an image link. Please choose one option")
@@ -39,14 +49,18 @@ class Poll < ApplicationRecord
   end
 
   def get_option_a_img
-    option_a_img.attached? ? option_a_img : option_a_url
+    @image_a = option_a_img.attached? ? get_url(option_a_img) : option_a_url
   end
 
   def get_option_b_img
-    option_b_img.attached? ? option_b_img : option_b_url
+    @image_b = option_b_img.attached? ? get_url(option_b_img) : option_b_url
+  end
+  
+  def get_url(image)
+    @url = Rails.application.routes.url_helpers.rails_blob_path(image, only_path: true)
   end
   
   def time_left
-    distance_of_time_in_words(DateTime.now, expiry_time).capitalize
+    (distance_of_time_in_words(DateTime.now, expiry_time).capitalize).gsub("About ", "")
   end
 end

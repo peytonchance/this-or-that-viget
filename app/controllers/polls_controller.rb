@@ -1,7 +1,7 @@
 class PollsController < ApplicationController
   include ActionView::Helpers::TagHelper
   def index
-    @polls = Poll.all
+    @polls = Poll.recent
   end
 
   def create
