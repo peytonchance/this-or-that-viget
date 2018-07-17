@@ -1,0 +1,25 @@
+<div class="comments">
+  <div class="comments__comment">
+    <p class="comments__comment__username">sampleUser1</p>
+    <p class="comments__comment__text">I love this.</p>
+  </div>
+  <div class="comments__comment">
+    <p class="comments__comment__username">sampleUser2</p>
+    <p class="comments__comment__text">I think this is silly.</p>
+  </div>
+  <div class="comments__comment">
+    <p class="comments__comment__username">sampleUser3</p>
+    <p class="comments__comment__text">I love this...maybe?</p>
+  </div>
+  <div class="comments__comment">
+    <p class="comments__comment__username">sampleUser4</p>
+    <p class="comments__comment__text">this user for some reason decided it was necessary to post their entire life’s story leading up to this opinion on this particular poll, so here is what it looks like when users decide to post a paragraph</p>
+  </div>
+  <div class="comments__new-comment">
+    <p class="comments__new-comment__username">
+      <%= current_user.username %>
+    </p>
+    <input type="text" value="add a comment" id="new-comment">
+  </div>
+  <button type="submit" for="new-comment" class="comments__submit">comment</button>
+</div>
