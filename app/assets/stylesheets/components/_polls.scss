@@ -3,7 +3,7 @@
   display: flex;
   height: 300px;
   justify-content: space-around;
-  margin: 15px auto;
+  margin: 50px auto;
   max-width: 900px;
   width: 70%;
 }
@@ -75,21 +75,21 @@
   font-size: 3em;
   font-weight: 500;
   justify-content: center;
-}
 
-.poll__options__option-1 {
-  background-color: #61B7F2;
-  box-shadow: 0 2px 6px rgba(#000, 0.25);
-  margin-right: 10px;
-  transition: 1s ease-in-out;
-  width: 50%;
-}
+  &:first-child {
+    background-color: #61B7F2;
+    box-shadow: 0 2px 6px rgba(#000, 0.25);
+    margin-right: 10px;
+    transition: 1s ease-in-out;
+    width: 50%;
+  }
 
-.poll__options__option-2 {
-  background-color: #FCB92C;
-  box-shadow: 0 2px 6px rgba(#000, 0.25);
-  transition: 1s ease-in-out;
-  width: 50%;
+  &:last-child {
+    background-color: #FCB92C;
+    box-shadow: 0 2px 6px rgba(#000, 0.25);
+    transition: 1s ease-in-out;
+    width: 50%;
+  }
 }
 
 .poll__actions {
