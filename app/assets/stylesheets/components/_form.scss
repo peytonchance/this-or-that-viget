@@ -84,3 +84,13 @@
     text-transform: uppercase;
   }
 }
+
+.sign-up__error-messages {
+  list-style-type: none;
+  margin: -30px 0 20px;
+  text-transform: lowercase;
+
+  li::first-letter {
+    text-transform: uppercase;
+  }
+}

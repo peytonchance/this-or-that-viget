@@ -7,7 +7,7 @@
 
     <div class="form__fields">
       <!-- Eror messages from Devise  -->
-      <div id="signup-error-messages">
+      <div id="signup-error-messages" class="sign-up__error-messages">
       </div>
       <div class="form__fields__field">
         <%= f.label :email %>
@@ -37,7 +37,7 @@
       </div>
 
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      
+
   </div>
   <% end %>
   <div class="form__bottom-prompt">
