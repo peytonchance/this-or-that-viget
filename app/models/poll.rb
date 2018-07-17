@@ -23,11 +23,11 @@ class Poll < ApplicationRecord
   scope :recent, -> { all.order(created_at: :desc) }
   
   def comment_count
-    @count = self.comments.count
+    comments.count
   end
   
   def vote_count
-    @count = self.votes.count
+    votes.count
   end
   
   def both_image_options
@@ -49,11 +49,11 @@ class Poll < ApplicationRecord
   end
 
   def get_option_a_img
-    @image_a = option_a_img.attached? ? get_url(option_a_img) : option_a_url
+    @image_a ||= option_a_img.attached? ? get_url(option_a_img) : option_a_url
   end
 
   def get_option_b_img
-    @image_b = option_b_img.attached? ? get_url(option_b_img) : option_b_url
+    @image_b ||= option_b_img.attached? ? get_url(option_b_img) : option_b_url
   end
   
   def get_url(image)

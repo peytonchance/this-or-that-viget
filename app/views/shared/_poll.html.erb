@@ -24,7 +24,7 @@
   <div class="poll__meta">
     <p><%= poll.user.username %></p>
     <ul>
-      <li><i class="icon-fire"></i><span><%= poll.vote_count %> votes</span></li>
+      <li><i class="icon-fire"></i><span><%= pluralize(poll.vote_count, "vote") %></span></li>
       <li>
         <% if poll.expired? %> 
           <i class="icon-expired"></i><span>expired</span>
@@ -49,7 +49,7 @@
       <li class="poll__actions__comments poll__actions__action">
         <a href="#TODO">
           <i class="icon-comment"></i>
-          <span><%= poll.comment_count %> comments</span>
+          <span><%= pluralize(poll.comment_count, "comment") %></span>
         </a>
       </li>
       <li class="poll__actions__action">
