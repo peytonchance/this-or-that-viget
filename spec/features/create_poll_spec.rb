@@ -20,13 +20,14 @@ RSpec.describe "Creating a poll", type: :feature, js:true do
       fill_in 'poll_expire_hours', with: '0'
       fill_in 'poll_expire_mins', with: '0'
       click_on 'Submit poll'
-      
-      #testing if poll is in DB. Viewing poll on index page will come in another PR. When done, I will refactor this test to check if new poll appears on page.
+
       visit root_path
-      poll = Poll.first
-      expect(poll.title).to eq "Demo Poll with Options"
-      expect(poll.option_a).to eq "Pizza"
-      expect(poll.option_b).to eq "Taco"
+      poll = find('article.poll')
+      expect(poll).to have_content user.username
+      expect(poll).to have_content "1 day left"
+      expect(poll).to have_content "Demo Poll with Options"
+      expect(poll).to have_content "Pizza"
+      
     end
     
     it "error shows when two images given for one option" do
