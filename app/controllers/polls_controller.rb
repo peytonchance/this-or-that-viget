@@ -6,13 +6,8 @@ class PollsController < ApplicationController
 
   def create
     #basic information
-    @poll = current_user.polls.new(poll_params.except(:expire_days, :expire_hours, :expire_mins))
-
+    @poll = current_user.polls.new(poll_params.merge(expired: false))
     
-    #expiry time
-    @poll.expired = false
-    @poll.expiry_time = generate_expire_time(poll_params.slice(:expire_days, :expire_hours, :expire_mins))
-
     if @poll.save 
       render json: {
         "status": "success"
@@ -28,18 +23,7 @@ class PollsController < ApplicationController
 
   private
   def poll_params
-    params.require(:poll).permit(:title, :option_a_img, :option_b_img, :option_a_url, :option_b_url, :option_a, :option_b, :expire_days, :expire_hours, :expire_mins)
-  end
-
-  def generate_expire_time(expire_params)
-    days = expire_params[:expire_days].to_i
-    hours = expire_params[:expire_hours].to_i
-    mins = expire_params[:expire_mins].to_i
-    @expire_time = current_datetime + days.day + hours.hour + mins.minutes
-  end
-
-  def current_datetime
-    DateTime.now.utc
+    params.require(:poll).permit(:title, :option_a_img, :option_b_img, :option_a_url, :option_b_url, :option_a, :option_b, expire: [:days, :hours, :mins])
   end
 
   def poll_error_messages

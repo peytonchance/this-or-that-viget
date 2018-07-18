@@ -3,6 +3,7 @@ class Poll < ApplicationRecord
   attr_accessor :expire_days
   attr_accessor :expire_hours
   attr_accessor :expire_mins
+  attr_accessor :expire
   
   include ActionView::Helpers::DateHelper
 
@@ -21,6 +22,14 @@ class Poll < ApplicationRecord
   has_one_attached :option_b_img
   
   scope :recent, -> { all.order(created_at: :desc) }
+  
+  def expire=(input)
+    days = input[:days].to_i
+    hours = input[:hours].to_i
+    mins = input[:mins].to_i
+    
+    self.expiry_time = Time.now + days.day + hours.hour + mins.minutes
+  end
   
   def comment_count
     comments.count
