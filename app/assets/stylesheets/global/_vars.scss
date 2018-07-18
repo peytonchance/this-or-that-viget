@@ -15,4 +15,20 @@ $colors: (
  white: #ffffff
 );
 
+//Typefaces
+
 $sans-serif: 'niveau grotesk', sans-serif;
+
+// Breakpoints
+
+$screen-xs: 'max-width: 420px';
+$screen-xs-up: 'min-width: 420px';
+$screen-sm: 'max-width: 768px';
+$screen-sm-up: 'min-width: 768px';
+$screen-md: 'max-width: 1000px';
+$screen-md-up: 'min-width: 1000px';
+$screen-lg: 'max-width: 1200px';
+$screen-lg-up: 'min-width: 1200px';
+$screen-xl: 'max-width: 1400px';
+$screen-xl-up: 'min-width: 1400px';
+$screen-xxl-up: 'min-width: 1800px';
