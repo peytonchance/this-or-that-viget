@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :polls do
     resource :comments, only: [:create]
-    resource :follows, only: [:create, :destroy]
+    resources :follows, only: [:create, :destroy]
   end
   
   resource :profiles, only: [:show]

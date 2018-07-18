@@ -53,9 +53,9 @@
         </a>
       </li>
       <li class="poll__actions__action">
-        <%= link_to poll_follows_path(poll), method: :post, remote: true, class: "follow-poll",id: "poll-follow-#{poll.id}" do %>
+        <%= link_to poll_follows_path(poll), method: :post, remote: true, class: "follow-poll", id: "poll-follow-path-#{poll.id}" do %>
           <i class="icon-follow"></i>
-          <span>follow</span>
+          <span id="poll-follow-<%= poll.id %>">follow</span>
         <% end %>
       </li>
       <li class="poll__actions__action">
