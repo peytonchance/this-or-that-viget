@@ -12,4 +12,13 @@ class User < ApplicationRecord
   has_many :follows
   has_many :followed_polls, through: :follows, source: :poll
   has_many :voted_polls, through: :votes, source: :poll
+  
+  def is_following?(poll_id)
+    followed_polls.where(id: poll_id).present?
+  end
+  
+  def get_follow(poll_id)
+    follows.where(poll_id: poll_id).first
+  end
+  
 end
