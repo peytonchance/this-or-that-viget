@@ -7,11 +7,16 @@
   font-weight: 600;
   height: 135px;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  width: 100%;
 
   @media ($screen-md-up) {
     box-shadow: none;
-    height: 70px;
+    height: 80px;
     padding: 8px 50px 8px 35px;
+    width: 95%;
   }
 
   a {

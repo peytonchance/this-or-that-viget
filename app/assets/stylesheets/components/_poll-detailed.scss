@@ -2,7 +2,8 @@
   flex-direction: column;
   height: initial;
   justify-content: space-around;
-  margin-top: 75px;
+  margin-top: 150px;
+  z-index: 0;
 
   .poll__meta {
     flex-direction: row;
