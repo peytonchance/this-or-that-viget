@@ -26,8 +26,8 @@ feature 'User signs up' do
       click_button 'Sign up'
     end
 
-    expect(page).to have_text "Email can't be blank"
-    expect(page).to have_text "Password can't be blank"
+    expect(page).to have_text "email can't be blank"
+    expect(page).to have_text "password can't be blank"
     expect(page).to have_no_link 'Sign out'
   end
 end

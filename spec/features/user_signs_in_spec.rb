@@ -24,7 +24,7 @@ feature 'User signs in' do
       fill_in 'Email', with: user.email
       fill_in 'Password', with: 'invalid'
       click_button 'Log in'
-      expect(page).to have_text 'Invalid Email or password.'
+      expect(page).to have_text 'invalid email or password.'
     end
 
     expect(page).to have_no_link 'Sign Out'

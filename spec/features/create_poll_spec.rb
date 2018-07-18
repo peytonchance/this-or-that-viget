@@ -4,11 +4,13 @@ RSpec.describe "Creating a poll", type: :feature, js:true do
   let!(:user) {create(:user)}
   
   before do
-    login_user(user)
+    login_as(user)
+    visit root_path
   end
 
   describe "entering form information" do 
     it "properly creates a form" do
+      binding.pry
       #inputting form fields
       click_on "Create a Poll"
       fill_in 'poll-title', with: 'Demo Poll with Options'
