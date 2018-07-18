@@ -26,5 +26,21 @@ class FollowsController < ApplicationController
   end
 
   def destroy
+    @poll = Poll.find(params[:poll_id])
+    @follow = @poll.follows.find(params[:id])
+    if @follow.destroy
+      render json: {
+          "status": "success",
+          "content": "follow",
+          "pollId": @poll.id,
+          "path": poll_follows_path(@poll),
+          "method": "post"
+          }, status: :accepted
+    else
+      render json: {
+          "status": "error",
+          "content": "reload and try again",
+          }, status: :unprocessable_entity
+    end
   end
 end
