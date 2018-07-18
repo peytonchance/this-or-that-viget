@@ -1,12 +1,18 @@
 .header {
   background-color: #fff;
+  box-shadow: 0 2px 12px color(shadow-gray);
   color: color(medium-blue);
   display: flex;
   font-size: 0.8em;
   font-weight: 600;
-  height: 69px;
+  height: 135px;
   justify-content: space-between;
-  padding: 8px 50px 8px 35px;
+
+  @media ($screen-md-up) {
+    box-shadow: none;
+    height: 70px;
+    padding: 8px 50px 8px 35px;
+  }
 
   a {
     color: color(medium-blue);
@@ -16,6 +22,18 @@
 .header__logo a {
   align-self: flex-end;
   margin-bottom: -44px;
+}
+
+.header__logo {
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: scale(0.75) translate(5%, 0);
+
+  @media ($screen-md-up) {
+    position: relative;
+    transform: scale(1);
+  }
 }
 
 .header__utility-nav--active {
@@ -28,9 +46,13 @@
     display: flex;
     height: 5px;
     justify-self: center;
-    left: 36%;
+    left: 23%;
     position: absolute;
     width: 50px;
+
+    @media ($screen-md-up) {
+      left: 36%;
+    }
   }
 }
 
@@ -38,17 +60,38 @@
   align-items: center;
   display: flex;
   justify-content: space-around;
-  padding-top: 25px;
+  margin: auto;
+  padding: 85px 0 0 0;
   text-transform: uppercase;
+  width: 90%;
+
+  @media ($screen-md-up) {
+    margin: 0;
+    padding: 60px 0 0 0;
+    width: auto;
+  }
 
   li {
-    min-width: 170px;
+    min-width: 90px;
     text-align: center;
+
+    @media ($screen-md-up) {
+      min-width: 170px;
+    }
+
   }
 }
 
 .header__create {
-  position: relative;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translate(40vw, 60px);
+
+  @media ($screen-md-up) {
+    position: relative;
+    transform: translate(0, -15px);
+  }
 
   a {
     align-items: center;
@@ -98,8 +141,17 @@ li.header__session-links {
 }
 
 .header__username {
-  position: relative;
+  position: absolute;
+  right: 0;
   text-transform: none;
+  top: 0;
+  transform: translate(-10%, 20px);
+  width: 120px;
+
+  @media ($screen-md-up) {
+    position: relative;
+    transform: translate(0, 0);
+  }
 }
 
 .header__username__arrow {
