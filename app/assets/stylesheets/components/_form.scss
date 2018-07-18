@@ -77,7 +77,7 @@
 }
 
 .form__error-message {
-  margin: -30px 0 20px;
+  margin: 0 0 20px;
   text-transform: lowercase;
 
   &::first-letter {
@@ -87,7 +87,7 @@
 
 .sign-up__error-messages {
   list-style-type: none;
-  margin: -30px 0 20px;
+  margin: 0 0 20px;
   text-transform: lowercase;
 
   li::first-letter {
