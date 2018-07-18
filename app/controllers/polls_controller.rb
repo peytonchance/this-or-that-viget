@@ -19,6 +19,10 @@ class PollsController < ApplicationController
         }, status: :unprocessable_entity
     end
   end
+  
+  def show
+    @poll = Poll.find(params[:id])
+  end
 
 
   private
