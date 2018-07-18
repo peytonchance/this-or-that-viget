@@ -1,7 +1,7 @@
 class FollowsController < ApplicationController
   def create
+    @poll = Poll.find(params[:poll_id])
     if user_signed_in?
-      @poll = Poll.find(params[:poll_id])
       @follow = @poll.follows.new(user: current_user)
       if @follow.save
         render json: {
@@ -14,12 +14,14 @@ class FollowsController < ApplicationController
       else
         render json: {
           "status": "error",
+          "pollId": @poll.id,
           "content": "reload and try again",
           }, status: :unprocessable_entity
       end
     else
       render json: {
         "status": "error",
+        "pollId": @poll.id,
         "content": "log in to vote"
         }, status: :precondition_failed 
     end
@@ -39,6 +41,7 @@ class FollowsController < ApplicationController
     else
       render json: {
           "status": "error",
+          "pollId": @poll.id,
           "content": "reload and try again",
           }, status: :unprocessable_entity
     end
