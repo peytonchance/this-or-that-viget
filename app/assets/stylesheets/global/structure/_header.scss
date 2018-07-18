@@ -79,7 +79,7 @@
 
   @media ($screen-md-up) {
     margin: 0;
-    padding: 60px 0 0 0;
+    padding: 25px 0 0 0;
     width: auto;
   }
 
@@ -102,7 +102,7 @@
 
   @media ($screen-md-up) {
     position: relative;
-    transform: translate(0, -15px);
+    transform: none;
   }
 
   a {
@@ -148,6 +148,7 @@
 }
 
 li.header__session-links {
+  font-weight: 500;
   min-width: 100px;
   position: absolute;
   right: 0;
