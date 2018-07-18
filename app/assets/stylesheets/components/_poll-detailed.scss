@@ -9,10 +9,7 @@
     height: 30px;
     margin-bottom: 20px;
 
-    &:before {
-      content: none;
-    }
-
+    &:before,
     &:after {
       content: none;
     }

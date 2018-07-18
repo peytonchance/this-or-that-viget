@@ -17,7 +17,11 @@
   </div>
   <div class="comments__new-comment">
     <p class="comments__new-comment__username">
-      <%= current_user.username %>
+      <% if user_signed_in? %>
+        <%= current_user.username %>
+      <% else %>
+        <a href="#" data-module="modal" aria-controls="log-in">Log in</a> to comment.
+      <% end %>
     </p>
     <input type="text" value="add a comment" id="new-comment">
   </div>
