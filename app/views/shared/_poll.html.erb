@@ -53,10 +53,10 @@
         </a>
       </li>
       <li class="poll__actions__action">
-        <a href="#TODO">
+        <%= link_to poll_follows_path(poll), method: :post, remote: true do %>
           <i class="icon-follow"></i>
           <span>follow</span>
-        </a>
+        <% end %>
       </li>
       <li class="poll__actions__action">
         <a href="#TODO">
