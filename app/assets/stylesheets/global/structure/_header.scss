@@ -166,3 +166,32 @@ li.header__session-links {
   right: 16px;
   top: 4px;
 }
+
+.header__dropdown {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px color(shadow-gray);
+  color: color(gray);
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2em;
+  font-weight: 400;
+  height: 100px;
+  justify-content: flex-start;
+  padding: 15px 5px 0;
+  position: absolute;
+  top: 90px;
+  width: 150px;
+}
+
+li.header__dropdown__item {
+  align-self: flex-start;
+  height: 30px;
+  margin-left: 15px;
+  text-align: left;
+  min-width: 90px;
+
+  a {
+    color: color(gray);
+  }
+}

@@ -12,7 +12,11 @@ export default class Modal {
   }
 
   setUpListeners() {
-    this.el.addEventListener('click', this.toggleModal.bind(this))
+    if (this.targetModal.classList.contains('header__dropdown')) {
+      this.el.addEventListener('click', this.toggleDropdown.bind(this))
+    } else {
+      this.el.addEventListener('click', this.toggleModal.bind(this))
+    }
   }
 
   showModal() {
@@ -33,6 +37,14 @@ export default class Modal {
 
   unfadeBackground() {
     this.bodyMain.classList.remove('body__main--muted')
+  }
+
+  toggleDropdown() {
+    if (this.targetModal.hidden) {
+      this.targetModal.removeAttribute('hidden')
+    } else {
+      this.hideModal()
+    }
   }
 
   toggleModal() {
