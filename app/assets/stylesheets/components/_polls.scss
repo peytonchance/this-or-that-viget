@@ -39,7 +39,6 @@
   }
 
   p {
-
     margin-left: 12px;
 
     @media ($screen-md-up) {
@@ -140,7 +139,7 @@
   }
 
   &:first-child {
-    background-color: #61B7F2;
+    background-color: color(light-blue);
     box-shadow: 0 2px 6px rgba(#000, 0.25);
     width: 50%;
 
@@ -150,7 +149,7 @@
   }
 
   &:last-child {
-    background-color: #FCB92C;
+    background-color: color(yellow);
     box-shadow: 0 2px 6px rgba(#000, 0.25);
     width: 50%;
   }
