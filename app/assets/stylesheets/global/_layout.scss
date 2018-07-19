@@ -2,3 +2,12 @@ body {
   margin: auto;
   width: 100%;
 }
+
+.container {
+  margin: auto;
+  width: 80%;
+
+  @media ($screen-md-up) {
+    width: 50%;
+  }
+}
