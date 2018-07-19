@@ -1,45 +1,45 @@
 <dialog hidden class="modal sign-up" id="sign-up">
-  <%= form_for(User.new, as: :user, url: registration_path(:user), remote: true, html: {id: "signup-form", class: "modal__inner"}) do |f| %>
+  <div class="modal__inner">
     <div class="modal__top">
       <h2 class="modal__title">Sign up</h2>
       <button href="#TODO" class="modal__cancel" data-module="modal" aria-controls="sign-up">Cancel<i class="icon-expired"></i></button>
     </div>
+    <%= form_for(User.new, as: :user, url: registration_path(:user), remote: true, html: {id: "signup-form"}) do |f| %>
+      <div class="form__fields">
+        <!-- Eror messages from Devise  -->
+        <div id="signup-error-messages" class="sign-up__error-messages">
+        </div>
+        <div class="form__fields__field">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
 
-    <div class="form__fields">
-      <!-- Eror messages from Devise  -->
-      <div id="signup-error-messages" class="sign-up__error-messages">
+        <div class="form__fields__field">
+          <%= f.label :username %>
+          <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+        </div>
+
+        <div class="form__fields__field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+            <em class="sign-up__field__password__minchar">(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <div class="form__fields__field">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+
+        <div class="form__fields__action">
+          <%= f.submit "Sign up", class: "form__button" %>
+        </div>
+
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       </div>
-      <div class="form__fields__field">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-
-      <div class="form__fields__field">
-        <%= f.label :username %>
-        <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-      </div>
-
-      <div class="form__fields__field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-          <em class="sign-up__field__password__minchar">(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-
-      <div class="form__fields__field">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-
-      <div class="form__fields__action">
-        <%= f.submit "Sign up", class: "form__button" %>
-      </div>
-
-      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-
+    <% end %>
   </div>
-  <% end %>
   <div class="form__bottom-prompt">
     <p>Already have an account?</p>
     <button href="#" data-module="modal" aria-controls="log-in">Log in</button>

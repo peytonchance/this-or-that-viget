@@ -1,30 +1,32 @@
 <dialog hidden class="modal log-in" id="log-in">
-  <%= form_for(User.new, as: :user, url: session_path(:user), remote: true, html: {id: "login-form", class: "modal__inner"}) do |f| %>
-  <div class="modal__top">
-    <h2 class="modal__title">Log in</h2>
-    <button href="/" class="modal__cancel" data-module="modal" aria-controls="log-in">Cancel<i class="icon-expired"></i></button>
-  </div>
-  <div class="form__fields">
-    <!-- Error messages from Devise -->
-    <div id="login-error-messages" class="form__error-message">
+  <div class="modal__inner">
+    <div class="modal__top">
+      <h2 class="modal__title">Log in</h2>
+      <button class="modal__cancel" data-module="modal" aria-controls="log-in">Cancel<i class="icon-expired"></i></button>
     </div>
-    <div class="form__fields__field">
-      <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+    <%= form_for(User.new, as: :user, url: session_path(:user), remote: true, html: {id: "login-form"}) do |f| %>
+      <div class="form__fields">
+        <!-- Error messages from Devise -->
+        <div id="login-error-messages" class="form__error-message">
+        </div>
+        <div class="form__fields__field">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
 
-    <div class="form__fields__field">
-      <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
+        <div class="form__fields__field">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
 
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
-    <div class="form__fields__actions log-in__submit">
-      <%= f.submit "Log in", class: "form__button" %>
-      <button>Forgot Password?</button>
-    </div>
-  <% end %>
+        <div class="form__fields__actions log-in__submit">
+          <%= f.submit "Log in", class: "form__button" %>
+          <button>Forgot Password?</button>
+        </div>
+      </div>
+    <% end %>
   </div>
   <div class="form__bottom-prompt">
     <p>New here?</p>
