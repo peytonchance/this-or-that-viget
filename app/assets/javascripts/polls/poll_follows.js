@@ -29,7 +29,3 @@ function handleFollowError(evt, xhr, status, error) {
    console.log(pollFollowElement)
    pollFollowElement.innerHTML = response["content"]
 }
-
-
-//elButtonUps[i].setAttribute('href', response['path_up']);
-//elButtonUps[i].setAttribute('data-method', 'put');
