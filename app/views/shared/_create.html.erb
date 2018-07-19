@@ -9,7 +9,7 @@
     </div>
     <%= form_for :poll, url: polls_path, multipart: true, remote: true, html: {id: 'poll-form'} do |f| %>
       <div id="poll-error-messages"></div>
-    
+
       <div class="create-modal__fields__name-poll">
         <h3><span class="form__required">*</span>Give your poll a title <em>(max 45 characters)</em></h3>
         <%= f.text_field :title, value: "ex: should I buy this or that?", id: "poll-title" %>
@@ -21,7 +21,7 @@
           <h4><i class="icon-upload"></i> Choose from your device</h4>
           <%= f.label :option_a_img, "browse+" %>
           <%= f.file_field :option_a_img, class: "create-modal__fields__photo__browse", id: "poll_option_a_img", accept: ".jpg, .jpeg, .png" %>
-          
+
           <div class="photo--left__preview">
              <p>no file chosen</p>
           </div>
@@ -70,3 +70,4 @@
       <%= f.submit "Submit poll", class: "create-modal__submit" %>
     <% end %>
   </div>
+</dialog>

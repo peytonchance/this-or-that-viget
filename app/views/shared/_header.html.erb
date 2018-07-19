@@ -27,7 +27,11 @@
         <a href="#" data-module="modal" aria-controls="header__dropdown"><%= current_user.username %>
         <span class="header__username__arrow"></span></a>
         <ul class="header__dropdown modal" id="header__dropdown" hidden>
-          <li class="header__dropdown__item">reset password</li>
+          <li class="header__dropdown__item">
+            <a href="#" data-module="modal" aria-controls="forgot-password">
+             reset password
+            </a>
+          </li>
           <li class="header__dropdown__item">
             <%= link_to "log out", destroy_user_session_path, method: :delete %>
           </li>
