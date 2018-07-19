@@ -49,9 +49,13 @@
 }
 
 .body__main {
-  margin-top: 150px;
+  margin-top: 200px;
   opacity: 1;
   transition: opacity 0.5s;
+
+  @media ($screen-md-up) {
+    margin-top: 150px;
+  }
 }
 
 .body__main--muted {
