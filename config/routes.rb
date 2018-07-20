@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {registrations: 'registration', sessions: 'sessions'}
+  devise_for :users, controllers: {registrations: 'registration', sessions: 'sessions', passwords: 'passwords'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :polls do
     resource :comments, only: [:create]

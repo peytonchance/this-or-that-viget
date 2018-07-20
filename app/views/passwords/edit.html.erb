@@ -1,0 +1,26 @@
+<div class="container reset-password">
+  <h1>Change your password</h1>
+
+  <%= form_for(@user, as: :user, url: password_path(:user), html: { method: :put }) do |f| %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="form__fields__field">
+      <%= f.label :password, "New password" %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+      <div>
+        <% if @minimum_password_length %>
+         <p><%= @minimum_password_length %> characters minimum</p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form__fields__field">
+      <%= f.label :password_confirmation, "Confirm new password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+
+    <div class="form__fields__action">
+      <%= f.submit "Change my password", class: "form__button" %>
+    </div>
+  <% end %>
+</div>
