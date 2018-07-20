@@ -23,6 +23,8 @@ RSpec.describe "Creating a poll", type: :feature, js:true do
       click_on 'Submit poll'
 
       visit root_path
+      #Tests kept failing because it's not finding new article. This will ensure all processes are done. 
+      sleep(inspection_time=0.5)
       poll = find('article.poll')
       expect(poll).to have_content user.username
       expect(poll).to have_content "1 day left"

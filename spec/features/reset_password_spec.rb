@@ -12,6 +12,8 @@ RSpec.describe "Resetting a password", type: :feature, js:true do
       click_on 'reset password'
       fill_in 'Email', with: user.email
       click_on 'Send password reset instructions'
+      #Wait for Devise to send mail. If there is another way to do this please let me know.
+      sleep(inspection_time=0.5)
       visit(links_in_email(ActionMailer::Base.deliveries.first)[0].gsub("http://localhost:3000", ""))
     end
 
