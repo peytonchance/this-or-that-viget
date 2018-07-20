@@ -135,7 +135,8 @@
   text-align: center;
 
   @media ($screen-md-up) {
-    font-size: 3em;
+    font-size: 2.5em;
+    padding: 20px;
   }
 
   &:first-child {
