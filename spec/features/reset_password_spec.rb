@@ -12,7 +12,6 @@ RSpec.describe "Resetting a password", type: :feature, js:true do
       click_on 'reset password'
       fill_in 'Email', with: user.email
       click_on 'Send password reset instructions'
-      binding.pry
       visit(links_in_email(ActionMailer::Base.deliveries.first)[0].gsub("http://localhost:3000", ""))
     end
 
