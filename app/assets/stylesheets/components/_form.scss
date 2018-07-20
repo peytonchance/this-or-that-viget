@@ -1,6 +1,10 @@
 .form__fields {
   margin: 30px auto;
-  width: 85%;
+  width: 100%;
+
+  @media ($screen-sm-up) {
+    width: 90%;
+  }
 
   label {
     width: 105px;
@@ -19,12 +23,23 @@
     border-radius: 3px;
     border: 2px solid rgb(224, 224, 224);
     height: 22px;
-    width: 70%;
+    width: 50%;
+
+    @media ($screen-sm-up) {
+      width: 70%;
+    }
   }
 }
 
 .form__fields__action {
-  padding-left: 130px;
+  display: flex;
+  justify-content: flex-end;
+
+  @media ($screen-sm-up) {
+    display: block;
+    padding-left: 130px;
+  }
+
 }
 
 .form__button {
@@ -63,9 +78,14 @@
 .log-in__submit {
   align-items: center;
   display: flex;
-  justify-content: center;
-  padding-right: 72px;
-  width: 510px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 100%;
+  margin: auto;
+
+  @media ($screen-sm-up) {
+    width: 510px;
+  }
 
   a {
     margin-left: 10px;

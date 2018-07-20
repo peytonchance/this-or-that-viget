@@ -1,8 +1,8 @@
 .modal {
   background: color(white);
+  border: none;
   border-radius: 10px;
-  border: solid 1px color(shadow-gray);
-  box-shadow: 0 4px 10px rgba(#000, 0.15);
+  box-shadow: 0 4px 15px rgba(#000, 0.25);
   display: block;
   left: 50%;
   margin: auto;
@@ -10,7 +10,11 @@
   position: fixed;
   top: 55%;
   transform: translate(-50%, -50%);
-  width: 620px;
+  width: 90vw;
+
+  @media ($screen-sm-up) {
+    width: 620px;
+  }
 }
 
 .modal button {
@@ -37,9 +41,13 @@
 }
 
 .modal__title {
-  font-size: 3.4em;
+  font-size: 2.5em;
   margin: 0;
   text-transform: uppercase;
+
+  @media ($screen-sm-up) {
+    font-size: 3.4em;
+  }
 }
 
 .modal__cancel {
