@@ -13,7 +13,6 @@ feature 'User signs in' do
     end
 
     expect(page).to have_text user.username
-    expect(page).to have_link 'Sign out'
     expect(page).to have_current_path root_path
   end
 
@@ -27,7 +26,6 @@ feature 'User signs in' do
       expect(page).to have_text 'invalid email or password.'
     end
 
-    expect(page).to have_no_link 'Sign Out'
     expect(page).to_not have_content user.username
   end
 end
