@@ -22,7 +22,7 @@ class FollowsController < ApplicationController
       render json: {
         "status": "error",
         "pollId": @poll.id,
-        "content": "log in to vote"
+        "content": "log in to follow"
         }, status: :precondition_failed 
     end
   end

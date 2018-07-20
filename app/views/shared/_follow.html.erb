@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-    <% if current_user.is_following?(poll.id) %>
+    <% if current_user.get_follow(poll.id).present? %>
         <%= link_to poll_follow_path(poll, current_user.get_follow(poll.id)), method: :delete, remote: true, class: "follow-poll", id: "poll-follow-path-#{poll.id}" do %>
             <i class="icon-follow"></i>
             <span id="poll-follow-<%= poll.id %>">unfollow</span>
