@@ -1,6 +1,8 @@
 <div class="container reset-password">
   <h1>Change your password</h1>
-
+  <div id="password-error-messages">
+  
+  </div>
   <%= form_for(@user, as: :user, url: password_path(:user), remote: true, html: { method: :put }) do |f| %>
     <%= f.hidden_field :reset_password_token %>
 
