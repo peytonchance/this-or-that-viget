@@ -4,10 +4,7 @@ class PasswordsController < Devise::PasswordsController
   before_action :verify_user_reset, only: :edit
 
   def create
-    response = User.send_reset_password_instructions(request_params)
-    @user = response[:resource]
-    session[:password_token] = response[:token]
-
+    @user = User.send_reset_password_instructions(request_params)
     if successfully_sent?(@user)
       render json: {
         "status": "success",
@@ -16,7 +13,7 @@ class PasswordsController < Devise::PasswordsController
     else
       render json: {
         "status": "success",
-        "message": "Error. Please Try Again"
+        "message": "Incorrect Email."
         }, status: :unprocessable_entity
     end
   end
