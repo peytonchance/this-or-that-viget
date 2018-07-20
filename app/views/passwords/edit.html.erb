@@ -3,7 +3,7 @@
   <div id="password-error-messages">
   
   </div>
-  <%= form_for(@user, as: :user, url: password_path(:user), remote: true, html: { method: :put }) do |f| %>
+  <%= form_for(@user, as: :user, url: password_path(:user), remote: true, html: { method: :put, id: "password-reset-form" }) do |f| %>
     <%= f.hidden_field :reset_password_token %>
 
     <div class="form__fields__field">
