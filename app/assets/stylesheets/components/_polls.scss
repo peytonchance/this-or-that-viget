@@ -42,7 +42,8 @@
     margin-left: 12px;
 
     @media ($screen-md-up) {
-      margin: 0 0 0 -35px;
+      margin-left: -60px;
+      min-width: 120px;
     }
   }
 
@@ -132,6 +133,8 @@
   font-size: 2em;
   font-weight: 500;
   justify-content: center;
+  overflow: hidden;
+  position: relative;
   text-align: center;
 
   @media ($screen-md-up) {
