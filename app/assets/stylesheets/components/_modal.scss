@@ -49,12 +49,13 @@
 }
 
 .body__main {
-  margin-top: 200px;
+  margin-top: 80px;
   opacity: 1;
+  overflow: hidden;
   transition: opacity 0.5s;
 
   @media ($screen-md-up) {
-    margin-top: 150px;
+    margin-top: 50px;
   }
 }
 

@@ -40,6 +40,7 @@
 
   p {
     margin-left: 12px;
+    max-width: 100px;
 
     @media ($screen-md-up) {
       margin-left: -60px;
