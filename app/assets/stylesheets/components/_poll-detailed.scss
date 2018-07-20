@@ -2,12 +2,18 @@
   flex-direction: column;
   height: initial;
   justify-content: space-around;
-  margin-top: 150px;
+  margin-top: 250px;
   z-index: 0;
 
+  @media ($screen-md-up) {
+    margin-top: 100px;
+  }
+
   .poll__meta {
+    align-items: center;
     flex-direction: row;
     height: 30px;
+    justify-content: flex-start;
     margin-bottom: 20px;
 
     &:before,
@@ -15,13 +21,10 @@
       content: none;
     }
 
-    p {
-      margin-top: 1em;
-    }
-
     ul {
       align-items: center;
       flex-direction: row;
+      margin: 0;
 
       li {
         margin-left: 30px;
@@ -32,15 +35,32 @@
   .poll__content {
 
     h2 {
+      left: 10px;
       margin: 0;
+      position: absolute;
+      top: -70px;
+
+      @media ($screen-md-up) {
+        position: static;
+      }
     }
   }
 
   .poll__options {
-    width: 60vw;
+    height: 150px;
+    margin-top: 20px;
+    width: 85vw;
+
+    @media ($screen-md-up) {
+      height: 250px;
+      margin-top: 0;
+      width: 60vw;
+    }
+
   }
 
   .poll__options__option {
+    margin-left: 10px;
 
     &:first-child {
       border-radius: 200px;
@@ -48,7 +68,7 @@
   }
 
   .poll__actions {
-    margin: 75px 0 -30px;
+    margin: 75px 0 -30px 5%;
 
     &::before {
       border-radius: 0;
