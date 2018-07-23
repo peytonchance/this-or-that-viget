@@ -1,0 +1,13 @@
+<%= link_to poll_option_a_path(poll), method: :post, id: "option-a-#{poll.id}", class: "poll__options__option", remote: true do %>
+    <% if poll.get_option_a_img.present? %>
+    <% else %>
+        <%= poll.option_a %>
+    <% end %>
+<% end %>
+
+<%= link_to poll_option_b_path(poll), method: :post, id: "option-b-#{poll.id}", class: "poll__options__option", remote: true do %>
+    <% if poll.get_option_b_img.present? %>
+    <% else %>
+        <%= poll.option_b %>
+    <% end %>
+<% end %>
