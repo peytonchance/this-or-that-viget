@@ -1,11 +1,7 @@
 <% if poll.get_option_a_img.present? %>
   <style>
     #option-a-<%= poll.id %> {
-
-      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= poll.get_option_a_img %>);
-      background-size: auto 230px;
-      background-position: center;
-      background-repeat: no-repeat;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= poll.get_option_a_img %>);
     }
 
     #option-a-<%= poll.id %>:after {
@@ -14,21 +10,12 @@
         border-top-right-radius: 100%;
         bottom: -50%;
         content: '<%= poll.option_a %>';
-        font-size: 1.2rem;
-        font-weight: 400;
-        height: 65%;
-        padding-top: 15px;
-        position: absolute;
-        width: 90%;
     }
   <% end %>
 
   <% if poll.get_option_b_img.present? %>
     #option-b-<%= poll.id %> {
-        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= poll.get_option_b_img %>);
-        background-size: auto 230px;
-        background-position: center;
-        background-repeat: no-repeat;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= poll.get_option_b_img %>);
     }
 
     #option-b-<%= poll.id %>:after {
@@ -36,12 +23,6 @@
       border-radius: 20px;
       bottom: -52%;
       content: '<%= poll.option_b %>';
-      font-size: 1.2rem;
-      font-weight: 400;
-      height: 65%;
-      padding-top: 15px;
-      position: absolute;
-      width: 90%;
     }
   </style>
 <% end %>
@@ -65,9 +46,9 @@
     <h2><%= link_to poll.title, poll %></h2>
     <div class="poll__options">
       <% if poll.get_option_a_img.present? %>
-        <div id="option-a-<%= poll.id %>" class="poll__options__option option-a__title">
+        <div id="option-a-<%= poll.id %>" class="poll__options__option">
         </div>
-        <div id="option-b-<%= poll.id %>"class="poll__options__option option-b__title">
+        <div id="option-b-<%= poll.id %>"class="poll__options__option">
         </div>
       <% else %>
         <div id="option-a-<%= poll.id %>" class="poll__options__option">
