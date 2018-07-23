@@ -3,7 +3,11 @@ class OptionAsController < ApplicationController
     @poll = Poll.find(params[:poll_id])
     @vote = @poll.votes.new(user: current_user, option: 0)
     if @vote.save
-      render json: vote_success_json, status: :accepted
+      render json: vote_success_json.merge(
+        "pathA": poll_option_a_path(@poll),
+        "pathB": poll_option_b_path(@poll)
+        "method": "put"
+        ), status: :accepted
     else
       render json: vote_error_json, status: :unprocessable_entity
     end
