@@ -5,7 +5,7 @@ class OptionBsController < ApplicationController
     if @vote.save
       render json: vote_success_json.merge(
         "pathA": poll_option_a_path(@poll),
-        "pathB": poll_option_b_path(@poll)
+        "pathB": poll_option_b_path(@poll),
         "method": "put"
         ), status: :accepted
     else
