@@ -1,7 +1,15 @@
 class PollsController < ApplicationController
   include ActionView::Helpers::TagHelper
   def index
-    @polls = Poll.recent
+    if params[:filter]
+      if params[:filter] == "mypolls"
+        @polls = current_user.polls
+      else
+        @polls = current_user.followed_polls
+      end
+    else
+      @polls = Poll.recent
+    end
   end
 
   def create
