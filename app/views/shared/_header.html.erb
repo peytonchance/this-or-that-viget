@@ -4,7 +4,7 @@
   </a>
   <ul class="header__utility-nav">
     <% if user_signed_in? %>
-      <li class="header__feed"><a href="#TODO">Feed</a></li>
+      <li id="poll-feed" class="header__feed  header__utility-nav--active"><a href="#TODO">Feed</a></li>
     <% end %>
     <% if user_signed_in? %>
       <li class="header__create" data-module="modal" aria-controls="create-modal">
@@ -17,10 +17,10 @@
       </a>
     </li>
     <% if user_signed_in? %>
-      <li class="header__your-polls header__utility-nav--active">
+      <li id="poll-mypolls" class="header__your-polls">
         <a href="#TODO">My Polls</a>
       </li>
-      <li class="header__following">
+      <li id="poll-following" class="header__following">
         <a href="#TODO">Following</a>
       </li>
       <li class="header__username">
