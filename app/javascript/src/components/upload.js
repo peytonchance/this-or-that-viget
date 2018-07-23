@@ -1,13 +1,17 @@
 export default class Upload {
   constructor(el) {
     this.el = el
-    this.setVars()
+    this.setInitialFilename()
     this.setUpListeners()
   }
 
-  setVars() {
+  setInitialFilename() {
     this.el.filename = 'no file chosen'
-    this.el.target = document.querySelector('#' + this.el.id + '_filename')
+    this.defineTarget()
+  }
+
+  defineTarget () {
+    this.el.targetString = document.querySelector(this.el.dataset.targetstring)
   }
 
   setUpListeners() {
@@ -16,6 +20,6 @@ export default class Upload {
 
   displayFilename() {
     this.el.filename = this.el.value.substring(12)
-    this.el.target.innerHTML = this.el.filename
+    this.el.targetString.innerHTML = this.el.filename
   }
 }
