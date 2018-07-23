@@ -47,21 +47,20 @@
   <div class="poll__content">
     <h2><%= link_to poll.title, poll %></h2>
     <div class="poll__options">
-      <% if poll.get_option_a_img.present? %>
-        <div id="option-a-<%= poll.id %>" class="poll__options__option">
-          <p><%= poll.option_a %></p>
-        </div>
-        <div id="option-b-<%= poll.id %>"class="poll__options__option">
-          <p><%= poll.option_b %></p>
-        </div>
-      <% else %>
-        <div id="option-a-<%= poll.id %>" class="poll__options__option">
-          <%= poll.option_a %>
-        </div>
-        <div id="option-b-<%= poll.id %>"class="poll__options__option">
-          <%= poll.option_b %>
-        </div>
-      <% end %>
+
+        <a href="#TODO-DEV" id="option-a-<%= poll.id %>" class="poll__options__option">
+          <% if poll.get_option_a_img.present? %>
+          <% else %>
+            <%= poll.option_a %>
+          <% end %>
+        </a>
+        <a href="#TODO-DEV" id="option-b-<%= poll.id %>" class="poll__options__option">
+          <% if poll.get_option_b_img.present? %>
+          <% else %>
+            <%= poll.option_b %>
+          <% end %>
+        </a>
+>>>>>>> Made poll options links.
     </div>
     <ul class="poll__actions">
       <li class="poll__actions__comments poll__actions__action">
