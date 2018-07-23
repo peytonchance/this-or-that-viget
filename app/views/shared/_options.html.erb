@@ -1,13 +1,9 @@
-<%= link_to poll_option_a_path(poll), method: :post, id: "option-a-#{poll.id}", class: "poll__options__option", remote: true do %>
-    <% if poll.get_option_a_img.present? %>
+<% if user_signed_in? %>
+    <% if current_user.has_voted?(poll.id) %>
+        <%= render 'shared/option-links', poll: poll, method: :put %>
     <% else %>
-        <%= poll.option_a %>
+        <%= render 'shared/option-links', poll: poll, method: :post %>
     <% end %>
-<% end %>
-
-<%= link_to poll_option_b_path(poll), method: :post, id: "option-b-#{poll.id}", class: "poll__options__option", remote: true do %>
-    <% if poll.get_option_b_img.present? %>
-    <% else %>
-        <%= poll.option_b %>
-    <% end %>
+<% else %>
+    <%= render 'shared/option-links', poll: nil %>
 <% end %>

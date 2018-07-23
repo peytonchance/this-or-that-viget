@@ -21,4 +21,9 @@ class User < ApplicationRecord
     follows.detect {|f| f.poll_id == id}
   end
   
+  def has_voted?(id)
+    votes.find_by(poll_id: id).present?
+  end
+
+  
 end
