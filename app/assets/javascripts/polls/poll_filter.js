@@ -1,19 +1,21 @@
 $(document).ready(function() {
-    changeHeading();
+   changeHeading();
 });
 
 function changeHeading() {
-    let activeClass = "header__utility-nav--active";
-    let currElement = document.getElementsByClassName(activeClass)[0];
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        if (key == "filter") {
-            if(value == "mypolls") {
-                currElement.className = currElement.className.replace(activeClass, '');
-                document.getElementById('poll-mypolls').className += (' ' + activeClass);
-            } else {
-                currElement.className = currElement.className.replace(activeClass, '');
-                document.getElementById('poll-following').className += (' ' + activeClass);
-            }
-        }
-    });
+   let activeClass = "header__utility-nav--active";
+   let currElement = document.querySelector('.' + activeClass);
+   var query = new URLSearchParams(window.location.search)
+
+   query.forEach(function (value, key) {
+      if (key === 'filter') {
+         if(value == "mypolls") {
+            currElement.classList.remove(activeClass)
+            document.getElementById('poll-mypolls').classList.add(activeClass)
+         } else {
+            currElement.classList.remove(activeClass)
+            document.getElementById('poll-following').classList.add(activeClass)
+         }
+      }
+   });
 }

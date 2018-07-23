@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Clicking links on header to filter polls", type: :feature do
   context "with existing polls and users" do
     let! (:test_user) {create(:user)}
-    let! (:test_poll) {create(:poll, user: test_user)}
+    let! (:test_poll) {create(:poll, user: test_user, title: "Example Poll", option_a: 'Choice 1', option_b: 'Choice 2')}
     let! (:follow_poll) {create(:poll, title: "Another example poll", option_a: 'Decision 1', option_b: 'Decision 2')}
     
     before do
