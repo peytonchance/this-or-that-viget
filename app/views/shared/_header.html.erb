@@ -4,7 +4,9 @@
   </a>
   <ul class="header__utility-nav">
     <% if user_signed_in? %>
-      <li id="poll-feed" class="header__feed  header__utility-nav--active"><a href="#TODO">Feed</a></li>
+      <li id="poll-feed" class="header__feed  header__utility-nav--active">
+        <%= link_to 'Feed', polls_path, method: :get %>
+    </li>
     <% end %>
     <% if user_signed_in? %>
       <li class="header__create" data-module="modal" aria-controls="create-modal">
@@ -18,10 +20,10 @@
     </li>
     <% if user_signed_in? %>
       <li id="poll-mypolls" class="header__your-polls">
-        <a href="#TODO">My Polls</a>
+        <%= link_to 'My Polls', polls_path(filter: 'mypolls'), method: :get %>
       </li>
       <li id="poll-following" class="header__following">
-        <a href="#TODO">Following</a>
+        <%= link_to 'Following', polls_path(filter: 'following'), method: :get %>
       </li>
       <li class="header__username">
         <a href="#" data-module="modal" aria-controls="header__dropdown"><%= current_user.username %>
