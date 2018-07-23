@@ -68,6 +68,8 @@
 }
 
 .body__main--muted {
+  height: 90vh;
   opacity: 0.2;
+  overflow: hidden;
   transition: opacity 0.5s;
 }

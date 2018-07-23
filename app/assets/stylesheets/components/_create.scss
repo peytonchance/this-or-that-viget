@@ -2,14 +2,13 @@
   border-radius: 0;
   padding: 20px 10px;
   position: absolute;
-  top: 90%;
+  top: 570px;
   width: 91vw;
 
   @media ($screen-sm-up) {
     border-radius: 10px;
     max-width: 1000px;
     padding: 20px 60px;
-    top: 75%;
     width: 75%;
   }
 
