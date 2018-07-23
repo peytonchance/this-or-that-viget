@@ -43,9 +43,9 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
+    :address              => "smtp.sendgrid.net",
     :port                 => 587,
-    :user_name            => "aatif.jiwani@viget.com",
+    :user_name            => "apikey",
     :password             => Rails.application.credentials.dig(:mail_pass),
     :authentication       => "plain",
     :enable_starttls_auto => true

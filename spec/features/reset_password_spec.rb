@@ -29,12 +29,16 @@ RSpec.describe "Resetting a password", type: :feature, js:true do
       fill_in "Confirm new password", with: 'newpassword1'
       click_on 'Change my password'
       expect(page).to have_current_path root_path
+      
       click_on user.username
       click_on 'log out'
+      
       click_on 'Log in'
       fill_in 'Email', with: user.email
       fill_in 'Password', with: 'newpassword1'
       click_button 'Log in'
+      
+      expect(page).to have_content user.username
     end
   end
 end
