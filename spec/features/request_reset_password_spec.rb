@@ -6,13 +6,12 @@ RSpec.describe "Requesting to reset password", type: :feature, js:true do
     let!(:user) {create(:user)}
 
     before do
-      login_as(user)
       visit root_path
+      click_on 'Log in'
+      click_on 'Forgot Password?'
     end
 
     it 'does not send email to incorrect email' do
-      click_on user.username
-      click_on 'reset password'
       fill_in 'Email', with: "fakeemail@invalid.com"
       click_on 'Send password reset instructions'
       expect(page).to have_content "Incorrect Email."
@@ -21,8 +20,6 @@ RSpec.describe "Requesting to reset password", type: :feature, js:true do
     end
 
     it 'sends email confirmation' do
-      click_on user.username
-      click_on 'reset password'
       fill_in 'Email', with: user.email
       click_on 'Send password reset instructions'
       expect(page).to have_content 'Reset Password Link Sent to Email'
