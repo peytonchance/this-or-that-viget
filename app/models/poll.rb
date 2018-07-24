@@ -22,6 +22,7 @@ class Poll < ApplicationRecord
   has_one_attached :option_b_img
   
   scope :recent, -> { all.order(created_at: :desc) }
+  scope :is_expired, -> { where("expiry_time < ?", DateTime.now) }
   
   def expire=(input)
     days = input[:days].to_i
