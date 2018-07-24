@@ -10,11 +10,11 @@ $(document).ready(function() {
 function updateFollow(evt, data, status, xhr) {
    response = evt["detail"][0]
    pollId = response["pollId"]
-
    pollFollowElement = document.getElementById("poll-follow-" + pollId)
-   console.log("poll-follow-" + pollId)
+   var pollFollowIcon = document.querySelector('#follower-' + pollId)
    pollFollowElement.innerHTML = response["content"]
-
+   pollFollowIcon.classList = response["icon"];
+   console.log(pollFollowIcon.classList)
    pollFollowLink = document.getElementById("poll-follow-path-" + pollId)
    pollFollowLink.setAttribute('href', response["path"])
    pollFollowLink.setAttribute('data-method', response["method"])

@@ -6,7 +6,8 @@ class FollowsController < ApplicationController
       if @follow.save
         render json: {
           "status": "success",
-          "content": "unfollow",
+          "content": "following",
+          "icon": "icon-following",
           "pollId": @poll.id,
           "path": poll_follow_path(@poll.id, @follow.id),
           "method": "delete"
@@ -16,14 +17,16 @@ class FollowsController < ApplicationController
           "status": "error",
           "pollId": @poll.id,
           "content": "reload and try again",
+          "icon": "icon-follow"
           }, status: :unprocessable_entity
       end
     else
       render json: {
         "status": "error",
         "pollId": @poll.id,
-        "content": "log in to follow"
-        }, status: :precondition_failed 
+        "content": "log in to follow",
+        "icon": "icon-follow"
+        }, status: :precondition_failed
     end
   end
 
@@ -34,6 +37,7 @@ class FollowsController < ApplicationController
       render json: {
           "status": "success",
           "content": "follow",
+          "icon": "icon-follow",
           "pollId": @poll.id,
           "path": poll_follows_path(@poll),
           "method": "post"
@@ -43,6 +47,7 @@ class FollowsController < ApplicationController
           "status": "error",
           "pollId": @poll.id,
           "content": "reload and try again",
+          "icon": "icon-follow"
           }, status: :unprocessable_entity
     end
   end
