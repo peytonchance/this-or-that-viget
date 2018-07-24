@@ -4,6 +4,7 @@ class Api::PollsController < Api::ApiController
 
   def index
     render json: {
+      "status": "success",
       poll: Poll.recent.as_json
       }, status: :accepted
   end
@@ -13,8 +14,9 @@ class Api::PollsController < Api::ApiController
     poll = user.polls.new(poll_params.merge(expired: false))
     if poll.save 
       render json: {
-      poll: JSON.parse(poll.to_json)
-      }, status: :accepted
+        "status": "success",
+        poll: poll.as_json
+        }, status: :accepted
     else
       render json: {
         "status": "error",
@@ -25,6 +27,7 @@ class Api::PollsController < Api::ApiController
 
   def show
     render json: {
+      "status": "success",
       poll: Poll.find(params[:id]).as_json
       }, status: :accepted
   end
