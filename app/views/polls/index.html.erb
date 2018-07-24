@@ -1,1 +1,5 @@
-<%= render partial: 'shared/poll', collection: @polls %>
+<% if @polls.empty? %>
+   <%= render partial: 'shared/no-polls' %>
+<% else %>
+   <%= render partial: 'shared/poll', collection: @polls %>
+<% end %>
