@@ -4,15 +4,22 @@ class Api::RegistrationsController < Api::ApiController
     if @user.save
       render json: {
         "status": "success",
-        "user": "blah"
+        "user": {
+          "id": @user.id,
+          "email": @user.email,
+          "username": @user.username
+          }
         }, status: :accepted
     else
-      render json: 
+      render json: {
+        "status": "error",
+        "messsage": @user.errors.full_messages
+        }, status: :unprocessable_entity
     end
   end
   
   private
   def registration_params
-    params.permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 end

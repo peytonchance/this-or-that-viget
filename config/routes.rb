@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resource :profiles, only: [:show]
   
   namespace :api do
-    resource :registrations, only: [:create, :show]
+    resource :registrations, only: [:create]
+    resource :sessions, only: [:create]
   end
   
   root "polls#index"
