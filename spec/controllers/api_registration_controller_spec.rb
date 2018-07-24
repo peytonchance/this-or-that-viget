@@ -58,11 +58,7 @@ RSpec.describe Api::RegistrationsController, type: :controller do
       user = User.first
       expect(response.body).to eq({
         "status": "success",
-        "user": {
-          "id": user.id,
-          "email": user.email,
-          "username": user.username
-          }
+        "user": user
         }.to_json)
     end
   end

@@ -4,11 +4,7 @@ class Api::RegistrationsController < Api::ApiController
     if @user.save
       render json: {
         "status": "success",
-        "user": {
-          "id": @user.id,
-          "email": @user.email,
-          "username": @user.username
-          }
+        "user": @user
         }, status: :accepted
     else
       render json: {

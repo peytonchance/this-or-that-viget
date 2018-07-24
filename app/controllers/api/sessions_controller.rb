@@ -4,11 +4,7 @@ class Api::SessionsController < Api::ApiController
     if @user && @user.valid_password?(session_params[:password])
       render json: {
         "status": "success",
-        "user": { 
-          "id": @user.id,
-          "email": @user.email,
-          "username": @user.username
-          }
+        "user": @user
         }, status: :accepted
     else
       render json: {
