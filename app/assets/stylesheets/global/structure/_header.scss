@@ -188,11 +188,16 @@ li.header__session-links {
 }
 
 .header__username__arrow {
-  border: 6px solid transparent;
-  border-top: 7px solid;
-  position: absolute;
-  right: 16px;
-  top: 4px;
+  position: relative;
+
+  &:after {
+    border: 6px solid transparent;
+    border-top: 7px solid;
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 4px;
+  }
 }
 
 .header__dropdown {
