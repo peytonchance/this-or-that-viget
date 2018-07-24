@@ -47,8 +47,10 @@
     <div class="poll__options">
      <% if poll.get_option_a_img.present? %>
         <div id="option-a-<%= poll.id %>" class="poll__options__option">
+          <p><%= poll.option_a %></p>
         </div>
         <div id="option-b-<%= poll.id %>"class="poll__options__option">
+          <p><%= poll.option_b %></p>
         </div>
       <% else %>
         <div id="option-a-<%= poll.id %>" class="poll__options__option">
