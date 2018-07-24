@@ -1,24 +1,32 @@
-<style>
-  
-/* Styling changes so I can see the images if they're given. Peyton may changes this in the future to his liking */  
-#option-a-<%= @poll.id %> {
-  <% if @poll.get_option_a_img.present? %>
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= @poll.get_option_a_img %>);
-    background-size: auto 230px;
-    background-position: center;
-    background-repeat: no-repeat;
+<% if poll.get_option_a_img.present? %>
+  <style>
+    #option-a-<%= poll.id %> {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= poll.get_option_a_img %>);
+      background-size: cover;
+    }
+
+    #option-a-<%= poll.id %>:after {
+        background: radial-gradient(rgba(97, 183, 242, 1) 50%, rgba(97, 183, 242, 0.3));
+        border-top-left-radius: 100%;
+        border-top-right-radius: 100%;
+        bottom: -50%;
+        content: '<%= poll.option_a %>';
+    }
   <% end %>
-}
-  
-#option-b-<%= @poll.id %> {
-  <% if @poll.get_option_b_img.present? %>
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= @poll.get_option_b_img %>);
-    background-size: auto 230px;
-    background-position: center;
-    background-repeat: no-repeat;
-  <% end %>
-}
-</style>
+
+  <% if poll.get_option_b_img.present? %>
+    #option-b-<%= poll.id %> {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= poll.get_option_b_img %>);
+    }
+
+    #option-b-<%= poll.id %>:after {
+      background: radial-gradient(rgba(252, 185, 44, 1) 50%, rgba(252, 185, 44, 0.6));
+      border-radius: 20px;
+      bottom: -52%;
+      content: '<%= poll.option_b %>';
+    }
+  </style>
+<% end %>
 
 <article class="poll poll-detailed">
   <div class="poll__content">
@@ -28,7 +36,7 @@
       <ul>
         <li><i class="icon-fire"></i><span><%= pluralize(@poll.vote_count, "vote") %></span></li>
         <li>
-          <% if @poll.expired? %> 
+          <% if @poll.expired? %>
             <i class="icon-expired"></i><span>expired</span>
           <% else %>
             <i class="icon-clock"></i><span><%= @poll.time_left %> left</span>
@@ -37,12 +45,19 @@
       </ul>
     </div>
     <div class="poll__options">
-      <div id="option-a-<%= @poll.id %>" class="poll__options__option">
-        <%= @poll.option_a %>
-      </div>
-      <div id="option-b-<%= @poll.id %>"class="poll__options__option">
-        <%= @poll.option_b %>
-      </div>
+     <% if poll.get_option_a_img.present? %>
+        <div id="option-a-<%= poll.id %>" class="poll__options__option">
+        </div>
+        <div id="option-b-<%= poll.id %>"class="poll__options__option">
+        </div>
+      <% else %>
+        <div id="option-a-<%= poll.id %>" class="poll__options__option">
+          <%= poll.option_a %>
+        </div>
+        <div id="option-b-<%= poll.id %>"class="poll__options__option">
+          <%= poll.option_b %>
+        </div>
+      <% end %>
     </div>
     <ul class="poll__actions">
       <li class="poll__actions__comments poll__actions__action">

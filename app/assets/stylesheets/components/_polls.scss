@@ -43,7 +43,7 @@
     max-width: 100px;
 
     @media ($screen-md-up) {
-      margin-left: -60px;
+      margin-left: -40px;
       min-width: 120px;
     }
   }
@@ -129,7 +129,7 @@
 
 .poll__options__option {
   align-items: center;
-  background-size: auto 230px;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: color(white);

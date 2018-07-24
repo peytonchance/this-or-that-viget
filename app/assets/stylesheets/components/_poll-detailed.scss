@@ -2,7 +2,8 @@
   flex-direction: column;
   height: initial;
   justify-content: space-around;
-  margin-top: 250px;
+  margin-top: 175px;
+  max-width: 800px;
   z-index: 0;
 
   @media ($screen-md-up) {
@@ -33,6 +34,7 @@
   }
 
   .poll__content {
+    width: 100%;
 
     h2 {
       left: 10px;
@@ -54,7 +56,7 @@
     @media ($screen-md-up) {
       height: 250px;
       margin-top: 0;
-      width: 60vw;
+      width: 100%;
     }
 
   }
@@ -80,4 +82,8 @@
       width: 110%;
     }
   }
+}
+
+.poll-detailed.poll {
+  margin-bottom: 50px;
 }
