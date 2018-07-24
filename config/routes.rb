@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   namespace :api do
     resource :registrations, only: [:create]
     resource :sessions, only: [:create]
-    resource :polls, only: [:create, :index, :show]
+    resources :polls, only: [:create, :index, :show]
   end
   
   root "polls#index"

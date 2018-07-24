@@ -1,7 +1,11 @@
 class Api::PollsController < Api::ApiController
-  before_action :verify_user_id
+  before_action :verify_user_id, only: :create
+  before_action :verify_poll_id, only: :show
   
   def index
+    render json: {
+      poll: JSON.parse(Poll.recent.to_json)
+      }, status: :accepted
   end
   
   def create
@@ -9,6 +13,9 @@ class Api::PollsController < Api::ApiController
   end
   
   def show
+    render json: {
+      poll: JSON.parse(Poll.find(params[:id]).to_json)
+      }, status: :accepted
   end
   
   private
@@ -17,10 +24,19 @@ class Api::PollsController < Api::ApiController
   end
   
   def verify_user_id
-    if !User.find(params[:id]).present?
+    if !params[:user_id].present? || !User.find(params[:user_id]).present?
       render json: {
         "status": "error",
         "message": "No user ID provided."
+        }, status: :unauthorized
+    end
+  end
+  
+  def verify_poll_id
+    if !params[:id].present? || !Poll.find(params[:id]).present?
+      render json: {
+        "status": "error",
+        "message": "No poll ID provided."
         }, status: :unauthorized
     end
   end
