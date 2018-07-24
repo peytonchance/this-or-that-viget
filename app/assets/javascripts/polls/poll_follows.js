@@ -8,20 +8,18 @@ $(document).ready(() => {
 });
 
 let updateFollow = (evt, data, status, xhr) => {
-   let response = evt["detail"][0]
-   let pollId = response["pollId"]
+   let { pollId, content, icon, path, method } = evt.detail[0]
    let pollFollowElement = document.getElementById("poll-follow-" + pollId)
    let pollFollowIcon = document.querySelector('#follower-' + pollId)
-   pollFollowElement.innerHTML = response["content"]
-   pollFollowIcon.classList = response["icon"];
+   pollFollowElement.innerHTML = content
+   pollFollowIcon.classList = icon;
    let pollFollowLink = document.getElementById("poll-follow-path-" + pollId)
-   pollFollowLink.setAttribute('href', response["path"])
-   pollFollowLink.setAttribute('data-method', response["method"])
+   pollFollowLink.setAttribute('href', path)
+   pollFollowLink.setAttribute('data-method', method)
 }
 
 let handleFollowError = (evt, xhr, status, error) => {
-   let response = evt["detail"][0]
-   let pollId = response["pollId"]
+   let { pollId, content } = evt.detail[0]
    let pollFollowElement = document.getElementById("poll-follow-" + pollId)
-   pollFollowElement.innerHTML = response["content"]
+   pollFollowElement.innerHTML = content
 }
