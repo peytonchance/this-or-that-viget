@@ -113,19 +113,38 @@
     text-align: center;
 
     &::before {
-      align-items: flex-end;
       background: #FCB92C;
       border-radius: 100px;
-      content: '+';
-      display: flex;
-      font-size: 2.8em;
-      justify-content: center;
+      content: '';
       min-height: 80px;
       padding-bottom: 10px;
       position: absolute;
       top: 0;
       transform: translateY(-105px);
+      transition: transform 1s;
       width: 80px;
+    }
+
+    &::after {
+      content: '+';
+      font-size: 2.8em;
+      position: absolute;
+      transform-origin: 50% 55%;
+      transform: translateY(-40px) rotate(0deg);
+      transition: transform 1s ease-in;
+    }
+
+    &:hover {
+
+      &::before {
+        transform: translateY(-105px) scale(1.04);
+        transition: transform 1s;
+      }
+
+      &::after {
+        transform: translateY(-40px) rotate(330deg);
+        transition: transform 1s;
+      }
     }
   }
 }
