@@ -117,6 +117,59 @@
   }
 }
 
+.polls__wrapper {
+
+  :nth-child(3n-1) {
+    .poll__meta:before {
+      @media ($screen-md-up) {
+        background: image-url('viget-logo-poll.svg') no-repeat center;
+        border: none;
+        height: 50px;
+        left: -50px;
+        width: 50px;
+      }
+
+      @media ($screen-lg-up) {
+        left: -35px;
+      }
+    }
+  }
+
+  :nth-child(3n-2) {
+    .poll__meta:before {
+      @media ($screen-md-up) {
+        background: image-url('long-circle-poll.svg') no-repeat center;
+        border-radius:999px;
+        border: none;
+        height: 60px;
+        left: -50px;
+        width: 70px;
+      }
+
+      @media ($screen-lg-up) {
+        left: -50px;
+      }
+    }
+  }
+
+  :first-child {
+    .poll__meta:before {
+      @media ($screen-md-up) {
+        background: none;
+        border-radius:50%;
+        border: 2px solid color(extra-light-yellow);
+        height: 30px;
+        left: -50px;
+        width: 30px;
+      }
+
+      @media ($screen-lg-up) {
+        left: -30px;
+      }
+    }
+  }
+}
+
 .poll__options {
   display: flex;
   height: 225px;

@@ -1,5 +1,7 @@
 <% if @polls.empty? %>
    <%= render partial: 'shared/no-polls' %>
 <% else %>
-   <%= render partial: 'shared/poll', collection: @polls %>
+  <div class="polls__wrapper">
+    <%= render partial: 'shared/poll', collection: @polls %>
+  </div>
 <% end %>
