@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resource :registrations, only: [:create]
     resource :sessions, only: [:create]
     resources :polls, only: [:create, :index, :show]
+    resources :users, only: [:show]
   end
   
   root "polls#index"
