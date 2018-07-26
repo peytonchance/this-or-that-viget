@@ -1,5 +1,6 @@
 <!-- Single Poll with Comments Page -->
 
-<%= render 'shared/poll-detailed', poll: @poll %>
-
-<%= render partial: 'shared/comments' %>
+<div class="poll-detailed__wrapper">
+  <%= render 'shared/poll-detailed', poll: @poll %>
+  <%= render partial: 'shared/comments' %>
+</div>

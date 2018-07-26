@@ -9,7 +9,6 @@ RSpec.describe "Following a poll", type: :feature, js: true do
         visit poll_path(poll)
         expect(page).to have_content "follow"        
         find("#poll-follow-path-#{poll.id}").click
-        binding.pry
         expect(page).to have_content "log in to follow"
         
       end
