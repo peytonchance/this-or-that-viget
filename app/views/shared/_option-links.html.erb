@@ -4,8 +4,13 @@
         <% else %>
             <%= poll.option_a %>
         <% end %>
+  <%= link_to poll_option_a_path(poll), method: method, id: "option-a-#{poll.id}", class: "option-poll poll__options__option", remote: true do %>
+    <% if poll.get_option_a_img.present? %>
+    <% else %>
+        <%= poll.option_a %>
     <% end %>
-
+    <span id="option-a__percentage-<%= poll.id %>"></span>
+  <% end %>
     <% if optionA && optionB %>
       <style>
         #option-a-<%= poll.id %> {
@@ -23,7 +28,18 @@
         <% else %>
             <%= poll.option_b %>
         <% end %>
+      #option-b-<%= poll.id %> {
+        width: <%= optionB * 100 %>%;
+      }
+    </style>
+  <% end %>
+  <%= link_to poll_option_b_path(poll), method: method, id: "option-b-#{poll.id}", class: "option-poll poll__options__option", remote: true do %>
+    <% if poll.get_option_b_img.present? %>
+    <% else %>
+        <%= poll.option_b %>
     <% end %>
+    <span id="option-b__percentage-<%= poll.id %>"></span>
+  <% end %>
 <% else %>
     <%= link_to 'javascript:;', method: :get, id: "option-a-#{poll.id}", class: "option-poll poll__options__option", remote:true do %>
         <% if poll.get_option_a_img.present? %>
@@ -37,5 +53,18 @@
         <% else %>
             <%= poll.option_b %>
         <% end %>
+  <%= link_to 'javascript:;', method: :get, id: "option-a-#{poll.id}", class: "option-poll poll__options__option", remote:true do %>
+    <% if poll.get_option_a_img.present? %>
+    <% else %>
+        <%= poll.option_a %>
     <% end %>
+    <span id="option-a__percentage-<%= poll.id %>"></span>
+  <% end %>
+  <%= link_to 'javascript:;', method: :get, id: "option-b-#{poll.id}", class: "option-poll poll__options__option", remote:true do %>
+      <% if poll.get_option_b_img.present? %>
+      <% else %>
+          <%= poll.option_b %>
+      <% end %>
+      <span id="option-b__percentage-<%= poll.id %>"></span>
+  <% end %>
 <% end %>
