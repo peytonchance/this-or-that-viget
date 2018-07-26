@@ -6,12 +6,12 @@ $(document).ready(function() {
   if (currElement != null) {
     if (window.location.search === '') {
       currElement.classList.remove(toggled)
-      document.getElementById('poll-recent').classList.add(toggled)
+      document.querySelector('#poll-recent').classList.add(toggled)
     } else {
       query.forEach(function (value, key) {
         if (key === 'feed' && value === 'popular') {
           currElement.classList.remove(toggled)
-          document.getElementById('poll-popular').classList.add(toggled)
+          document.querySelector('#poll-popular').classList.add(toggled)
         }
       });
     }
