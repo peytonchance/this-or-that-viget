@@ -2,7 +2,9 @@
    <%= render partial: 'shared/no-polls' %>
 <% else %>
   <div class="polls__wrapper">
-    <%= render partial: 'shared/poll', collection: @polls %>
+    <% @polls.each_with_index do |poll, poll_num| %>
+      <%= render 'shared/poll', poll: poll, index: poll_num %>
+    <% end %>
   </div>
   <% if !params[:filter] || params[:filter]&.empty? %>
     <%= render partial: 'shared/popular-recent' %>

@@ -1,7 +1,4 @@
 <ul class="feed-filter">
-  <!-- logic for Aatif
-  if currently viewing popular, then give popular the toggled class
-  else give most-recent the toggled class -->
-  <li id="poll-popular" class="feed-filter__popular feed-filter__item--toggled"><%= link_to 'Popular', polls_path(feed: 'popular'), method: :get %></li>
-  <li id="poll-recent" class="feed-filter__most-recent"><%= link_to 'Most Recent', polls_path, method: :get %></li>
+  <li id="poll-popular" class="feed-filter__popular feed-filter__item--toggled"><%= link_to 'Popular', polls_path(feed: 'popular') %></li>
+  <li id="poll-recent" class="feed-filter__most-recent"><%= link_to 'Most Recent', polls_path %></li>
 </ul>

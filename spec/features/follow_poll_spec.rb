@@ -7,10 +7,11 @@ RSpec.describe "Following a poll", type: :feature, js: true do
     context "with no logged in user" do
       it 'does not allow visitor to follow' do
         visit poll_path(poll)
-        expect(page).to have_content "follow"
-        
+        expect(page).to have_content "follow"        
         find("#poll-follow-path-#{poll.id}").click
+        binding.pry
         expect(page).to have_content "log in to follow"
+        
       end
     end
 
@@ -25,7 +26,7 @@ RSpec.describe "Following a poll", type: :feature, js: true do
         expect(page).to have_content "follow"
         
         find("#poll-follow-path-#{poll.id}").click
-        expect(page).to have_content "unfollow"
+        expect(page).to have_content "following"
       end
 
       it "allows user to vote on single poll page" do
@@ -33,7 +34,7 @@ RSpec.describe "Following a poll", type: :feature, js: true do
         expect(page).to have_content "follow"
         
         find("#poll-follow-path-#{poll.id}").click
-        expect(page).to have_content "unfollow"
+        expect(page).to have_content "following"
       end
 
       it "allows user to unfollow a poll" do
@@ -41,7 +42,7 @@ RSpec.describe "Following a poll", type: :feature, js: true do
         expect(page).to have_content "follow"
         
         find("#poll-follow-path-#{poll.id}").click
-        expect(page).to have_content "unfollow"
+        expect(page).to have_content "following"
         
         find("#poll-follow-path-#{poll.id}").click
         expect(page).to have_content "follow"
