@@ -1,3 +1,12 @@
+.polls__wrapper {
+  margin-top: 65px;
+  width: 100%;
+
+  @media ($screen-md-up) {
+    width: 90%;
+  }
+ }
+
 .poll {
   align-items: center;
   display: flex;

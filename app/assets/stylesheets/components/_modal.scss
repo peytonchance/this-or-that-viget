@@ -57,12 +57,15 @@
 }
 
 .body__main {
+  display: flex;
+  flex-direction: column-reverse;
   margin-top: 80px;
   opacity: 1;
   overflow: hidden;
   transition: opacity 0.5s;
 
-  @media ($screen-md-up) {
+  @media ($screen-sm-up) {
+    flex-direction: row;
     margin-top: 50px;
   }
 }

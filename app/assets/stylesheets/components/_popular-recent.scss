@@ -1,0 +1,54 @@
+.feed-filter {
+  align-items: center;
+  background: color(extra-light-yellow);
+  border-radius: 3px;
+  color: color(dark-blue);
+  display: inline-flex;
+  font-size: 0.9em;
+  justify-content: space-around;
+  height: 25px;
+  left: 14%;
+  min-width: 170px;
+  padding: 0;
+  position: fixed;
+  top: 23%;
+  width: 58%;
+
+  @media ($screen-sm-up) {
+    left: auto;
+    right: 6%;
+    top: 21%;
+    width: 10%;
+  }
+}
+
+.feed-filter__item--toggled {
+  position: relative;
+
+  &::after {
+    background: color(white);
+    border: solid 4px color(yellow);
+    border-radius: 999px;
+    content: 'Popular';
+    font-weight: 500;
+    left: -35px;
+    padding: 6px 20px;
+    position: absolute;
+    text-align: center;
+    top: -9px;
+  }
+}
+
+.feed-filter__item--toggled {
+  &.feed-filter__most-recent  {
+    &::after {
+      content: 'Most Recent';
+      left: auto;
+      padding: 6px 5px;
+      right: -20px;
+      width: 85px;
+    }
+  }
+}
+
+

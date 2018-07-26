@@ -4,4 +4,7 @@
   <div class="polls__wrapper">
     <%= render partial: 'shared/poll', collection: @polls %>
   </div>
+  <% if !params[:filter] || params[:filter]&.empty? %>
+    <%= render partial: 'shared/popular-recent' %>
+  <% end %>
 <% end %>
