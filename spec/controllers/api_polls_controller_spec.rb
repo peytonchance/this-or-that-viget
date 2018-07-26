@@ -12,34 +12,35 @@ RSpec.describe Api::PollsController, type: :controller do
         get :show, params: {
           token: token,
           id: 0
-          }
+        }
 
         expect(response.body).to eq({
           "status": "error",
           "message": "Invalid Poll ID"
-          }.to_json)
+        }.to_json)
       end
 
       it 'responds with invalid user id' do
+        binding.pry
         post :create, params: {
           token: token,
           user_id: 0,
-          poll: {
+          poll: attributes_for(:poll,
             title: "API Created Poll",
-            option_a: "Left",
-            option_b: "Right",
-            expire: {
-              days: 1,
-              hours: 0,
-              mins: 0
-              }
-            }
-          }
+            option_a: "Left", 
+            option_b: "Right"
+            ).except(:expiry_time, :expired).merge(
+              expire: {
+                days: 1,
+                hours: 0,
+                mins: 0
+            })
+        }
 
         expect(response.body).to eq({
           "status": "error",
           "message": "Invalid User ID"
-          }.to_json)
+        }.to_json)
       end
     end
     
@@ -49,46 +50,46 @@ RSpec.describe Api::PollsController, type: :controller do
       it 'gets all polls' do
         get :index, params: {
           token: token
-          }
+        }
         expect(response.body).to eq({
           "status": "success",
           poll: [poll_2, poll_1]
-          }.to_json)
+        }.to_json)
       end
       
       it 'shows a single poll' do
         get :show, params: {
           token: token,
           id: poll_2.id
-          }
+        }
         
         expect(response.body).to eq({
           "status": "success",
           poll: poll_2
-          }.to_json)
+        }.to_json)
       end
       
       it 'creates a poll' do
         post :create, params: {
           token: token,
           user_id: user.id,
-          poll: {
+          poll: attributes_for(:poll,
             title: "API Created Poll",
-            option_a: "Left",
-            option_b: "Right",
-            expire: {
-              days: 1,
-              hours: 0,
-              mins: 0
-              }
-            }
-          }
-        
+            option_a: "Left", 
+            option_b: "Right"
+            ).except(:expiry_time, :expired).merge(
+              expire: {
+                days: 1,
+                hours: 0,
+                mins: 0
+            })
+        }
+
         poll = Poll.last
         expect(response.body).to eq({
           "status": "success",
           "poll": poll
-          }.to_json)
+        }.to_json)
       end
     end
   end
