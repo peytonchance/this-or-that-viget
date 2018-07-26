@@ -7,6 +7,8 @@ class PollsController < ApplicationController
       else
         @polls = current_user.followed_polls
       end
+    elsif params[:feed] && params[:feed] == "popular"
+      @polls = Poll.popular
     else
       @polls = Poll.recent
     end
