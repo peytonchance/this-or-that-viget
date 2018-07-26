@@ -1,9 +1,32 @@
-<% if user_signed_in? %>
-    <% if current_user.has_voted?(poll.id) %>
-        <%= render 'shared/option-links', poll: poll, method: :put %>
-    <% else %>
-        <%= render 'shared/option-links', poll: poll, method: :post %>
-    <% end %>
-<% else %>
-    <%= render 'shared/option-links', poll: poll, method: nil %>
-<% end %>
+<div class="poll__options">
+  <% if user_signed_in? %>
+      <% if current_user.has_voted?(poll.id) %>
+          <%= render 'shared/option-links', poll: poll, method: :put, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1) %>
+          </div>
+          <script>
+            if (<%= poll.fraction_of_votes(0) %> !== 0) {
+              var tempIdA = '#option-a__percentage-' + <%= poll.id %>;
+              var optionAPercentage = document.querySelector(tempIdA)
+              optionAPercentage.innerHTML = <%= poll.fraction_of_votes(0) * 100 %> + '%';
+            } else {
+              var optionAText = document.querySelector('#option-a-' + <%= poll.id %>)
+              optionAText.innerHTML = ''
+            }
+            if (<%= poll.fraction_of_votes(1) %> !== 0) {
+              var tempIdB = '#option-b__percentage-' + <%= poll.id %>;
+              var optionBPercentage = document.querySelector(tempIdB)
+              optionBPercentage.innerHTML = <%= poll.fraction_of_votes(1) * 100 %> + '%';
+            } else {
+              var optionBText = document.querySelector('#option-b-' + <%= poll.id %>)
+              optionBText.innerHTML = ''
+            }
+          </script>
+      <% else %>
+          <%= render 'shared/option-links', poll: poll, method: :post, optionA: nil, optionB: nil %>
+          </div>
+      <% end %>
+  <% else %>
+      <%= render 'shared/option-links', poll: poll, method: nil, optionA: nil, optionB: nil %>
+      </div>
+  <% end %>
+

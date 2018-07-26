@@ -11,7 +11,7 @@ function updateOptions(evt, data, status, xhr) {
   response = evt.detail[0]
   optionA = document.getElementById('option-a-' + response.poll)
   optionB = document.getElementById('option-b-' + response.poll)
-  
+
   if (response.pathA && response.pathB) {
     optionA.setAttribute('href', response.pathA)
     optionA.setAttribute('data-method', response.method)
@@ -19,7 +19,7 @@ function updateOptions(evt, data, status, xhr) {
     optionB.setAttribute('href', response.pathB)
     optionB.setAttribute('data-method', response.method)
   }
-  
+
   displayPercentages(response, optionA, optionB)
 }
 
@@ -27,4 +27,8 @@ function displayPercentages(response, optionA, optionB) {
   optionAPercentage = document.querySelector('#option-a__percentage-' + response.poll)
   optionBPercentage = document.querySelector('#option-b__percentage-' + response.poll)
 
+  optionA.style = 'width: ' + (response.optionA * 100) + '%'
+  optionAPercentage.innerHTML = response.optionA * 100 + '%'
+  optionB.style = 'width: ' + (response.optionB * 100) + '%'
+  optionBPercentage.innerHTML = response.optionB * 100 + '%'
 }

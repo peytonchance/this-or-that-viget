@@ -201,6 +201,12 @@
     }
   }
 
+  // &:nth-last-child(2) {
+  //   background-color: color(yellow);
+  //   box-shadow: 0 2px 6px rgba(#000, 0.25);
+  //   width: 50%;
+  // }
+
   &:last-child {
     background-color: color(yellow);
     box-shadow: 0 2px 6px rgba(#000, 0.25);
