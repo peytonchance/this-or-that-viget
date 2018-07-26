@@ -5,5 +5,5 @@
         <%= render 'shared/option-links', poll: poll, method: :post %>
     <% end %>
 <% else %>
-    <%= render 'shared/option-links', poll: nil %>
+    <%= render 'shared/option-links', poll: poll, method: nil %>
 <% end %>

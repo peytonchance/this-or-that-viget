@@ -8,18 +8,23 @@ $(document).ready(function() {
 });
 
 function updateOptions(evt, data, status, xhr) {
-   response = evt["detail"][0]
-   if (response["pathA"] && response["pathB"]) {
-      console.log("path change")
-      optionA = document.getElementById('option-a-' + response["poll"])
-      optionA.setAttribute('href', response["pathA"])
-      optionA.setAttribute('data-method', response["method"])
-      
-      optionB = document.getElementById('option-b-' + response["poll"])
-      optionB.setAttribute('href', response["pathB"])
-      optionB.setAttribute('data-method', response["method"])
-   }
-   
-   console.log(response)
+  response = evt.detail[0]
+  optionA = document.getElementById('option-a-' + response.poll)
+  optionB = document.getElementById('option-b-' + response.poll)
+  
+  if (response.pathA && response.pathB) {
+    optionA.setAttribute('href', response.pathA)
+    optionA.setAttribute('data-method', response.method)
+
+    optionB.setAttribute('href', response.pathB)
+    optionB.setAttribute('data-method', response.method)
+  }
+  
+  displayPercentages(response, optionA, optionB)
+}
+
+function displayPercentages(response, optionA, optionB) {
+  optionAPercentage = document.querySelector('#option-a__percentage-' + response.poll)
+  optionBPercentage = document.querySelector('#option-b__percentage-' + response.poll)
 
 }
