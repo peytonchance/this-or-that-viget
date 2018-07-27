@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resource :sessions, only: [:create]
     resources :polls, only: [:create, :index, :show]
     resources :users, only: [:show]
+    resource :comments, only: [:create, :show]
   end
   
   root "polls#index"
