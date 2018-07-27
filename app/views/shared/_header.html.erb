@@ -26,9 +26,9 @@
         <%= link_to 'Following', polls_path(filter: 'following'), method: :get %>
       </li>
       <li class="header__username">
-        <a href="#" data-module="modal" aria-controls="header__dropdown" class="header__username__arrow"><%= current_user.username %>
+        <a href="#" class="header__username__arrow" data-module="dropdown" aria-controls="#header__dropdown"><%= current_user.username %>
         </a>
-        <ul class="header__dropdown modal" id="header__dropdown" hidden>
+        <ul class="header__dropdown" id="header__dropdown">
           <li class="header__dropdown__item">
             <a href="#" data-module="modal" aria-controls="forgot-password">
              reset password
