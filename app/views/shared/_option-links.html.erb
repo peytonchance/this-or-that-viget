@@ -1,10 +1,5 @@
-<% if !method.nil? %>
-    <%= link_to poll_option_a_path(poll), method: method, id: "option-a-#{poll.id}", class: "option-poll poll__options__option", remote: true do %>
-        <% if poll.get_option_a_img.present? %>
-        <% else %>
-            <%= poll.option_a %>
-        <% end %>
-  <%= link_to poll_option_a_path(poll), method: method, id: "option-a-#{poll.id}", class: "option-poll poll__options__option", remote: true do %>
+<% if !http_method.nil? %>
+  <%= link_to poll_option_a_path(poll), method: http_method, id: "option-a-#{poll.id}", class: "option-poll poll__options__option", remote: true do %>
     <% if poll.get_option_a_img.present? %>
       <p id="option-a-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_a %></p>
     <% else %>
@@ -34,7 +29,7 @@
       }
     </style>
   <% end %>
-  <%= link_to poll_option_b_path(poll), method: method, id: "option-b-#{poll.id}", class: "option-poll poll__options__option", remote: true do %>
+  <%= link_to poll_option_b_path(poll), method: http_method, id: "option-b-#{poll.id}", class: "option-poll poll__options__option", remote: true do %>
     <% if poll.get_option_b_img.present? %>
       <p id="option-b-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_b %></p>
     <% else %>

@@ -1,7 +1,7 @@
 <div class="poll__options">
   <% if user_signed_in? %>
     <% if current_user.has_voted?(poll.id) %>
-      <%= render 'shared/option-links', poll: poll, method: :put, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1) %>
+      <%= render 'shared/option-links', poll: poll, http_method: :put, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1) %>
       </div>
       <script>
         var optionAText = document.querySelector('#option-a-text-' + <%= poll.id %>)
@@ -26,10 +26,10 @@
         }
       </script>
     <% else %>
-      <%= render 'shared/option-links', poll: poll, method: :post, optionA: nil, optionB: nil %>
+      <%= render 'shared/option-links', poll: poll, http_method: :post, optionA: nil, optionB: nil %>
       </div>
     <% end %>
   <% else %>
-    <%= render 'shared/option-links', poll: poll, method: nil, optionA: nil, optionB: nil %>
+    <%= render 'shared/option-links', poll: poll, http_method: nil, optionA: nil, optionB: nil %>
     </div>
   <% end %>
