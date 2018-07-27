@@ -21,7 +21,6 @@ RSpec.describe Api::PollsController, type: :controller do
       end
 
       it 'responds with invalid user id' do
-        binding.pry
         post :create, params: {
           token: token,
           user_id: 0,
