@@ -14,8 +14,10 @@ RSpec.describe Api::UsersController, type: :controller do
       
       expect(response.body).to eq({
         status: "error",
-        message: "Invalid User ID"
+        message: "Invalid request"
       }.to_json)
+      
+      expect(response.status).to eq(400)
     end
     
     it 'returns user with valid id' do
@@ -28,6 +30,8 @@ RSpec.describe Api::UsersController, type: :controller do
         status: "success",
         user: user
       }.to_json)
+      
+      expect(response.status).to eq(200)
     end
   end
 end
