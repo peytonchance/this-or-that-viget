@@ -4,20 +4,24 @@
       <%= render 'shared/option-links', poll: poll, method: :put, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1) %>
       </div>
       <script>
+        var optionAText = document.querySelector('#option-a-text-' + <%= poll.id %>)
+        var optionBText = document.querySelector('#option-b-text-' + <%= poll.id %>)
+
         if (<%= poll.fraction_of_votes(0) %> !== 0) {
           var optionAPercentageId = '#option-a__percentage-' + <%= poll.id %>;
           var optionAPercentage = document.querySelector(optionAPercentageId)
           optionAPercentage.innerHTML = <%= poll.fraction_of_votes(0) * 100 %> + '%';
+          optionAText.innerHTML = '<%= poll.option_a %>'
         } else {
-          var optionAText = document.querySelector('#option-a-' + <%= poll.id %>)
           optionAText.innerHTML = ''
         }
+
         if (<%= poll.fraction_of_votes(1) %> !== 0) {
           var optionBPercentageId = '#option-b__percentage-' + <%= poll.id %>;
           var optionBPercentage = document.querySelector(optionBPercentageId)
           optionBPercentage.innerHTML = <%= poll.fraction_of_votes(1) * 100 %> + '%';
+          optionBText.innerHTML = '<%= poll.option_b %>'
         } else {
-          var optionBText = document.querySelector('#option-b-' + <%= poll.id %>)
           optionBText.innerHTML = ''
         }
       </script>

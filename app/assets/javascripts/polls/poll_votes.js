@@ -26,9 +26,23 @@ function updateOptions(evt, data, status, xhr) {
 function displayPercentages(response, optionA, optionB) {
   optionAPercentage = document.querySelector('#option-a__percentage-' + response.poll)
   optionBPercentage = document.querySelector('#option-b__percentage-' + response.poll)
+  optionAText = document.querySelector('#option-a-text-' + response.poll)
+  optionBText = document.querySelector('#option-b-text-' + response.poll)
 
-  optionA.style = 'width: ' + (response.optionA * 100) + '%'
+  optionAText.innerHTML = response.optionAText
+  optionBText.innerHTML = response.optionBText
   optionAPercentage.innerHTML = response.optionA * 100 + '%'
-  optionB.style = 'width: ' + (response.optionB * 100) + '%'
   optionBPercentage.innerHTML = response.optionB * 100 + '%'
+  optionA.style = 'width: ' + (response.optionA * 100) + '%'
+  optionB.style = 'width: ' + (response.optionB * 100) + '%'
+
+  if (response.optionA === 0) {
+    optionAText.innerHTML = ''
+    optionAPercentage.innerHTML = ''
+  }
+
+  if (response.optionB === 0) {
+    optionBText.innerHTML = ''
+    optionBPercentage.innerHTML = ''
+  }
 }

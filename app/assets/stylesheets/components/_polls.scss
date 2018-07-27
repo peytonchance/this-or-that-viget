@@ -193,7 +193,9 @@
 
   &:first-child {
     background-color: color(light-blue);
+    background-size: cover;
     box-shadow: 0 2px 6px rgba(#000, 0.25);
+    transition: width 2s ease-in-out;
     width: 50%;
 
     @media ($screen-sm-up) {
@@ -203,7 +205,9 @@
 
   &:last-child {
     background-color: color(yellow);
+    background-size: cover;
     box-shadow: 0 2px 6px rgba(#000, 0.25);
+    transition: width 2s ease-in-out;
     width: 50%;
   }
 

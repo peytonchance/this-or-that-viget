@@ -22,22 +22,24 @@ class OptionAsController < ApplicationController
       render json: vote_error_json, status: :unprocessable_entity
     end
   end
-  
-  
-  private 
+
+
+  private
   def vote_error_json
     @hash =  {
         "status": "error",
         "message": "Please try again"
         }
   end
-  
+
   def vote_success_json
     @hash = {
         "status": "success",
         "poll": @poll.id,
         "optionA": @poll.fraction_of_votes(0),
-        "optionB": @poll.fraction_of_votes(1)
+        "optionB": @poll.fraction_of_votes(1),
+        "optionAText": @poll.option_a,
+        "optionBText": @poll.option_b
       }
   end
 end

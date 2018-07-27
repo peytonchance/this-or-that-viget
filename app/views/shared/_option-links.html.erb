@@ -6,8 +6,9 @@
         <% end %>
   <%= link_to poll_option_a_path(poll), method: method, id: "option-a-#{poll.id}", class: "option-poll poll__options__option", remote: true do %>
     <% if poll.get_option_a_img.present? %>
+      <p id="option-a-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_a %></p>
     <% else %>
-        <%= poll.option_a %>
+      <p id="option-a-text-<%= poll.id %>"><%= poll.option_a %></p>
     <% end %>
     <span id="option-a__percentage-<%= poll.id %>"></span>
   <% end %>
@@ -35,8 +36,9 @@
   <% end %>
   <%= link_to poll_option_b_path(poll), method: method, id: "option-b-#{poll.id}", class: "option-poll poll__options__option", remote: true do %>
     <% if poll.get_option_b_img.present? %>
+      <p id="option-b-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_b %></p>
     <% else %>
-        <%= poll.option_b %>
+      <p id="option-b-text-<%= poll.id %>"><%= poll.option_b %></p>
     <% end %>
     <span id="option-b__percentage-<%= poll.id %>"></span>
   <% end %>
@@ -55,15 +57,17 @@
         <% end %>
   <%= link_to 'javascript:;', method: :get, id: "option-a-#{poll.id}", class: "option-poll poll__options__option", remote:true do %>
     <% if poll.get_option_a_img.present? %>
+      <p id="option-a-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_a %></p>
     <% else %>
-        <%= poll.option_a %>
+      <p id="option-a-text-<%= poll.id %>"><%= poll.option_a %></p>
     <% end %>
     <span id="option-a__percentage-<%= poll.id %>"></span>
   <% end %>
   <%= link_to 'javascript:;', method: :get, id: "option-b-#{poll.id}", class: "option-poll poll__options__option", remote:true do %>
       <% if poll.get_option_b_img.present? %>
+        <p id="option-b-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_b %></p>
       <% else %>
-          <%= poll.option_b %>
+        <p id="option-b-text--<%= poll.id %>"><%= poll.option_b %></p>
       <% end %>
       <span id="option-b__percentage-<%= poll.id %>"></span>
   <% end %>
