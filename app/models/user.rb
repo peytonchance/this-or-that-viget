@@ -22,7 +22,11 @@ class User < ApplicationRecord
   end
   
   def has_voted?(id)
-    votes.find_by(poll_id: id).present?
+    get_vote(id).present?
+  end
+  
+  def get_vote(id)
+    votes.find_by(poll_id: id)
   end
 
   

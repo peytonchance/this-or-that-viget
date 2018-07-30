@@ -1,7 +1,11 @@
 <div class="poll__options">
   <% if user_signed_in? %>
     <% if current_user.has_voted?(poll.id) %>
-      <%= render 'shared/option-links', poll: poll, http_method: :put, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1) %>
+      <% if current_user.get_vote(poll.id).option == 0 %>
+        <%= render 'shared/option-links', poll: poll, http_methodA: :delete, http_methodB: :put, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1) %>
+      <% else %>
+        <%= render 'shared/option-links', poll: poll, http_methodA: :put, http_methodB: :delete, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1) %>
+      <% end %>
       </div>
       <script>
         var optionAText = document.querySelector('#option-a-text-' + <%= poll.id %>)
@@ -24,10 +28,10 @@
         }
       </script>
     <% else %>
-      <%= render 'shared/option-links', poll: poll, http_method: :post, optionA: nil, optionB: nil %>
+      <%= render 'shared/option-links', poll: poll, http_methodA: :post, http_methodB: :post , optionA: nil, optionB: nil %>
       </div>
     <% end %>
   <% else %>
-    <%= render 'shared/option-links', poll: poll, http_method: nil, optionA: nil, optionB: nil %>
+    <%= render 'shared/option-links', poll: poll, http_methodA: nil, http_methodB: nil, optionA: nil, optionB: nil %>
     </div>
   <% end %>
