@@ -13,7 +13,6 @@ $(document).ready(function() {
     target.textContent = e.currentTarget.getAttribute("value");
     
     // select the content
-    var currentFocus = document.activeElement;
     target.focus();
     target.setSelectionRange(0, target.value.length);
     document.execCommand("copy");
