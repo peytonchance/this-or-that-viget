@@ -61,10 +61,10 @@
         <%= render 'shared/follow', poll: poll %>
       </li>
       <li class="poll__actions__action">
-        <a href="#TODO">
+        <%= link_to 'javascript:void(0)', id:"poll-copy-link-#{poll.id}", class: 'copy-link-poll', value: poll_url(poll) do %>
           <i class="icon-link"></i>
-          <span>copy link</span>
-        </a>
+          <span id="poll-copy-span-<%= poll.id %>">copy link</span>
+        <% end %>
       </li>
     </ul>
   </div>
