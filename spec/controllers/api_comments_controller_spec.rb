@@ -18,7 +18,7 @@ RSpec.describe Api::CommentsController, type: :controller do
           status: "error",
           message: "Invalid Poll ID"
         }.to_json)
-        expect(response.status).to eq(401)
+        expect(response.status).to eq(422)
       end
       
       it 'shows the number of comments currently on poll' do
@@ -63,7 +63,7 @@ RSpec.describe Api::CommentsController, type: :controller do
           status: "error",
           message: "Invalid User ID"
         }.to_json)
-        expect(response.status).to eq(401)
+        expect(response.status).to eq(422)
       end
       
       it 'creates a comment on the poll' do

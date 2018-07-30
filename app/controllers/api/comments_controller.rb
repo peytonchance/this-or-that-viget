@@ -10,10 +10,7 @@ class Api::CommentsController < Api::ApiController
         comment: comment
         }, status: :ok
     else
-      render json: {
-        status: "error",
-        message: comment.errors.full_messages
-        }, status: :unprocessable_entity
+      respond_with_error(comment.errors.full_messages)
     end
   end
 
@@ -22,38 +19,34 @@ class Api::CommentsController < Api::ApiController
       render json: {
         status: "success",
         comment: @poll.comments.count
-      }, status: :ok
+        }, status: :ok
     else
       render json: {
         status: "success",
         comment: @poll.comments
-      }, status: :ok
+        }, status: :ok
     end
   end
-  
+
   def comment_params
     params.require(:comment).permit(:body)
   end
 
   def verify_user_id
-    if !params[:user_id].present? || !User.find_by(id: params[:user_id]).present?
-      render json: {
-        status: "error",
-        message: "Invalid User ID"
-        }, status: :unauthorized
-    else
-      @user = User.find_by(id: params[:user_id])
+    @user = User.find_by(id: params[:user_id]) if params[:user_id].present?
+    if @user.nil?
+      respond_with_error("Invalid User ID")
     end
   end
 
   def verify_poll_id
-    if !params[:poll_id].present? || !Poll.find_by(id: params[:poll_id]).present?
-      render json: {
-        status: "error",
-        message: "Invalid Poll ID"
-        }, status: :unauthorized
-    else
-      @poll = Poll.find_by(id: params[:poll_id])
+    @poll = Poll.find_by(id: params[:poll_id]) if params[:poll_id].present?
+    if @poll.nil?
+      respond_with_error("Invalid Poll ID")
     end
+  end
+
+  def respond_with_error(message, status: :unprocessable_entity)
+    render(json: {status: "error", message: message}, status: status)
   end
 end
