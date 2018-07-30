@@ -1,4 +1,6 @@
 class Poll < ApplicationRecord
+  after_destroy_commit :delete_images
+  
   belongs_to :user
   attr_accessor :expire_days
   attr_accessor :expire_hours
@@ -33,8 +35,13 @@ class Poll < ApplicationRecord
     self.expiry_time = Time.now + days.day + hours.hour + mins.minutes
   end
   
-  def owns_poll?(user)
+  def owned_by?(user)
     self.user == user
+  end
+  
+  def delete_images
+    option_a_img.purge if option_a_img.attached?
+    option_b_img.purge if option_b_img.attached?
   end
   
   def comment_count

@@ -37,10 +37,8 @@ class PollsController < ApplicationController
   def destroy 
     session[:return_to] ||= request.referer
     
-    @poll = Poll.find(params[:id])
-    @poll.option_a_img.purge if @poll.option_a_img.attached?
-    @poll.option_b_img.purge if @poll.option_b_img.attached?
-    @poll.destroy
+    poll = current_user.polls.find(params[:id])
+    poll.destroy
     
     redirect_to session.delete(:return_to)
   end
