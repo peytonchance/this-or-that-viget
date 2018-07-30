@@ -6,6 +6,7 @@ class RegistrationController < Devise::RegistrationsController
     if @user.save
       set_flash_message! :notice, :signed_up
       sign_up("user", @user)
+      cookies.signed.permanent[:user_id] = @user.id
       render json: {
         "status": "success",
         }
