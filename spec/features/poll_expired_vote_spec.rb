@@ -14,8 +14,7 @@ RSpec.describe "Expired polls show results", type: :feature, js:true do
     end
 
     it 'shows no percentage if poll is expired with no votes' do
-      poll.expired = true
-      poll.save
+      poll.update_attributes(expired: true)
       visit root_path
       expect(page).to have_content '0 votes'
       expect(page).to have_content 'Choice 1'
@@ -25,10 +24,8 @@ RSpec.describe "Expired polls show results", type: :feature, js:true do
 
     it 'shows percentage if poll is expired with votes' do
       create(:vote, poll: poll, user: user, option: 0)
-      poll.expired = true
-      poll.save
+      poll.update_attributes(expired: true)
       visit root_path
-      binding.pry
       expect(page).to have_content '1 vote'
       expect(find("#option-a-#{poll.id}")).to have_content '100%'
       expect(find("#option-b-#{poll.id}")).to have_content ''
