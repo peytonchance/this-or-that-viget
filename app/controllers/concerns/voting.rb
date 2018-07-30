@@ -36,7 +36,9 @@ module Voting
       "status": "success",
       "poll": poll.id,
       "optionA": poll.fraction_of_votes(0),
-      "optionB": poll.fraction_of_votes(1)
+      "optionB": poll.fraction_of_votes(1),
+      "optionAText": poll.option_a,
+      "optionBText": poll.option_b
     }
   end
 end
