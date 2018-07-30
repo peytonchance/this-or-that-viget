@@ -8,4 +8,8 @@ class OptionBsController < ApplicationController
   def update
     update_vote_for(1)
   end
+  
+  def destroy
+    destroy_vote_for(1)
+  end
 end
