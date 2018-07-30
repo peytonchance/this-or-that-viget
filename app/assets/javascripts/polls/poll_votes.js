@@ -21,6 +21,8 @@ function updateOptions(evt, data, status, xhr) {
 
     optionB.setAttribute('href', response.pathB)
     optionB.setAttribute('data-method', response.method)
+    
+    document.querySelector('#poll-vote-count-' + response.poll).innerHTML = response.count
   }
 
   displayPercentages(response, optionA, optionB)

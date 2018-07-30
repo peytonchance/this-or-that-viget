@@ -19,6 +19,7 @@ RSpec.describe "Voting on a poll on the index page", type: :feature, js:true do
       it 'clicking on vote for first time reveals percentage' do
         login_as(user)
         visit root_path
+        expect(page).to have_content '0 votes'
 
         option_a_element = find("#option-a-#{poll.id}")
         option_a_element.click
@@ -26,23 +27,27 @@ RSpec.describe "Voting on a poll on the index page", type: :feature, js:true do
         sleep(inspection_time=0.5)
 
         expect(option_a_element).to have_content '100%'
+        expect(page).to have_content '1 vote'
         expect(find("#option-b-#{poll.id}")).to have_content ''
       end
 
       it 'allows user to change the vote' do
         login_as(user)
         visit root_path
+        expect(page).to have_content '0 votes'
 
         option_a_element = find("#option-a-#{poll.id}")
         option_b_element = find("#option-b-#{poll.id}")
         option_a_element.click
 
         sleep(inspection_time=0.5)
+        expect(page).to have_content '1 vote'
         expect(option_a_element).to have_content '100%'
         expect(option_b_element).to have_content ''
 
         option_b_element.click
         sleep(inspection_time=0.5)
+        expect(page).to have_content '1 vote'
         expect(option_a_element).to have_content ''
         expect(option_b_element).to have_content '100%'
       end
@@ -57,10 +62,12 @@ RSpec.describe "Voting on a poll on the index page", type: :feature, js:true do
       end
 
       it 'displays 50/50 when clicking on the other option' do
+        expect(page).to have_content '1 vote'
         option_a_element = find("#option-a-#{poll.id}")
         option_b_element = find("#option-b-#{poll.id}")
         option_a_element.click
         
+        expect(page).to have_content '2 votes'
         expect(option_a_element).to have_content '50%'
         expect(option_b_element).to have_content '50%'
       end

@@ -34,7 +34,7 @@
     <div class="poll__meta">
       <p><%= @poll.user.username %></p>
       <ul>
-        <li><i class="icon-fire"></i><span><%= pluralize(@poll.vote_count, "vote") %></span></li>
+        <li><i class="icon-fire"></i><span id="poll-vote-count-<%= @poll.id %>"><%= pluralize(@poll.vote_count, "vote") %></span></li>
         <li>
           <% if @poll.expired? %>
             <i class="icon-expired"></i><span>expired</span>
