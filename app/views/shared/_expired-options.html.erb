@@ -1,0 +1,53 @@
+<div class="poll__options">
+  <% if poll.vote_count > 0 %>
+    <%= link_to 'javascript:void(0)', method: :get, id: "option-a-#{poll.id}", class: "option-poll poll__options__option", remote: true do %>
+      <% if poll.get_option_a_img.present? %>
+        <p id="option-a-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_a %></p>
+      <% else %>
+        <p id="option-a-text-<%= poll.id %>"><%= poll.option_a %></p>
+      <% end %>
+      <span id="option-a__percentage-<%= poll.id %>"></span>
+    <% end %>
+
+    <style>
+        #option-a-<%= poll.id %> {
+          width: <%= poll.fraction_of_votes(0) * 100 %>%;
+        }
+        #option-b-<%= poll.id %> {
+          width: <%= poll.fraction_of_votes(1) * 100 %>%;
+        }
+    </style>
+
+    <%= link_to 'javascript:void(0)', method: :get, id: "option-b-#{poll.id}", class: "option-poll poll__options__option", remote: true do %>
+      <% if poll.get_option_b_img.present? %>
+        <p id="option-b-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_b %></p>
+      <% else %>
+        <p id="option-b-text-<%= poll.id %>"><%= poll.option_b %></p>
+      <% end %>
+      <span id="option-b__percentage-<%= poll.id %>"></span>
+    <% end %>
+    </div>
+    <script>
+      var optionAText = document.querySelector('#option-a-text-' + <%= poll.id %>)
+      var optionBText = document.querySelector('#option-b-text-' + <%= poll.id %>)
+      if (<%= poll.fraction_of_votes(0) %> !== 0) {
+        var optionAPercentageId = '#option-a__percentage-' + <%= poll.id %>;
+        var optionAPercentage = document.querySelector(optionAPercentageId)
+        optionAPercentage.innerHTML = <%= poll.fraction_of_votes(0) * 100 %> + '%';
+        optionAText.innerHTML = '<%= poll.option_a %>'
+      } else {
+        optionAText.innerHTML = ''
+      }
+      if (<%= poll.fraction_of_votes(1) %> !== 0) {
+        var optionBPercentageId = '#option-b__percentage-' + <%= poll.id %>;
+        var optionBPercentage = document.querySelector(optionBPercentageId)
+        optionBPercentage.innerHTML = <%= poll.fraction_of_votes(1) * 100 %> + '%';
+        optionBText.innerHTML = '<%= poll.option_b %>'
+      } else {
+        optionBText.innerHTML = ''
+      }
+    </script>
+  <% else %>
+    <%= render 'shared/option-links', poll: poll, http_method: nil, optionA: nil, optionB: nil %>
+    </div>
+  <% end %>

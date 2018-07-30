@@ -1,6 +1,6 @@
 require 'rails_helper' 
 
-RSpec.describe "Voting on a poll on the index page", type: :feature, js:true do
+RSpec.describe "Voting on a poll", type: :feature, js:true do
   context "with an existing poll and user" do
     let!(:user) {create(:user)}
     let!(:poll) {create(:poll, title: "Voting Poll", option_a: 'Choice 1', option_b: 'Choice 2')}
