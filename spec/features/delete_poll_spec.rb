@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Creating a poll", type: :feature do
+RSpec.describe "Deleting a poll", type: :feature do
   context "with an existing poll and user" do
     let!(:user) {create(:user)}
     let!(:poll) {create(:poll, user: user)}
