@@ -46,7 +46,6 @@
   }
 }
 
-
 .feed-filter__item--toggled {
   &.feed-filter__popular {
     &::before {
@@ -68,6 +67,7 @@
       left: auto;
       padding: 4px 5px;
       right: -20px;
+      transition: transform 1s;
       width: 85px;
     }
 
@@ -82,5 +82,40 @@
     }
   }
 }
+
+.feed-filter__most-recent {
+  &.toggle--animating {
+    &::after {
+      border: solid 3px color(yellow);
+      border-radius: 999px;
+      content: 'Popular';
+      transform: translateX(-100px);
+      transition: transform 1s;
+    }
+    &::before {
+      content: none;
+    }
+  }
+}
+
+.feed-filter__popular {
+  &.toggle--animating {
+    &::after {
+      border: solid 3px color(light-blue);
+      border-radius: 3px;
+      content: 'Most Recent';
+      left: auto;
+      padding: 4px 5px;
+      right: -20px;
+      transform: translateX(100px);
+      transition: transform 1s;
+      width: 85px;
+    }
+    &::before {
+      content: none;
+    }
+  }
+}
+
 
 
