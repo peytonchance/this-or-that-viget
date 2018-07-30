@@ -51,6 +51,27 @@ RSpec.describe "Voting on a poll", type: :feature, js:true do
         expect(option_a_element).to have_content ''
         expect(option_b_element).to have_content '100%'
       end
+
+      it 'allows user to retract the vote' do
+        login_as(user)
+        visit root_path
+        expect(page).to have_content '0 votes'
+
+        option_a_element = find("#option-a-#{poll.id}")
+        option_b_element = find("#option-b-#{poll.id}")
+        option_a_element.click
+
+        sleep(inspection_time=0.5)
+        expect(page).to have_content '1 vote'
+        expect(option_a_element).to have_content '100%'
+        expect(option_b_element).to have_content ''
+
+        option_a_element.click
+
+        sleep(inspection_time=0.5)
+        expect(page).to have_content '0 votes'
+        expect(page).to_not have_content '%'
+      end
     end
 
     context "with two users, one being signed in" do
@@ -66,7 +87,7 @@ RSpec.describe "Voting on a poll", type: :feature, js:true do
         option_a_element = find("#option-a-#{poll.id}")
         option_b_element = find("#option-b-#{poll.id}")
         option_a_element.click
-        
+
         expect(page).to have_content '2 votes'
         expect(option_a_element).to have_content '50%'
         expect(option_b_element).to have_content '50%'
