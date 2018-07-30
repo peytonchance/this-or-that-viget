@@ -33,6 +33,10 @@ class Poll < ApplicationRecord
     self.expiry_time = Time.now + days.day + hours.hour + mins.minutes
   end
   
+  def owns_poll?(user)
+    self.user == user
+  end
+  
   def comment_count
     comments.count
   end

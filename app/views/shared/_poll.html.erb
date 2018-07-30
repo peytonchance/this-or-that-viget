@@ -66,6 +66,12 @@
           <span id="poll-copy-span-<%= poll.id %>">copy link</span>
         <% end %>
       </li>
+      <% if user_signed_in? && poll.owns_poll?(current_user) %>
+        <%= link_to poll_path(poll), method: :delete, id: '', class: '' do %>
+            <i class="icon-link"></i>
+            <span>delete</span>
+        <% end %>
+      <% end %>
     </ul>
   </div>
 </article>
