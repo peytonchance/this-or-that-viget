@@ -3,7 +3,7 @@ $(document).ready(function() {
    $options.bind('ajax:success', function(evt, data, status, xhr) {
       updateOptions(evt, data, status, xhr);
    }).bind('ajax:error', function(evt, xhr, status, error){
-      console.log(evt)
+      console.log("Unauthorized user")
    });
 });
 
@@ -24,6 +24,7 @@ function updateOptions(evt, data, status, xhr) {
 }
 
 function displayPercentages(response, optionA, optionB) {
+  
   optionAPercentage = document.querySelector('#option-a__percentage-' + response.poll)
   optionBPercentage = document.querySelector('#option-b__percentage-' + response.poll)
   optionAText = document.querySelector('#option-a-text-' + response.poll)

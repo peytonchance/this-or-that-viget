@@ -1,4 +1,4 @@
-<% if !http_method.nil? %>
+<% if http_method.present? %>
   <%= link_to poll_option_a_path(poll), method: http_method, id: "option-a-#{poll.id}", class: "option-poll poll__options__option", remote: true do %>
     <% if poll.get_option_a_img.present? %>
       <p id="option-a-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_a %></p>
@@ -51,6 +51,7 @@
             <%= poll.option_b %>
         <% end %>
   <%= link_to 'javascript:;', method: :get, id: "option-a-#{poll.id}", class: "option-poll poll__options__option", remote:true do %>
+  <%= link_to 'javascript:void(0)', method: :get, id: "option-a-#{poll.id}", class: "option-poll poll__options__option", remote:true do %>
     <% if poll.get_option_a_img.present? %>
       <p id="option-a-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_a %></p>
     <% else %>
@@ -58,7 +59,7 @@
     <% end %>
     <span id="option-a__percentage-<%= poll.id %>"></span>
   <% end %>
-  <%= link_to 'javascript:;', method: :get, id: "option-b-#{poll.id}", class: "option-poll poll__options__option", remote:true do %>
+  <%= link_to 'javascript:void(0)', method: :get, id: "option-b-#{poll.id}", class: "option-poll poll__options__option", remote:true do %>
       <% if poll.get_option_b_img.present? %>
         <p id="option-b-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_b %></p>
       <% else %>
