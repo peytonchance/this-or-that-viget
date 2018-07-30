@@ -6,7 +6,6 @@
       <script>
         var optionAText = document.querySelector('#option-a-text-' + <%= poll.id %>)
         var optionBText = document.querySelector('#option-b-text-' + <%= poll.id %>)
-
         if (<%= poll.fraction_of_votes(0) %> !== 0) {
           var optionAPercentageId = '#option-a__percentage-' + <%= poll.id %>;
           var optionAPercentage = document.querySelector(optionAPercentageId)
@@ -15,7 +14,6 @@
         } else {
           optionAText.innerHTML = ''
         }
-
         if (<%= poll.fraction_of_votes(1) %> !== 0) {
           var optionBPercentageId = '#option-b__percentage-' + <%= poll.id %>;
           var optionBPercentage = document.querySelector(optionBPercentageId)

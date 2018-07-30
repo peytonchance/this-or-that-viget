@@ -1,3 +1,6 @@
+var optionA
+var optionB
+
 $(document).ready(function() {
    var $options = $(".option-poll")
    $options.bind('ajax:success', function(evt, data, status, xhr) {
