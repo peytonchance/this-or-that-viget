@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :polls do
     resource :comments, only: [:create]
     resources :follows, only: [:create, :destroy]
-    resource :option_a, only: [:create, :update]
-    resource :option_b, only: [:create, :update]
+    resource :option_a, only: [:create, :update, :destroy]
+    resource :option_b, only: [:create, :update, :destroy]
   end
   
   resource :profiles, only: [:show]
