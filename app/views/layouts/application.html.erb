@@ -39,11 +39,19 @@
     }
 
     .canvas__wrapper {
-      background: #61b7f2;
+      <% if params[:filter] == 'mypolls' %>
+        background: #fcb92c;
+      <% elsif params[:filter] == 'following' %>
+        background: #144b71;
+      <% else %>
+        background: #61b7f2;
+      <% end %>
       max-height: 200px;
+      opacity: 0;
       padding-bottom: 0;
-      position: fixed;
+      position: absolute;
       top: 0;
+      transition: opacity 0.5s;
       width: 100%;
       z-index: 0;
     }
@@ -186,6 +194,10 @@
             }
         }
     </script>
+    <script>
+      setTimeout(() => {
+      document.querySelector('.canvas__wrapper').style = 'opacity: 1;'
+    }, 500)</script>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
