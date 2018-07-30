@@ -17,6 +17,7 @@
   max-width: 900px;
   position: relative;
   width: 90%;
+  z-index: 1;
 
   @media ($screen-md-up) {
     flex-direction: row;
