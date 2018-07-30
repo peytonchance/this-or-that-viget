@@ -39,18 +39,19 @@ RSpec.describe Api::FollowsController, type: :controller do
     describe "creating a follow" do
       it 'creates a new follow with valid params' do
         follow_user = create(:user)
-        post :create, params: {
-          token: token,
-          poll_id: poll.id,
-          user_id: follow_user.id
-        }
+        expect do
+          post :create, params: {
+            token:   token,
+            poll_id: poll.id,
+            user_id: follow_user.id
+          }
+        end.to change { poll.follows.count }.by(1)
 
         expect(response.body).to eq({
           status: "success",
           follow: true
         }.to_json)
         expect(response.status).to eq(200)
-        expect(poll.follows.count).to eq(2)
         expect(poll.follows.last.user).to eq(follow_user)
       end
     end
@@ -73,18 +74,19 @@ RSpec.describe Api::FollowsController, type: :controller do
     
     describe "unfollowing a poll" do
       it 'unfollows the poll and returns false' do
-        delete :destroy, params: {
-          token: token,
-          poll_id: poll.id,
-          user_id: user.id
-        }
+        expect do
+          delete :destroy, params: {
+            token: token,
+            poll_id: poll.id,
+            user_id: user.id
+          }
+        end.to change { poll.follows.count }.by(-1)
 
         expect(response.body).to eq({
           status: "success",
           follow: false
         }.to_json)
         expect(response.status).to eq(200)
-        expect(poll.follows.count).to eq(0)
       end
     end
   end

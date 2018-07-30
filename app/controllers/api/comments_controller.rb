@@ -31,22 +31,4 @@ class Api::CommentsController < Api::ApiController
   def comment_params
     params.require(:comment).permit(:body)
   end
-
-  def verify_user_id
-    @user = User.find_by(id: params[:user_id]) if params[:user_id].present?
-    if @user.nil?
-      respond_with_error("Invalid User ID")
-    end
-  end
-
-  def verify_poll_id
-    @poll = Poll.find_by(id: params[:poll_id]) if params[:poll_id].present?
-    if @poll.nil?
-      respond_with_error("Invalid Poll ID")
-    end
-  end
-
-  def respond_with_error(message, status: :unprocessable_entity)
-    render(json: {status: "error", message: message}, status: status)
-  end
 end
