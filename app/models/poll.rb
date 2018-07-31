@@ -74,7 +74,7 @@ class Poll < ApplicationRecord
   end
 
   def fraction_of_votes(option)
-    (total_votes(option).to_f / votes.count.to_f).round(2)
+    (total_votes(option).to_f / votes.count.to_f).round(3)
   end
 
   def get_option_a_img
