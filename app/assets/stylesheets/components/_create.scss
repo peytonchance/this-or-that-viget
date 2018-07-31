@@ -182,9 +182,15 @@ input.create-modal__submit {
   border-radius: 999px;
   box-shadow: 0 2px 4px rgba(#000, 0.15);
   color: color(dark-blue);
+  font-weight: 500;
   height: 40px;
   justify-self: center;
   margin: 30px auto;
   text-transform: uppercase;
   width: 195px;
+
+  &:hover {
+    cursor: pointer;
+    font-weight: 600;
+  }
 }
