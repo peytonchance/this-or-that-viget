@@ -12,7 +12,7 @@
 
       <div class="create-modal__fields__name-poll">
         <h3><span class="form__required">*</span>Give your poll a title <em>(max 45 characters)</em></h3>
-        <%= f.text_field :title, value: "ex: should I buy this or that?", id: "poll-title" %>
+        <%= f.text_field :title, placeholder: "ex: should I buy this or that?", id: "poll-title" %>
       </div>
 
       <h3>Upload photos <em>(optional)</em></h3>
@@ -43,26 +43,26 @@
       </div>
       <div class="create-modal__fields__option-labels">
         <div class="create-modal__fields__option-label">
-          <h3><span class="form__required">*</span>Option A</h3>
-          <%= f.text_field :option_a, value: "ex: pizza", id: "poll-option-a" %>
+          <h3><span class="form__required">*</span>Option A <em>(max 25 characters)</em></h3>
+          <%= f.text_field :option_a, placeholder: "ex: pizza", id: "poll-option-a" %>
         </div>
         <div class="create-modal__fields__option-label create-modal__fields__option-label--right">
-          <h3><span class="form__required">*</span>Option B</h3>
-         <%= f.text_field :option_b, value: "ex: tacos", id: "poll-option-b" %>
+          <h3><span class="form__required">*</span>Option B <em>(max 25 characters)</em></h3>
+         <%= f.text_field :option_b, placeholder: "ex: tacos", id: "poll-option-b" %>
         </div>
       </div>
       <h3>Allow others to vote for:</h3>
       <div class="create-modal__fields__duration">
           <div class="create-modal__fields__duration__input">
-            <%= f.number_field "expire[days]", value: 0, id: "poll_expire_days" %>
+            <%= f.number_field "expire[days]", placeholder: 0, id: "poll_expire_days" %>
             <%= f.label :expire_days, "days" %>
           </div>
           <div class="create-modal__fields__duration__input">
-            <%= f.number_field "expire[hours]", value: 0, id: "poll_expire_hours" %>
+            <%= f.number_field "expire[hours]", placeholder: 0, id: "poll_expire_hours" %>
             <%= f.label :expire_hours, "hours" %>
           </div>
           <div class="create-modal__fields__duration__input">
-            <%= f.number_field "expire[mins]", value: 0, id: "poll_expire_mins" %>
+            <%= f.number_field "expire[mins]", placeholder: 0, id: "poll_expire_mins" %>
             <%= f.label :expire_mins, "minutes" %>
           </div>
       </div>
