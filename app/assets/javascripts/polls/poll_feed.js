@@ -1,7 +1,9 @@
 $(document).ready(function() {
-  let toggled = "feed-filter__item--toggled";
-  let currElement = document.querySelector('.' + toggled);
+  let toggled = "feed-filter__item--toggled"
+  let currElement = document.querySelector(`.${toggled}`)
   var query = new URLSearchParams(window.location.search)
+  var popular = document.querySelector('#poll-popular')
+  var recent = document.querySelector('#poll-recent')
 
   if (currElement != null) {
     if (window.location.search === '') {
@@ -16,4 +18,16 @@ $(document).ready(function() {
       });
     }
   }
+
+  var attachAnimations = () => {
+    popular.addEventListener('click', () => {
+      recent.classList.add('toggle--animating')
+    })
+
+    recent.addEventListener('click', () => {
+      popular.classList.add('toggle--animating')
+    })
+  }
+
+  attachAnimations();
 });

@@ -27,7 +27,19 @@
 <% end %>
 
 <article class="poll" id="article-poll-<%= index %>">
-  <div class="poll__meta">
+  <% if user_signed_in? && poll.user == current_user %>
+    <% if poll.expired? %>
+      <div class="poll__meta poll__meta--users-poll poll__meta--users-poll--expired">
+    <% else %>
+      <div class="poll__meta poll__meta--users-poll">
+    <% end %>
+  <% else %>
+    <% if poll.expired? %>
+      <div class="poll__meta poll__meta--expired">
+    <% else %>
+      <div class="poll__meta">
+    <% end %>
+  <% end %>
     <p><%= poll.user.username %></p>
     <ul>
       <li><i class="icon-fire"></i><span id="poll-vote-count-<%= poll.id %>"><%= pluralize(poll.vote_count, "vote") %></span></li>
@@ -43,13 +55,13 @@
 
   <div class="poll__content">
     <h2><%= link_to poll.title, poll %></h2>
-    
+
     <% if poll.expired? %>
       <%= render 'shared/expired-options', poll: poll %>
     <% else %>
       <%= render 'shared/options', poll: poll %>
     <% end %>
-    
+
     <ul class="poll__actions">
       <li class="poll__actions__comments poll__actions__action">
         <%= link_to poll do %>
