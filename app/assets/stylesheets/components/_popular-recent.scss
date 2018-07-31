@@ -23,6 +23,10 @@
   }
 }
 
+.feed-filter li:hover {
+  font-weight: 500;
+}
+
 .feed-filter--blue {
   background: color(extra-light-blue);
   border-radius: 999px;
