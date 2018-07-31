@@ -116,7 +116,7 @@
 }
 
 .poll__meta--users-poll--expired::after {
-  background: color(dark-yellow);
+  background: color(expired-yellow);
 }
 
 .poll__meta--expired::after {
@@ -197,7 +197,7 @@
   background-repeat: no-repeat;
   color: color(white);
   display: flex;
-  font-size: 2em;
+  font-size: calc(200%);
   font-weight: 500;
   justify-content: center;
   overflow: hidden;
@@ -206,7 +206,6 @@
   text-align: center;
 
   @media ($screen-md-up) {
-    font-size: 2.5em;
     padding: 20px;
   }
 
