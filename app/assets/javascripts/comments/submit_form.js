@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#comment-submit').click(function() {
-        $('form#comment-form').submit(function(event) {
+        $('form#comment-form').unbind('submit').submit(function(event) {
             var valuesToSubmit = $(this).serialize();
             
             $.ajax({
