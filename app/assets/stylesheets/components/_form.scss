@@ -78,13 +78,13 @@
 .log-in__submit {
   align-items: center;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: space-between;
   width: 100%;
   margin: auto;
 
   @media ($screen-sm-up) {
-    width: 510px;
+    width: 205px;
   }
 
   a {
