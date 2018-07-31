@@ -52,10 +52,10 @@
     
     <ul class="poll__actions">
       <li class="poll__actions__comments poll__actions__action">
-        <a href="#TODO">
+        <%= link_to poll do %>
           <i class="icon-comment"></i>
-          <span><%= link_to pluralize(poll.comment_count, "comment"), poll %></span>
-        </a>
+          <span><%= pluralize(poll.comment_count, "comment") %></span>
+        <% end %>
       </li>
       <% if !poll.owned_by?(current_user) %>
           <li class="poll__actions__action">
