@@ -8,6 +8,8 @@
       <% end %>
       </div>
       <script>
+        var optionA = document.querySelector('#option-a-' + <%= poll.id %>)
+        var optionB = document.querySelector('#option-b-' + <%= poll.id %>)
         var optionAText = document.querySelector('#option-a-text-' + <%= poll.id %>)
         var optionBText = document.querySelector('#option-b-text-' + <%= poll.id %>)
         if (<%= poll.fraction_of_votes(0) %> !== 0) {
@@ -15,16 +17,21 @@
           var optionAPercentage = document.querySelector(optionAPercentageId)
           optionAPercentage.innerHTML = Math.round(<%= (poll.fraction_of_votes(0) * 100) %>) + '%';
           optionAText.innerHTML = '<%= poll.option_a %>'
+          optionA.classList.remove('poll__options__option--no-votes')
         } else {
           optionAText.innerHTML = ''
+          optionA.classList.add('poll__options__option--no-votes')
         }
         if (<%= poll.fraction_of_votes(1) %> !== 0) {
           var optionBPercentageId = '#option-b__percentage-' + <%= poll.id %>;
           var optionBPercentage = document.querySelector(optionBPercentageId)
+
           optionBPercentage.innerHTML = Math.round(<%= (poll.fraction_of_votes(1) * 100) %>) + '%';
           optionBText.innerHTML = '<%= poll.option_b %>'
+          optionB.classList.remove('poll__options__option--no-votes')
         } else {
           optionBText.innerHTML = ''
+          optionB.classList.add('poll__options__option--no-votes')
         }
       </script>
     <% else %>

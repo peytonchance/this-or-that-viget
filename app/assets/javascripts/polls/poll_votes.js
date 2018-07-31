@@ -52,10 +52,16 @@ function displayPercentages(response, optionA, optionB) {
   if (response.optionA === 0) {
     optionAText.innerHTML = ''
     optionAPercentage.innerHTML = ''
+    optionA.classList.add('poll__options__option--no-votes')
+  } else {
+    optionA.classList.remove('poll__options__option--no-votes')
   }
 
   if (response.optionB === 0) {
     optionBText.innerHTML = ''
     optionBPercentage.innerHTML = ''
+    optionB.classList.add('poll__options__option--no-votes')
+  } else {
+    optionB.classList.remove('poll__options__option--no-votes')
   }
 }

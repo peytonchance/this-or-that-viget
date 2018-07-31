@@ -338,3 +338,9 @@
     font-weight: 500;
   }
 }
+
+.poll__options__option--no-votes {
+  &:after {
+    display: none;
+  }
+}
