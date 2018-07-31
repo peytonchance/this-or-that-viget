@@ -1,6 +1,6 @@
 $(document).ready(function() {
   let toggled = "feed-filter__item--toggled"
-  let currElement = document.querySelector('.' + toggled)
+  let currElement = document.querySelector(`.${toggled}`)
   var query = new URLSearchParams(window.location.search)
   var popular = document.querySelector('#poll-popular')
   var recent = document.querySelector('#poll-recent')
@@ -19,23 +19,15 @@ $(document).ready(function() {
     }
   }
 
-  var animateToPopular = () => {
+  var attachAnimations = () => {
     popular.addEventListener('click', () => {
       recent.classList.add('toggle--animating')
     })
-  }
 
-  var animateToRecent = () => {
     recent.addEventListener('click', () => {
       popular.classList.add('toggle--animating')
     })
   }
 
-  animateToPopular();
-  animateToRecent();
+  attachAnimations();
 });
-
-
-
-// getPopularToggle();
-// getRecentToggle();
