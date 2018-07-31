@@ -9,6 +9,7 @@ RSpec.describe "Deleting a poll", type: :feature do
       visit root_path
       expect(page).to have_content poll.title
       expect(page).to_not have_content 'delete'
+      expect(page).to have_content 'follow'
       expect(Poll.count).to eq(1)
     end
 
@@ -17,6 +18,7 @@ RSpec.describe "Deleting a poll", type: :feature do
       visit root_path
       expect(page).to have_content poll.title
       expect(page).to have_content 'delete'
+      expect(page).to_not have_content 'follow'
       click_on 'delete'
       
       expect(page).to_not have_content poll.title
@@ -29,6 +31,7 @@ RSpec.describe "Deleting a poll", type: :feature do
       visit root_path
       expect(page).to have_content poll.title
       expect(page).to_not have_content 'delete'
+      expect(page).to have_content 'follow'
       expect(Poll.count).to eq(1)
     end
   end

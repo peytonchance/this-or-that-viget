@@ -56,21 +56,27 @@
           <span><%= pluralize(@poll.comment_count, "comment") %></span>
         </a>
       </li>
-      <li class="poll__actions__action">
-        <%= render 'shared/follow', poll: @poll %>
-      </li>
+      
+      <% if !poll.owned_by?(current_user) %>
+          <li class="poll__actions__action">
+            <%= render 'shared/follow', poll: poll %>
+          </li>
+        <% end %>
       <li class="poll__actions__action">
         <%= link_to 'javascript:void(0)', id:"poll-copy-link-#{poll.id}", class: 'copy-link-poll', value: poll_url(poll) do %>
           <i class="icon-link"></i>
           <span id="poll-copy-span-<%= poll.id %>">copy link</span>
         <% end %>
       </li>
-      <% if user_signed_in? && poll.owned_by?(current_user) %>
+      <% if poll.owned_by?(current_user) %>
+        <li class="poll__actions__action">
         <%= link_to poll_path(poll), method: :delete, id: '', class: '' do %>
             <i class="icon-link"></i>
-            <span>delete</span>
+            <span>delete poll</span>
         <% end %>
+        </li>
       <% end %>
+      
     </ul>
   </div>
 </article>
