@@ -57,4 +57,9 @@
   @media ($screen-xs-up) {
     margin: 10px 0 0 30%;
   }
+
+  &:hover {
+    cursor: pointer;
+    font-weight: 600;
+  }
 }

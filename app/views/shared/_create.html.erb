@@ -54,15 +54,15 @@
       <h3>Allow others to vote for:</h3>
       <div class="create-modal__fields__duration">
           <div class="create-modal__fields__duration__input">
-            <%= f.number_field "expire[days]", placeholder: 0, id: "poll_expire_days" %>
+            <%= f.number_field "expire[days]", value: 0, id: "poll_expire_days" %>
             <%= f.label :expire_days, "days" %>
           </div>
           <div class="create-modal__fields__duration__input">
-            <%= f.number_field "expire[hours]", placeholder: 0, id: "poll_expire_hours" %>
+            <%= f.number_field "expire[hours]", value: 0, id: "poll_expire_hours" %>
             <%= f.label :expire_hours, "hours" %>
           </div>
           <div class="create-modal__fields__duration__input">
-            <%= f.number_field "expire[mins]", placeholder: 0, id: "poll_expire_mins" %>
+            <%= f.number_field "expire[mins]", value: 0, id: "poll_expire_mins" %>
             <%= f.label :expire_mins, "minutes" %>
           </div>
       </div>
