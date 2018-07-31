@@ -1,21 +1,27 @@
 $(document).ready(function() {
   var titleField = document.querySelector('#poll-title')
   var titleChar = document.querySelector('#poll-char-count-title')
-  titleField.addEventListener('keyup', function(event) {
-    changeCharCount(titleChar, 10, 45, titleField.value.length)
-  });
+  if (titleField != null) {
+    titleField.addEventListener('keyup', function(event) {
+      changeCharCount(titleChar, 10, 45, titleField.value.length)
+    });
+  }
 
   var optionAField = document.querySelector('#poll-option-a')
   var optionAChar = document.querySelector('#poll-char-count-opta')
-  optionAField.addEventListener('keyup', function(event) {
-    changeCharCount(optionAChar, 1, 25, optionAField.value.length)
-  });
+  if (optionAField != null) {
+    optionAField.addEventListener('keyup', function(event) {
+      changeCharCount(optionAChar, 1, 25, optionAField.value.length)
+    });
+  }
 
   var optionBField = document.querySelector('#poll-option-b')
   var optionBChar = document.querySelector('#poll-char-count-optb')
-  optionBField.addEventListener('keyup', function(event) {
-    changeCharCount(optionBChar, 1, 25, optionBField.value.length)
-  });
+  if (optionBField != null) {
+    optionBField.addEventListener('keyup', function(event) {
+      changeCharCount(optionBChar, 1, 25, optionBField.value.length)
+    });
+  }
 });
 
 function pluralize(number, word) {
