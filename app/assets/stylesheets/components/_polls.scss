@@ -249,15 +249,20 @@
 
 .poll__actions {
   display: flex;
+  font-size: 0.9em;
   justify-content: space-between;
-  margin: 15px auto;
+  margin: 10px auto;
   padding-left: 0;
   position: relative;
   width: 93%;
 
   @media ($screen-md-up) {
-    margin: 15px 0;
+    margin: 10px 0;
     width: 75%;
+  }
+
+  i {
+    transform: scale(0.9);
   }
 
   li {
@@ -285,10 +290,10 @@
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   content: '';
-  height: 150px;
+  height: 120px;
   left: -20px;
   position: absolute;
-  top: -100px;
+  top: -80px;
   width: 108%;
   z-index: -1;
 
