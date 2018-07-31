@@ -34,6 +34,13 @@ class PollsController < ApplicationController
     @poll = Poll.find(params[:id])
   end
 
+  def destroy 
+    session[:return_to] ||= request.referer
+    poll = current_user&.polls&.find(params[:id])
+    poll&.destroy
+    
+    redirect_to session.delete(:return_to)
+  end
 
   private
   def poll_params

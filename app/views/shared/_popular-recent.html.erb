@@ -1,4 +1,8 @@
-<ul class="feed-filter">
+<% if params[:feed] == 'recent' || !params[:feed] %>
+  <ul class="feed-filter feed-filter--blue">
+<% elsif %>
+  <ul class="feed-filter">
+<% end %>
   <li id="poll-popular" class="feed-filter__popular"><%= link_to 'Popular', polls_path(feed: 'popular') %></li>
   <li id="poll-recent" class="feed-filter__most-recent feed-filter__item--toggled"><%= link_to 'Most Recent', polls_path(feed: 'recent') %></li>
 </ul>

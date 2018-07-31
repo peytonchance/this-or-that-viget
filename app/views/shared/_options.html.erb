@@ -9,7 +9,7 @@
         if (<%= poll.fraction_of_votes(0) %> !== 0) {
           var optionAPercentageId = '#option-a__percentage-' + <%= poll.id %>;
           var optionAPercentage = document.querySelector(optionAPercentageId)
-          optionAPercentage.innerHTML = <%= poll.fraction_of_votes(0) * 100 %> + '%';
+          optionAPercentage.innerHTML = Math.round(<%= (poll.fraction_of_votes(0) * 100) %>) + '%';
           optionAText.innerHTML = '<%= poll.option_a %>'
         } else {
           optionAText.innerHTML = ''
@@ -17,7 +17,7 @@
         if (<%= poll.fraction_of_votes(1) %> !== 0) {
           var optionBPercentageId = '#option-b__percentage-' + <%= poll.id %>;
           var optionBPercentage = document.querySelector(optionBPercentageId)
-          optionBPercentage.innerHTML = <%= poll.fraction_of_votes(1) * 100 %> + '%';
+          optionBPercentage.innerHTML = Math.round(<%= (poll.fraction_of_votes(1) * 100) %>) + '%';
           optionBText.innerHTML = '<%= poll.option_b %>'
         } else {
           optionBText.innerHTML = ''

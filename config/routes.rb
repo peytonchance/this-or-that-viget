@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :polls, only: [:create, :index, :show]
     resources :users, only: [:show]
     resource :comments, only: [:create, :show]
+    resource :follows, only: [:create, :show, :destroy]
   end
   
   root "polls#index"

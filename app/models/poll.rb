@@ -1,4 +1,6 @@
 class Poll < ApplicationRecord
+  after_destroy_commit :delete_images
+  
   belongs_to :user
   attr_accessor :expire_days
   attr_accessor :expire_hours
@@ -13,6 +15,7 @@ class Poll < ApplicationRecord
   validates :option_a, presence: true, length: {in: 1..25}
   validates :option_b, presence: true, length: {in: 1..25}
   validate :both_image_options
+  validate :expiry_time_not_zero
 
   has_many :comments
   has_many :votes
@@ -26,11 +29,26 @@ class Poll < ApplicationRecord
   scope :popular, -> {left_outer_joins(:votes).where(expired: false).group("polls.id").select("polls.*, COUNT(votes.option) AS votes_count").order("votes_count DESC")}
   
   def expire=(input)
-    days = input[:days].to_i
-    hours = input[:hours].to_i
-    mins = input[:mins].to_i
+    @days = input[:days].to_i
+    @hours = input[:hours].to_i
+    @mins = input[:mins].to_i
     
-    self.expiry_time = Time.now + days.day + hours.hour + mins.minutes
+    self.expiry_time = Time.now + @days.day + @hours.hour + @mins.minutes
+  end
+  
+  def expiry_time_not_zero
+    if time_left == "Less than a minute"
+      errors.add(:base, "Cannot set expiry time to now")
+    end
+  end
+  
+  def owned_by?(user)
+    self.user == user
+  end
+  
+  def delete_images
+    option_a_img.purge if option_a_img.attached?
+    option_b_img.purge if option_b_img.attached?
   end
   
   def comment_count
@@ -56,7 +74,7 @@ class Poll < ApplicationRecord
   end
 
   def fraction_of_votes(option)
-    (total_votes(option).to_f / votes.count.to_f).round(2)
+    (total_votes(option).to_f / votes.count.to_f).round(3)
   end
 
   def get_option_a_img
