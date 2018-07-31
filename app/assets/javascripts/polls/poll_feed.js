@@ -17,17 +17,16 @@ $(document).ready(function() {
         }
       });
     }
+    var attachAnimations = () => {
+      popular.addEventListener('click', () => {
+        recent.classList.add('toggle--animating')
+      })
+
+      recent.addEventListener('click', () => {
+        popular.classList.add('toggle--animating')
+      })
+    }
+
+    attachAnimations();
   }
-
-  var attachAnimations = () => {
-    popular.addEventListener('click', () => {
-      recent.classList.add('toggle--animating')
-    })
-
-    recent.addEventListener('click', () => {
-      popular.classList.add('toggle--animating')
-    })
-  }
-
-  attachAnimations();
 });
