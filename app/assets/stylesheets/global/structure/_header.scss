@@ -221,6 +221,7 @@ li.header__session-links {
 }
 
 .header__dropdown {
+  background-color: color(white);
   border-radius: 5px;
   border: none;
   box-shadow: 0 2px 10px color(shadow-gray);
@@ -276,5 +277,9 @@ li.header__dropdown__item {
 
   a {
     color: color(gray);
+
+    &:hover {
+      font-weight: 500;
+    }
   }
 }
