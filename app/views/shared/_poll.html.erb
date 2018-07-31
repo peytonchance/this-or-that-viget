@@ -28,9 +28,17 @@
 
 <article class="poll" id="article-poll-<%= index %>">
   <% if user_signed_in? && poll.user == current_user %>
-    <div class="poll__meta poll__meta--users-poll">
+    <% if poll.expired? %>
+      <div class="poll__meta poll__meta--users-poll poll__meta--users-poll--expired">
+    <% else %>
+      <div class="poll__meta poll__meta--users-poll">
+    <% end %>
   <% else %>
-    <div class="poll__meta">
+    <% if poll.expired? %>
+      <div class="poll__meta poll__meta--expired">
+    <% else %>
+      <div class="poll__meta">
+    <% end %>
   <% end %>
     <p><%= poll.user.username %></p>
     <ul>

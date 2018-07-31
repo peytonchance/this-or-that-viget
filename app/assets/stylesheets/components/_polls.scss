@@ -114,6 +114,14 @@
   width: 130px;
 }
 
+.poll__meta--users-poll--expired::after {
+  background: color(dark-yellow);
+}
+
+.poll__meta--expired::after {
+  background: color(expired-blue);
+}
+
 .poll__meta::before {
 
   @media ($screen-md-up) {
