@@ -23,5 +23,13 @@ RSpec.describe "Deleting a poll", type: :feature do
       expect(page).to_not have_content 'delete'
       expect(Poll.count).to eq(0)
     end
+    
+    it 'does not let a user delete another users poll' do
+      login_as(create(:user, username: 'anotheruser'))
+      visit root_path
+      expect(page).to have_content poll.title
+      expect(page).to_not have_content 'delete'
+      expect(Poll.count).to eq(1)
+    end
   end
 end
