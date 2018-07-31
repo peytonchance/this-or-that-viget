@@ -41,6 +41,7 @@ RSpec.configure do |config|
 
   config.include Devise::Test::ControllerHelpers, :type => :controller
   config.include Warden::Test::Helpers
+  config.include SignedCookies, :type => :controller
 
 
   # RSpec Rails can automatically mix in different behaviours to your tests
