@@ -1,32 +1,30 @@
-<style>
-  <% if poll.get_option_a_img.present? %>
-    #option-a-<%= poll.id %> {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= poll.get_option_a_img %>);
+<% if single_poll.get_option_a_img.present? %>
+  <style>
+    #option-a-<%= single_poll.id %> {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= single_poll.get_option_a_img %>);
       background-size: cover;
     }
 
-    #option-a-<%= poll.id %>:after {
+    #option-a-<%= single_poll.id %>:after {
         background: radial-gradient(rgba(97, 183, 242, 1) 50%, rgba(97, 183, 242, 0.3));
         border-top-left-radius: 100%;
         border-top-right-radius: 100%;
         bottom: -50%;
-        content: '<%= poll.option_a %>';
+        content: '<%= single_poll.option_a %>';
     }
-  <% end %>
 
-    <% if poll.get_option_b_img.present? %>
-      #option-b-<%= poll.id %> {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= poll.get_option_b_img %>);
-      }
+    #option-b-<%= single_poll.id %> {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= poll.get_option_b_img %>);
+    }
 
-      #option-b-<%= poll.id %>:after {
-        background: radial-gradient(rgba(252, 185, 44, 1) 50%, rgba(252, 185, 44, 0.6));
-        border-radius: 20px;
-        bottom: -52%;
-        content: '<%= poll.option_b %>';
-      }
-  <% end %>
-</style>
+    #option-b-<%= single_poll.id %>:after {
+      background: radial-gradient(rgba(252, 185, 44, 1) 50%, rgba(252, 185, 44, 0.6));
+      border-radius: 20px;
+      bottom: -52%;
+      content: '<%= single_poll.option_b %>';
+    }
+  </style>
+<% end %>
 
 <script>
   let activeClass = "header__utility-nav--active";
@@ -35,48 +33,50 @@
 
 <article class="poll poll-detailed">
   <div class="poll__content">
-    <h2><%= @poll.title %></h2>
+    <h2><%= single_poll.title %></h2>
     <div class="poll__meta">
-      <p><%= @poll.user.username %></p>
+      <p><%= single_poll.user.username %></p>
       <ul>
-        <li><i class="icon-fire"></i><span id="poll-vote-count-<%= @poll.id %>"><%= pluralize(@poll.vote_count, "vote") %></span></li>
+        <li><i class="icon-fire"></i><span id="poll-vote-count-<%= single_poll.id %>"><%= pluralize(single_poll.vote_count, "vote") %></span></li>
         <li>
-          <% if @poll.expired? %>
+          <% if single_poll.expired? %>
             <i class="icon-expired"></i><span>expired</span>
           <% else %>
-            <i class="icon-clock"></i><span><%= @poll.time_left %> left</span>
+            <i class="icon-clock"></i><span><%= single_poll.time_left %> left</span>
           <% end %>
         </li>
       </ul>
     </div>
-    <% if poll.expired? || poll.owned_by?(current_user) %>
-      <%= render 'shared/static-options', poll: @poll %>
+
+    <% if single_poll.expired? %>
+      <%= render 'shared/expired-options', poll: single_poll %>
     <% else %>
-      <%= render 'shared/options', poll: @poll %>
+      <%= render 'shared/options', poll: single_poll %>
     <% end %>
     <ul class="poll__actions">
       <li class="poll__actions__comments poll__actions__action">
-        <%= link_to @poll do %>
+        <%= link_to single_poll do %>
           <i class="icon-comment"></i>
-          <span><%= pluralize(@poll.comment_count, "comment") %></span>
+          <span><%= pluralize(single_poll.comment_count, "comment") %></span>
         <% end %>
       </li>
 
-      <% if !poll.owned_by?(current_user) %>
+      <% if !single_poll.owned_by?(current_user) %>
+
           <li class="poll__actions__action">
-            <%= render 'shared/follow', poll: poll %>
+            <%= render 'shared/follow', poll: single_poll %>
           </li>
         <% end %>
       <li class="poll__actions__action">
-        <%= link_to 'javascript:void(0)', id:"poll-copy-link-#{poll.id}", class: 'copy-link-poll', value: poll_url(poll) do %>
+        <%= link_to 'javascript:void(0)', id:"poll-copy-link-#{single_poll.id}", class: 'copy-link-poll', value: poll_url(single_poll) do %>
           <i class="icon-link"></i>
-          <span id="poll-copy-span-<%= poll.id %>">copy link</span>
+          <span id="poll-copy-span-<%= single_poll.id %>">copy link</span>
         <% end %>
       </li>
-      <% if poll.owned_by?(current_user) %>
+      <% if single_poll.owned_by?(current_user) %>
         <li class="poll__actions__action">
-        <%= link_to poll_path(poll), method: :delete, id: '', class: '' do %>
-            <i class="icon-trash"></i>
+        <%= link_to poll_path(single_poll), method: :delete, id: '', class: '' do %>
+            <i class="icon-link"></i>
             <span>delete poll</span>
         <% end %>
         </li>

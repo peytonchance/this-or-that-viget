@@ -7,7 +7,7 @@
       </div>
       <button href="/" class="modal__cancel" data-module="modal" aria-controls="create-modal">Cancel<i class="icon-expired"></i></button>
     </div>
-    <%= form_for :poll, url: polls_path, multipart: true, remote: true, html: {id: 'poll-form'} do |f| %>
+    <%= form_for Poll.new, as: :poll, url: polls_path, multipart: true, remote: true, html: {id: 'poll-form'} do |f| %>
       <div id="poll-error-messages"></div>
 
       <div class="create-modal__fields__name-poll">

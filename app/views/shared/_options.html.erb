@@ -2,9 +2,9 @@
   <% if user_signed_in? %>
     <% if current_user.has_voted?(poll.id) %>
       <% if current_user.get_vote(poll.id).option == 0 %>
-        <%= render 'shared/option-links', poll: poll, http_methodA: :delete, http_methodB: :put, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1) %>
+        <%= render 'shared/option-links', poll: poll, http_methodA: :delete, http_methodB: :put, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1), classNameA: 'poll__options__option--selected', classNameB: '' %>
       <% else %>
-        <%= render 'shared/option-links', poll: poll, http_methodA: :put, http_methodB: :delete, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1) %>
+        <%= render 'shared/option-links', poll: poll, http_methodA: :put, http_methodB: :delete, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1), classNameA: '', classNameB: 'poll__options__option--selected' %>
       <% end %>
       </div>
       <script>
@@ -35,7 +35,7 @@
         }
       </script>
     <% else %>
-      <%= render 'shared/option-links', poll: poll, http_methodA: :post, http_methodB: :post , optionA: nil, optionB: nil %>
+      <%= render 'shared/option-links', poll: poll, http_methodA: :post, http_methodB: :post , optionA: nil, optionB: nil, classNameA: '', classNameB: '' %>
       </div>
     <% end %>
   <% else %>

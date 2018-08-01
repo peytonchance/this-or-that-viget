@@ -44,16 +44,18 @@ function displayPercentages(response, optionA, optionB) {
     optionAPercentage.innerHTML = Math.round(response.optionA * 100) + '%'
     optionBPercentage.innerHTML = Math.round(response.optionB * 100) + '%'
   } else {
+    optionABox.classList.remove('poll__options__option--selected')
+    optionBBox.classList.remove('poll__options__option--selected')
     optionAPercentage.innerHTML = ''
     optionBPercentage.innerHTML = ''
   }
 
-  console.log(response.option)
-
   if (response.option == 0) {
+    console.log('go left')
     optionBBox.classList.remove('poll__options__option--selected')
     optionABox.classList.add('poll__options__option--selected')
   } else if (response.option == 1) {
+    console.log('go right')
     optionABox.classList.remove('poll__options__option--selected')
     optionBBox.classList.add('poll__options__option--selected')
   }
