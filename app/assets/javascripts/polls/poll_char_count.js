@@ -1,34 +1,38 @@
 $(document).ready(function() {
   var titleField = document.querySelector('#poll-title')
   var titleChar = document.querySelector('#poll-char-count-title')
-  if (titleField != null) {
+  const titleMinChar = 10
+  const titleMaxChar = 45
+  if (titleField) {
     titleField.addEventListener('keyup', function(event) {
-      changeCharCount(titleChar, 10, 45, titleField.value.length)
+      changeCharCount(titleChar, titleMinChar, titleMaxChar, titleField.value.length)
     });
   }
 
   var optionAField = document.querySelector('#poll-option-a')
   var optionAChar = document.querySelector('#poll-char-count-opta')
-  if (optionAField != null) {
+  const optionMinChar = 1
+  const optionMaxChar = 25
+  if (optionAField) {
     optionAField.addEventListener('keyup', function(event) {
-      changeCharCount(optionAChar, 1, 25, optionAField.value.length)
+      changeCharCount(optionAChar, optionMinChar, optionMaxChar, optionAField.value.length)
     });
   }
 
   var optionBField = document.querySelector('#poll-option-b')
   var optionBChar = document.querySelector('#poll-char-count-optb')
-  if (optionBField != null) {
+  if (optionBField) {
     optionBField.addEventListener('keyup', function(event) {
-      changeCharCount(optionBChar, 1, 25, optionBField.value.length)
+      changeCharCount(optionBChar, optionMinChar, optionMaxChar, optionBField.value.length)
     });
   }
 });
 
 function pluralize(number, word) {
   if (number == 1) {
-    return number + " " + word
+    return `${number} ${word}`
   } else {
-    return number + " " + word + "s"
+    return `${number} ${word}s`
   }
 }
 
