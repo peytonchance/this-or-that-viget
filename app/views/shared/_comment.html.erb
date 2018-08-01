@@ -1,8 +1,8 @@
 <div class="comments__comment">
     <p class="comments__comment__username"><%= comment.user.username %></p>
     <p class="comments__comment__text"><%= comment.body %></p>
-    <% if comment.owned_by?(current_user)) %>
-      <%= link_to 'Edit', poll_comment_path(comment.poll, comment) %>
-      <%= link_to 'Delete', poll_comment_path(comment.poll, comment) %>
-    <% end %>
+  <% if comment.owned_by?(current_user) %>
+    <%= link_to 'Edit', poll_comment_path(comment.poll, comment), class: '' %>
+    <%= link_to 'Delete', poll_comment_path(comment.poll, comment), method: :delete, class: '' %>
+  <% end %>
 </div>

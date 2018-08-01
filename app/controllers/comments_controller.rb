@@ -24,6 +24,16 @@ class CommentsController < ApplicationController
     end
 
   end
+  
+    
+  def destroy
+    session[:return_to] ||= request.referer
+    
+    comment = Poll.find(params[:poll_id]).comments.find(params[:id])
+    comment.destroy
+    
+    redirect_to session.delete(:return_to)
+  end
 
   private
   def comment_param
