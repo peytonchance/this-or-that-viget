@@ -254,6 +254,10 @@
     border: solid 5px color(light-blue);
     color: color(light-blue);
     transition: background 1s, width 1s ease-in-out;
+
+    &:after {
+      color: color(white);
+    }
   }
 }
 
@@ -263,6 +267,10 @@
     border: solid 5px color(yellow);
     color: color(yellow);
     transition: background 1s, width 1s ease-in-out;
+
+    &:after {
+      color: color(white);
+    }
   }
 }
 
