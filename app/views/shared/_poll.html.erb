@@ -1,20 +1,21 @@
-<% if poll.get_option_a_img.present? %>
-  <style>
-    #option-a-<%= poll.id %> {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= poll.get_option_a_img %>);
-    }
-    #option-a-<%= poll.id %>:after {
-        background: radial-gradient(rgba(97, 183, 242, 1) 50%, rgba(97, 183, 242, 0.3));
-        border-top-left-radius: 100%;
-        border-top-right-radius: 100%;
-        bottom: -50%;
-        content: '<%= poll.option_a %>';
-        left: 5%;
-    }
+<style>
+  <% if poll.get_option_a_img.present? %>
+      #option-a-<%= poll.id %> {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= url_for(poll.get_option_a_img) %>);
+      }
+      #option-a-<%= poll.id %>:after {
+          background: radial-gradient(rgba(97, 183, 242, 1) 50%, rgba(97, 183, 242, 0.3));
+          border-top-left-radius: 100%;
+          border-top-right-radius: 100%;
+          bottom: -50%;
+          content: '<%= poll.option_a %>';
+          left: 5%;
+      }
   <% end %>
+  
   <% if poll.get_option_b_img.present? %>
     #option-b-<%= poll.id %> {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= poll.get_option_b_img %>);
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= url_for(poll.get_option_b_img) %>);
     }
     #option-b-<%= poll.id %>:after {
       background: radial-gradient(rgba(252, 185, 44, 1) 50%, rgba(252, 185, 44, 0.6));
@@ -23,8 +24,8 @@
       content: '<%= poll.option_b %>';
       left: 5%;
     }
-  </style>
-<% end %>
+  <% end %>
+</style>
 
 <article class="poll" id="article-poll-<%= index %>">
   <% if user_signed_in? && poll.user == current_user %>
