@@ -20,6 +20,7 @@ class Poll < ApplicationRecord
   has_many :comments
   has_many :votes
   has_many :follows
+  has_many :visitor_votes
 
   has_one_attached :option_a_img
   has_one_attached :option_b_img
@@ -56,7 +57,7 @@ class Poll < ApplicationRecord
   end
   
   def vote_count
-    votes.count
+    votes.count + visitor_votes.count
   end
   
   def both_image_options
@@ -70,11 +71,11 @@ class Poll < ApplicationRecord
   end
 
   def total_votes(option)
-    votes.where(option: option).count
+    votes.where(option: option).count + visitor_votes.where(option: option).count
   end
 
   def fraction_of_votes(option)
-    (total_votes(option).to_f / votes.count.to_f).round(3)
+    (total_votes(option).to_f / vote_count.to_f).round(3)
   end
 
   def get_option_a_img
