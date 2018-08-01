@@ -56,8 +56,8 @@
   <div class="poll__content">
     <h2><%= link_to poll.title, poll %></h2>
 
-    <% if poll.expired? %>
-      <%= render 'shared/expired-options', poll: poll %>
+    <% if poll.expired? || poll.owned_by?(current_user) %>
+      <%= render 'shared/static-options', poll: poll %>
     <% else %>
       <%= render 'shared/options', poll: poll %>
     <% end %>

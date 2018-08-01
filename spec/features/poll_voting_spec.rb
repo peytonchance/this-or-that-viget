@@ -93,5 +93,36 @@ RSpec.describe "Voting on a poll", type: :feature, js:true do
         expect(option_b_element).to have_content '50%'
       end
     end
+    
+    context "expired poll with multiple votes" do
+      before do
+        poll.update_attributes(expired: true)
+        create(:vote, poll: poll, option: 0)
+        create(:vote, poll: poll, option: 0)
+        create(:vote, poll: poll, option: 1)
+      end
+      
+      it 'automatically shows poll results if poll is expired' do
+        visit root_path
+        expect(find("#option-a-#{poll.id}")).to have_content '67%'
+        expect(find("#option-b-#{poll.id}")).to have_content '33%'
+      end
+    end
+    
+    context "user owns the poll" do
+      before do
+        poll.update_attributes(user: user)
+        create(:vote, poll: poll, option: 0)
+        create(:vote, poll: poll, option: 0)
+        create(:vote, poll: poll, option: 1)
+        login_as(user)
+      end
+      
+      it 'autoamtically shows interim poll results if user owns poll' do
+        visit root_path
+        expect(find("#option-a-#{poll.id}")).to have_content '67%'
+        expect(find("#option-b-#{poll.id}")).to have_content '33%'
+      end
+    end
   end
 end

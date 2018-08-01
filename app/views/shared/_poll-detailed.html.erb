@@ -49,8 +49,8 @@
         </li>
       </ul>
     </div>
-    <% if poll.expired? %>
-      <%= render 'shared/expired-options', poll: @poll %>
+    <% if poll.expired? || poll.owned_by?(current_user) %>
+      <%= render 'shared/static-options', poll: @poll %>
     <% else %>
       <%= render 'shared/options', poll: @poll %>
     <% end %>
