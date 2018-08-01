@@ -9,7 +9,8 @@ module Voting
         "pathA": poll_option_a_path(poll),
         "pathB": poll_option_b_path(poll),
         "methodA": option == 0 ? "delete" : "put",
-        "methodB": option == 1 ? "delete" : "put"
+        "methodB": option == 1 ? "delete" : "put",
+        "option": option
       ), status: :accepted
     else
       render json: vote_error_json, status: :unprocessable_entity
@@ -24,7 +25,8 @@ module Voting
       "pathA": poll_option_a_path(poll),
       "pathB": poll_option_b_path(poll),
       "methodA": option == 0 ? "delete" : "put",
-      "methodB": option == 1 ? "delete" : "put"
+      "methodB": option == 1 ? "delete" : "put",
+      "option": option
     ), status: :accepted
     else
       render json: vote_error_json, status: :unprocessable_entity

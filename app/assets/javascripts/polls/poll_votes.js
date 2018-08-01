@@ -29,7 +29,9 @@ function updateOptions(evt, data, status, xhr) {
 }
 
 function displayPercentages(response, optionA, optionB) {
-
+  selectedOption = response.option
+  optionABox = document.querySelector('#option-a-' + response.poll)
+  optionBBox = document.querySelector('#option-b-' + response.poll)
   optionAPercentage = document.querySelector('#option-a__percentage-' + response.poll)
   optionBPercentage = document.querySelector('#option-b__percentage-' + response.poll)
   optionAText = document.querySelector('#option-a-text-' + response.poll)
@@ -44,6 +46,16 @@ function displayPercentages(response, optionA, optionB) {
   } else {
     optionAPercentage.innerHTML = ''
     optionBPercentage.innerHTML = ''
+  }
+
+  console.log(response.option)
+
+  if (response.option == 0) {
+    optionBBox.classList.remove('poll__options__option--selected')
+    optionABox.classList.add('poll__options__option--selected')
+  } else if (response.option == 1) {
+    optionABox.classList.remove('poll__options__option--selected')
+    optionBBox.classList.add('poll__options__option--selected')
   }
 
   optionA.style = 'width: ' + (response.optionA * 100) + '%'
