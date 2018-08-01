@@ -1,6 +1,5 @@
 <% if http_methodA.present? && http_methodB.present?%>
   <%= link_to poll_option_a_path(poll), method: http_methodA, id: "option-a-#{poll.id}", class: "option-poll poll__options__option poll__options__option-a #{classNameA}", remote: true do %>
-
     <% if poll.get_option_a_img.present? %>
       <p id="option-a-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_a %></p>
     <% else %>
@@ -18,7 +17,6 @@
       }
     </style>
   <% end %>
-
   <%= link_to poll_option_b_path(poll), method: http_methodB, id: "option-b-#{poll.id}", class: "option-poll poll__options__option poll__options__option-b #{classNameB}", remote: true do %>
     <% if poll.get_option_b_img.present? %>
       <p id="option-b-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_b %></p>
