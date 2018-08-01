@@ -27,7 +27,8 @@ class Poll < ApplicationRecord
   
   scope :recent, -> { all.order(created_at: :desc) }
   scope :is_expired, -> { where("expiry_time < ? AND expired = false", DateTime.now) }
-  scope :popular, -> {left_outer_joins(:votes).where(expired: false).group("polls.id").select("polls.*, COUNT(votes.option) AS votes_count").order("votes_count DESC")}
+  
+  scope :popular, -> {left_outer_joins(:votes).left_outer_joins(:visitor_votes).where(expired: false).group("polls.id").select("polls.*, (COUNT(votes.option)+COUNT(visitor_votes.option)) AS votes_count").order("votes_count DESC")}
   
   def expire=(input)
     @days = input[:days].to_i
