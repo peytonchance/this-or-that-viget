@@ -28,6 +28,11 @@
   </style>
 <% end %>
 
+<script>
+  let activeClass = "header__utility-nav--active";
+  document.querySelector(`.${activeClass}`).classList.remove(activeClass);
+</script>
+
 <article class="poll poll-detailed">
   <div class="poll__content">
     <h2><%= @poll.title %></h2>
