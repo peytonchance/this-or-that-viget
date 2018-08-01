@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'registration', sessions: 'sessions', passwords: 'passwords'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :polls do
-    resource :comments, only: [:create]
+    resources :comments, only: [:create, :update, :destroy]
     resources :follows, only: [:create, :destroy]
     resource :option_a, only: [:create, :update, :destroy]
     resource :option_b, only: [:create, :update, :destroy]

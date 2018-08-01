@@ -28,6 +28,4 @@ class User < ApplicationRecord
   def get_vote(id)
     votes.find_by(poll_id: id)
   end
-
-  
 end
