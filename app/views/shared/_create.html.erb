@@ -43,21 +43,12 @@
       </div>
       <div class="create-modal__fields__option-labels">
         <div class="create-modal__fields__option-label">
-<<<<<<< HEAD
-          <h3><span class="form__required">*</span>Option A <em>(max 25 characters)</em></h3>
+          <h3><span class="form__required">*</span>Option A <em id="poll-char-count-opta">(max 25 characters)</em></h3>
           <%= f.text_field :option_a, placeholder: "ex: pizza", id: "poll-option-a" %>
         </div>
         <div class="create-modal__fields__option-label create-modal__fields__option-label--right">
-          <h3><span class="form__required">*</span>Option B <em>(max 25 characters)</em></h3>
-         <%= f.text_field :option_b, placeholder: "ex: tacos", id: "poll-option-b" %>
-=======
-          <h3><span class="form__required">*</span>Option A <em id="poll-char-count-opta">(max 25 characters)</em></h3>
-          <%= f.text_field :option_a, value: "ex: pizza", id: "poll-option-a" %>
-        </div>
-        <div class="create-modal__fields__option-label create-modal__fields__option-label--right">
           <h3><span class="form__required">*</span>Option B <em id="poll-char-count-optb">(max 25 characters)</em></h3>
-         <%= f.text_field :option_b, value: "ex: tacos", id: "poll-option-b" %>
->>>>>>> Added character count script with number field min and step
+         <%= f.text_field :option_b, placeholder: "ex: tacos", id: "poll-option-b" %>
         </div>
       </div>
       <h3>Allow others to vote for:</h3>
