@@ -1,0 +1,2 @@
+class VisitorOptionAsController < ApplicationController
+end
