@@ -9,12 +9,6 @@ RSpec.describe "Voting on a poll", type: :feature, js:true do
       visit root_path
     end
 
-    it 'does not allow you to vote without being signed in' do
-      option_a_element = find("#option-a-#{poll.id}")
-      option_a_element.click
-      expect(option_a_element).to_not have_content '100%'
-    end
-
     context "user being signed in" do
       it 'clicking on vote for first time reveals percentage' do
         login_as(user)
