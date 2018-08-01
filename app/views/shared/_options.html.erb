@@ -2,9 +2,9 @@
   <% if user_signed_in? %>
     <% if current_user.has_voted?(poll.id) %>
       <% if current_user.get_vote(poll.id).option == 0 %>
-        <%= render 'shared/option-links', poll: poll, http_methodA: :delete, http_methodB: :put, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1), classNameA: 'poll__options__option--selected', classNameB: '' %>
+        <%= render 'shared/option-links', poll: poll, http_methodA: :delete, http_methodB: :put, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1), pathA: poll_option_a_path(poll), pathB: poll_option_b_path(poll), classNameA: 'poll__options__option--selected', classNameB: '' %>
       <% else %>
-        <%= render 'shared/option-links', poll: poll, http_methodA: :put, http_methodB: :delete, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1), classNameA: '', classNameB: 'poll__options__option--selected' %>
+        <%= render 'shared/option-links', poll: poll, http_methodA: :put, http_methodB: :delete, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1), pathA: poll_option_a_path(poll), pathB: poll_option_b_path(poll), classNameA: '', classNameB: 'poll__options__option--selected' %>
       <% end %>
       </div>
       <script>
@@ -35,10 +35,46 @@
         }
       </script>
     <% else %>
-      <%= render 'shared/option-links', poll: poll, http_methodA: :post, http_methodB: :post %>
+      <%= render 'shared/option-links', poll: poll, http_methodA: :post, http_methodB: :post , optionA: nil, optionB: nil, pathA: poll_option_a_path(poll), pathB: poll_option_b_path(poll) %>
       </div>
     <% end %>
   <% else %>
-    <%= render 'shared/option-links', poll: poll, http_methodA: nil, http_methodB: nil %>
-    </div>
+    <% if poll.has_visitor_voted?(@ip) %>
+      <% if poll.get_visitor_vote(@ip) == 0%>
+        <%= render 'shared/option-links', poll: poll, http_methodA: :delete, http_methodB: :put, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1), pathA: poll_visitor_option_a_path(poll), pathB: poll_visitor_option_b_path(poll), classNameA: 'poll__options__option--selected', classNameB: '' %>
+      <% else %>
+        <%= render 'shared/option-links', poll: poll, http_methodA: :put, http_methodB: :delete, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1), pathA: poll_visitor_option_a_path(poll), pathB: poll_visitor_option_b_path(poll), classNameB: 'poll__options__option--selected', classNameA: ''%>
+      <% end %>
+      </div>
+      <script>
+        var optionA = document.querySelector('#option-a-' + <%= poll.id %>)
+        var optionB = document.querySelector('#option-b-' + <%= poll.id %>)
+        var optionAText = document.querySelector('#option-a-text-' + <%= poll.id %>)
+        var optionBText = document.querySelector('#option-b-text-' + <%= poll.id %>)
+        if (<%= poll.fraction_of_votes(0) %> !== 0) {
+          var optionAPercentageId = '#option-a__percentage-' + <%= poll.id %>;
+          var optionAPercentage = document.querySelector(optionAPercentageId)
+          optionAPercentage.innerHTML = Math.round(<%= (poll.fraction_of_votes(0) * 100) %>) + '%';
+          optionAText.innerHTML = '<%= poll.option_a %>'
+          optionA.classList.remove('poll__options__option--no-votes')
+        } else {
+          optionAText.innerHTML = ''
+          optionA.classList.add('poll__options__option--no-votes')
+        }
+        if (<%= poll.fraction_of_votes(1) %> !== 0) {
+          var optionBPercentageId = '#option-b__percentage-' + <%= poll.id %>;
+          var optionBPercentage = document.querySelector(optionBPercentageId)
+
+          optionBPercentage.innerHTML = Math.round(<%= (poll.fraction_of_votes(1) * 100) %>) + '%';
+          optionBText.innerHTML = '<%= poll.option_b %>'
+          optionB.classList.remove('poll__options__option--no-votes')
+        } else {
+          optionBText.innerHTML = ''
+          optionB.classList.add('poll__options__option--no-votes')
+        }
+      </script>
+    <% else %>
+      <%= render 'shared/option-links', poll: poll, http_methodA: :post, http_methodB: :post, optionA: nil, optionB: nil, pathA: poll_visitor_option_a_path(poll), pathB: poll_visitor_option_b_path(poll) %>
+      </div>
+    <% end %>
   <% end %>

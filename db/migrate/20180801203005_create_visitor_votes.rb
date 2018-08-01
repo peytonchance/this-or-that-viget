@@ -6,5 +6,6 @@ class CreateVisitorVotes < ActiveRecord::Migration[5.2]
       t.integer :option
       t.timestamps
     end
+    add_index :visitor_votes, [:ip_address, :poll_id], unique: true
   end
 end

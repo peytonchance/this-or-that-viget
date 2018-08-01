@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2018_08_01_203005) do
     t.integer "option"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ip_address", "poll_id"], name: "index_visitor_votes_on_ip_address_and_poll_id", unique: true
     t.index ["poll_id"], name: "index_visitor_votes_on_poll_id"
   end
 

@@ -93,4 +93,12 @@ class Poll < ApplicationRecord
   def time_left
     (distance_of_time_in_words(DateTime.now, expiry_time).capitalize).gsub("About ", "")
   end
+  
+  def has_visitor_voted?(ip)
+    get_visitor_vote(ip).present?
+  end
+    
+  def get_visitor_vote(ip)
+    visitor_votes.find_by(ip_address: ip)
+  end
 end

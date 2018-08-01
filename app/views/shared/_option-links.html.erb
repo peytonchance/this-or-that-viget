@@ -8,7 +8,7 @@
 %>
 
 <% if http_methodA.present? && http_methodB.present?%>
-  <%= link_to poll_option_a_path(poll), method: http_methodA, id: "option-a-#{poll.id}", class: "option-poll poll__options__option poll__options__option-a #{classNameA}", remote: true do %>
+  <%= link_to pathA, method: http_methodA, id: "option-a-#{poll.id}", class: "option-poll poll__options__option poll__options__option-a #{classNameA}", remote: true do %>
     <% if poll.get_option_a_img.present? %>
       <p id="option-a-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_a %></p>
     <% else %>
@@ -16,6 +16,7 @@
     <% end %>
     <span id="option-a__percentage-<%= poll.id %>"></span>
   <% end %>
+
   <% if optionA && optionB %>
     <style>
       #option-a-<%= poll.id %> {
@@ -26,7 +27,9 @@
       }
     </style>
   <% end %>
-  <%= link_to poll_option_b_path(poll), method: http_methodB, id: "option-b-#{poll.id}", class: "option-poll poll__options__option poll__options__option-b #{classNameB}", remote: true do %>
+
+
+  <%= link_to pathB, method: http_methodB, id: "option-b-#{poll.id}", class: "option-poll poll__options__option poll__options__option-b #{classNameB}", remote: true do %>
     <% if poll.get_option_b_img.present? %>
       <p id="option-b-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_b %></p>
     <% else %>
@@ -34,6 +37,7 @@
     <% end %>
     <span id="option-b__percentage-<%= poll.id %>"></span>
   <% end %>
+
 <% else %>
   <%= link_to 'javascript:void(0)', method: :get, id: "option-a-#{poll.id}", class: "option-poll poll__options__option", remote:true do %>
     <% if poll.get_option_a_img.present? %>
