@@ -51,9 +51,11 @@ function displayPercentages(response, optionA, optionB) {
   }
 
   if (response.option == 0) {
+    console.log('go left')
     optionBBox.classList.remove('poll__options__option--selected')
     optionABox.classList.add('poll__options__option--selected')
   } else if (response.option == 1) {
+    console.log('go right')
     optionABox.classList.remove('poll__options__option--selected')
     optionBBox.classList.add('poll__options__option--selected')
   }

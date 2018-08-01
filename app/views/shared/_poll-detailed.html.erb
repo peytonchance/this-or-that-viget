@@ -14,7 +14,7 @@
     }
 
     #option-b-<%= single_poll.id %> {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= poll.get_option_b_img %>);
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= single_poll.get_option_b_img %>);
     }
 
     #option-b-<%= single_poll.id %>:after {
@@ -62,11 +62,10 @@
       </li>
 
       <% if !single_poll.owned_by?(current_user) %>
-
-          <li class="poll__actions__action">
-            <%= render 'shared/follow', poll: single_poll %>
-          </li>
-        <% end %>
+        <li class="poll__actions__action">
+          <%= render 'shared/follow', poll: single_poll %>
+        </li>
+      <% end %>
       <li class="poll__actions__action">
         <%= link_to 'javascript:void(0)', id:"poll-copy-link-#{single_poll.id}", class: 'copy-link-poll', value: poll_url(single_poll) do %>
           <i class="icon-link"></i>
