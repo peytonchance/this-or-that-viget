@@ -1,16 +1,23 @@
 <% if http_methodA.present? && http_methodB.present?%>
 
   <% if current_user.get_vote(poll.id).option == 0 %>
-    <%= link_to poll_option_a_path(poll), method: http_methodA, id: "option-a-#{poll.id}", class: "option-poll poll__options__option poll__options__option-a", remote: true do %>
-  <% else %>
     <%= link_to poll_option_a_path(poll), method: http_methodA, id: "option-a-#{poll.id}", class: "option-poll poll__options__option poll__options__option-a poll__options__option--selected", remote: true do %>
-  <% end %>
     <% if poll.get_option_a_img.present? %>
       <p id="option-a-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_a %></p>
     <% else %>
       <p id="option-a-text-<%= poll.id %>"><%= poll.option_a %></p>
     <% end %>
     <span id="option-a__percentage-<%= poll.id %>"></span>
+  <% end %>
+  <% else %>
+    <%= link_to poll_option_a_path(poll), method: http_methodA, id: "option-a-#{poll.id}", class: "option-poll poll__options__option poll__options__option-a", remote: true do %>
+    <% if poll.get_option_a_img.present? %>
+      <p id="option-a-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_a %></p>
+    <% else %>
+      <p id="option-a-text-<%= poll.id %>"><%= poll.option_a %></p>
+    <% end %>
+    <span id="option-a__percentage-<%= poll.id %>"></span>
+  <% end %>
   <% end %>
 
   <% if optionA && optionB %>
@@ -26,15 +33,22 @@
 
   <% if current_user.get_vote(poll.id).option == 1 %>
     <%= link_to poll_option_b_path(poll), method: http_methodB, id: "option-b-#{poll.id}", class: "option-poll poll__options__option poll__options__option-b poll__options__option--selected", remote: true do %>
+    <% if poll.get_option_b_img.present? %>
+        <p id="option-b-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_b %></p>
+      <% else %>
+        <p id="option-b-text-<%= poll.id %>"><%= poll.option_b %></p>
+      <% end %>
+    <span id="option-b__percentage-<%= poll.id %>"></span>
+    <% end %>
   <% else %>
     <%= link_to poll_option_b_path(poll), method: http_methodB, id: "option-b-#{poll.id}", class: "option-poll poll__options__option poll__options__option-b", remote: true do %>
-  <% end %>
-    <% if poll.get_option_b_img.present? %>
-      <p id="option-b-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_b %></p>
-    <% else %>
-      <p id="option-b-text-<%= poll.id %>"><%= poll.option_b %></p>
-    <% end %>
+      <% if poll.get_option_b_img.present? %>
+        <p id="option-b-text-<%= poll.id %>" class="option-text--hidden"><%= poll.option_b %></p>
+      <% else %>
+        <p id="option-b-text-<%= poll.id %>"><%= poll.option_b %></p>
+      <% end %>
     <span id="option-b__percentage-<%= poll.id %>"></span>
+    <% end %>
   <% end %>
 
 <% else %>
