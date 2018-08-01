@@ -15,11 +15,22 @@
         <%= f.text_field :title, placeholder: "ex: should I buy this or that?", id: "poll-title" %>
       </div>
 
+      <div class="create-modal__fields__option-labels">
+        <div class="create-modal__fields__option-label">
+          <h3><span class="form__required">*</span>Option A <em id="poll-char-count-opta">(max 25 characters)</em></h3>
+          <%= f.text_field :option_a, placeholder: "ex: pizza", id: "poll-option-a" %>
+        </div>
+        <div class="create-modal__fields__option-label create-modal__fields__option-label--right">
+          <h3><span class="form__required">*</span>Option B <em id="poll-char-count-optb">(max 25 characters)</em></h3>
+         <%= f.text_field :option_b, placeholder: "ex: tacos", id: "poll-option-b" %>
+        </div>
+      </div>
+
       <h3>Upload photos <em>(optional)</em></h3>
       <div class="create-modal__fields__photos">
         <div class="create-modal__fields__photo create-modal__fields__photo--left">
           <h4><i class="icon-upload"></i> Choose from your device</h4>
-          <%= f.label :option_a_img, "browse+" %>
+          <%= f.label :option_a_img, "browse +" %>
           <%= f.file_field :option_a_img, class: "create-modal__fields__photo__browse", id: "poll_option_a_img", accept: ".jpg, .jpeg, .png", :data => {:module => 'upload', :targetstring => '#poll_option_a_img_filename'} %>
 
           <div class="photo--left__preview">
@@ -31,7 +42,7 @@
         </div>
         <div class="create-modal__fields__photo create-modal__fields__photo--right">
           <h4><i class="icon-upload"></i> Choose from your device</h4>
-          <%= f.label :option_b_img, "browse+" %>
+          <%= f.label :option_b_img, "browse +" %>
           <%= f.file_field :option_b_img, class: "create-modal__fields__photo__browse", id: "poll_option_b_img", accept: ".jpg, .jpeg, .png", :data => {:module => 'upload', :targetstring => '#poll_option_b_img_filename'} %>
           <div class="photo--right__preview">
              <p id="poll_option_b_img_filename">no file chosen</p>
@@ -41,16 +52,7 @@
           <%= f.url_field :option_b_url %>
         </div>
       </div>
-      <div class="create-modal__fields__option-labels">
-        <div class="create-modal__fields__option-label">
-          <h3><span class="form__required">*</span>Option A <em id="poll-char-count-opta">(max 25 characters)</em></h3>
-          <%= f.text_field :option_a, placeholder: "ex: pizza", id: "poll-option-a" %>
-        </div>
-        <div class="create-modal__fields__option-label create-modal__fields__option-label--right">
-          <h3><span class="form__required">*</span>Option B <em id="poll-char-count-optb">(max 25 characters)</em></h3>
-         <%= f.text_field :option_b, placeholder: "ex: tacos", id: "poll-option-b" %>
-        </div>
-      </div>
+
       <h3>Allow others to vote for:</h3>
       <div class="create-modal__fields__duration">
           <div class="create-modal__fields__duration__input">
