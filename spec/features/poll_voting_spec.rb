@@ -111,7 +111,6 @@ RSpec.describe "Voting on a poll", type: :feature, js:true do
     
     context "user owns the poll" do
       before do
-        poll.update_attributes(user: user)
         create(:vote, poll: poll, option: 0)
         create(:vote, poll: poll, option: 0)
         create(:vote, poll: poll, option: 1)
@@ -119,9 +118,15 @@ RSpec.describe "Voting on a poll", type: :feature, js:true do
       end
       
       it 'autoamtically shows interim poll results if user owns poll' do
+        poll.update_attributes(user: user)
         visit root_path
         expect(find("#option-a-#{poll.id}")).to have_content '67%'
         expect(find("#option-b-#{poll.id}")).to have_content '33%'
+      end
+      
+      it 'does not show interim poll results if user does not own poll' do
+        visit root_path
+        expect(page).to_not have_content '%'
       end
     end
   end
