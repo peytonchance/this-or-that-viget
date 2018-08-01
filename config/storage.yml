@@ -10,7 +10,7 @@ local:
 amazon:
   service: S3
   access_key_id: <%= Rails.application.credentials.dig(:aws_access_key) %>
-  secret_access_key: <%= Rails.application.credentials.dig(:aws_secret_key).dump %>
+  secret_access_key: <%= Rails.application.credentials.dig(:aws_secret_key) %>
   region: "us-east-1"
   bucket: "this-or-that-vgt"
 
