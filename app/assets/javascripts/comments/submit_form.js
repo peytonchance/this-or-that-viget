@@ -2,21 +2,22 @@ $(document).ready(function() {
     $('#comment-submit').click(function() {
         $('form#comment-form').unbind('submit').submit(function(event) {
             var valuesToSubmit = $(this).serialize();
-            
+
             $.ajax({
                 type: "POST",
                 url: $(this).attr('action'),
                 data: valuesToSubmit
-                
+
             }).success(function(json){
                 $('#comment-field').append(json["content"]);
-                
+                document.querySelector('#new-comment').placeholder = "add a comment";
+
             }).error(function(json){
                 response = json["responseJSON"]
                 $("#comment-error-messages").html(response["message"])
-                
+
             });
-            return false; // prevents 
+            return false; // prevents
         });
     });
 });
