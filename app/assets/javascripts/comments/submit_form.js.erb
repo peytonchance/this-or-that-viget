@@ -11,6 +11,9 @@ $(document).ready(function() {
             }).success(function(json){
                 $('#comment-field').append(json["content"]);
                 document.querySelector('#new-comment').placeholder = "add a comment";
+                $(`#comment-form-wrapper-${json["id"]}`).html(
+                  `<%= j render 'shared/comment-form', id: @form_comment_id %>`
+                )
 
             }).error(function(json){
                 response = json["responseJSON"]

@@ -1,13 +1,16 @@
 class CommentsController < ApplicationController
   include ActionView::Helpers::TagHelper
+  include ActionView::Helpers::FormTagHelper
 
   def create
     if user_signed_in?
       @poll = Poll.find(params[:poll_id])
       @comment = @poll.comments.new(comment_param.merge(user: current_user))
       if @comment.save
+        @form_comment_id = @comment.id
         render json: {
           "status": "success",
+          "id": @comment.id,
           "content": comment_div
           }, status: :accepted
       else
@@ -64,9 +67,14 @@ class CommentsController < ApplicationController
   end
 
   def comment_div
-    "<div class='comments__comment'>
+    "<div id='comment-#{@comment.id}' class='comments__comment'>
       <p class='comments__comment__username'>#{@comment.user.username}</p>
-      <p class='comments__comment__text'>#{@comment.body}</p>
+      <div id='comment-form-wrapper-#{@comment.id}' class='comments__new-comment'>
+        
+      </div>
+      <p id='comment-body-#{@comment.id}' class='comments__comment__text'>#{@comment.body}</p>
+      <a class='edit-comment' id='comment-edit-#{@comment.id}' commentID='#{@comment.id}' href='javascript:void(0)'>Edit</a>
+      <a class='' id='comment-delete-#{@comment.id}' rel='nofollow' data-method='delete' href='#{poll_comment_path(@comment.poll, @comment)}'>Delete</a>
     </div>"
   end
 end
