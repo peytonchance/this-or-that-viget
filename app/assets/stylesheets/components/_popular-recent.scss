@@ -14,11 +14,9 @@
   top: 25%;
   width: 50%;
 
-  @media ($screen-sm-up) {
+  @media ($screen-xs-up) {
     left: auto;
-    position: fixed;
     right: 3%;
-    top: 30%;
     width: 10%;
   }
 }
