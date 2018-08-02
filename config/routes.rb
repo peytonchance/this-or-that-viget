@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   
   resource :profiles, only: [:show]
+  resources :privacy, only: [:index]
   
   namespace :api do
     resource :registrations, only: [:create]
