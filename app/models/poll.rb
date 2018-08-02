@@ -11,7 +11,7 @@ class Poll < ApplicationRecord
 
   #Validationd
   validates :user, presence: true
-  validates :title, presence: true, length: {in: 10..45}
+  validates :title, presence: true, length: {in: 10..30}
   validates :option_a, presence: true, length: {in: 1..25}
   validates :option_b, presence: true, length: {in: 1..25}
   validate :both_image_options

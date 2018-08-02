@@ -49,7 +49,7 @@ RSpec.describe Poll, type: :model do
       
       poll = build(:poll, title: "This is a really really really long poll title")
       expect(poll.save).to eq false
-      expect(poll.errors.full_messages.first).to eq "Title is too long (maximum is 45 characters)"
+      expect(poll.errors.full_messages.first).to eq "Title is too long (maximum is 30 characters)"
     end
   end
 end
