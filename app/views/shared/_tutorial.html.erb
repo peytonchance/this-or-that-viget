@@ -1,0 +1,54 @@
+<script>
+  document.querySelector('.body__main').classList.add('body__main--muted')
+</script>
+
+<dialog id="tutorial" class="tutorial" data-module="modal">
+  <button data-module="modal" aria-controls="tutorial"><i class="icon-expired"></i>Close Intro</button>
+  <div class="part-one__bg">
+    <div class="part-one tutorial__part">
+      <div class="part-one__content tutorial__part__content">
+        <h1>It's decision time.</h1>
+        <p>If you’ve got a tough choice to make, you’ve come to the right place. Whether it’s picking a place to go for lunch, or choosing what shirt  to buy, This or That will help you crowdsource your decisions.</p>
+
+        <p>Here’s how it works:</p>
+
+        <p>CONTINUE</p>
+        <%= image_tag('arrow-down.svg') %>
+      </div>
+    </div>
+  </div>
+  <div class="part-two tutorial__part">
+    <div class="part-two__illustration tutorial__part__illustration">
+      <div class="part-two__illustration--hidden">
+        <h3>Vote</h3>
+        <p>Weigh in on other’s polls below by clicking an option</p>
+        <h3>Follow</h3>
+        <p>Follow to keep tabs on polls and find out the final results</p>
+      </div>
+    </div>
+    <div class="part-two__content tutorial__part__content">
+      <h2>Cast your vote</h2>
+      <p>Ever wanted to decide the fate of a complete stranger? Now you can, and it couldn’t be easier. Get started by scrolling through your home feed and voting on polls created by other This or That users. </p>
+
+      <p>CONTINUE</p>
+      <%= image_tag('arrow-down.svg') %>
+    </div>
+  </div>
+  <div class="part-three tutorial__part">
+    <div class="part-three__content tutorial__part__content">
+      <h2>Create a poll</h2>
+      <p>Once you’ve created an account, you’ll be able to make polls of your own. You can choose to add photos to enhance your poll, or simply type which two options you’re deciding between.</p>
+
+      <p>ALL DONE!</p>
+    </div>
+    <div class="part-three__illustration tutorial__part__illustration">
+      <div class="part-two__illustration--hidden">
+        <h3>Create button</h3>
+        <p>Weigh in on other’s polls below by clicking an option</p>
+        <h3>Make a poll</h3>
+        <p>Follow to keep tabs on polls and find out the final results</p>
+      </div>
+    </div>
+  </div>
+
+</dialog>
