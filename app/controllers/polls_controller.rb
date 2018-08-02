@@ -5,7 +5,7 @@ class PollsController < ApplicationController
       if params[:filter] == "mypolls"
         @polls = current_user.polls.order(created_at: :desc)
       else
-        @polls = current_user.followed_polls
+        @polls = current_user.followed_polls.order(created_at: :desc)
       end
     elsif params[:feed] && params[:feed] == "popular"
       @polls = Poll.popular
