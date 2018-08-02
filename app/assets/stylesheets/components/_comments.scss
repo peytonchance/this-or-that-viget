@@ -40,7 +40,11 @@
     font-weight: 400;
     height: 25px;
     padding-left: 10px;
-    width: 68%;
+    width: 50%;
+
+    @media ($screen-md-up) {
+      width: 68%;
+    }
   }
 }
 

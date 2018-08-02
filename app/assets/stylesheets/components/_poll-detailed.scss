@@ -65,7 +65,10 @@
     margin-left: 10px;
 
     &:first-child {
-      border-radius: 200px;
+
+      @media ($screen-md-up) {
+        border-radius: 200px;
+      }
     }
   }
 
