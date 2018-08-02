@@ -43,7 +43,11 @@
       <%= render partial: 'shared/login' %>
     <% else %>
       <%= render partial: 'shared/create' %>
+      <% if true %>
+        <%= render partial: 'shared/tutorial' %>
+      <% end>
     <% end %>
+
     <%= render partial: 'shared/forgot-password' %>
 
     <%= javascript_include_tag 'application' %>
