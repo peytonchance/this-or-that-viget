@@ -3,7 +3,7 @@
     <p id="comment-body-<%= comment.id %>" class="comments__comment__text"><%= comment.body %></p>
   
   <div class="comments__new-comment">
-    <%= form_tag poll_comment_path(@poll, comment), id: "edit-comment-form-#{comment.id}", method: :put, remote: true do %>
+    <%= form_tag poll_comment_path(@poll, comment), id: "edit-comment-form-#{comment.id}", class: 'comment-edit-form', method: :put, remote: true do %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <% end %>
   </div>

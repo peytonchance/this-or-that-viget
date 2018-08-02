@@ -24,6 +24,22 @@ class CommentsController < ApplicationController
     end
 
   end
+  
+  def update
+    comment = Poll.find(params[:poll_id]).comments.find(params[:id])
+    if comment.update(body: params[:body])
+      render json: {
+        status: "success",
+        id: comment.id,
+        body: comment.body
+      }, status: :accepted
+    else
+      render json: {
+        status: "error",
+        message: "<p>Body cannot be blank.</p>"
+        }, status: :unprocessable_entity
+    end
+  end
     
   def destroy
     session[:return_to] ||= request.referer
