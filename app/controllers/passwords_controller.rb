@@ -6,6 +6,8 @@ class PasswordsController < Devise::PasswordsController
   def create
     @user = User.send_reset_password_instructions(request_params)
     if successfully_sent?(@user)
+      sign_out("user")
+      cookies.delete :user_id
       render json: {
         "status": "success",
         "message": "Reset Password Link Sent to Email"
@@ -30,6 +32,7 @@ class PasswordsController < Devise::PasswordsController
     if @user.errors.empty?
       if Devise.sign_in_after_reset_password
         sign_in(:user, @user)
+        cookies.signed.permanent[:user_id] = @user.id
       end
       render json: {
         "status": "success",
