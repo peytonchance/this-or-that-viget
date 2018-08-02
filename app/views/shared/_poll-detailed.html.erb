@@ -51,7 +51,7 @@
     </div>
 
     <% if single_poll.expired? %>
-      <%= render 'shared/expired-options', poll: single_poll %>
+      <%= render 'shared/static-options', poll: single_poll %>
     <% else %>
       <%= render 'shared/options', poll: single_poll %>
     <% end %>
