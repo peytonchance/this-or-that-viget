@@ -3,7 +3,7 @@ class PollsController < ApplicationController
   def index
     if params[:filter]
       if params[:filter] == "mypolls"
-        @polls = current_user.polls
+        @polls = current_user.polls.order(created_at: :desc)
       else
         @polls = current_user.followed_polls
       end
