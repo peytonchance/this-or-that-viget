@@ -1,7 +1,7 @@
 <% if single_poll.get_option_a_img.present? %>
   <style>
     #option-a-<%= single_poll.id %> {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= single_poll.get_option_a_img %>);
+      background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(<%= single_poll.get_option_a_img %>);
       background-size: cover;
       color: #fff;
     }
@@ -15,7 +15,7 @@
     }
 
     #option-b-<%= single_poll.id %> {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= single_poll.get_option_b_img %>);
+      background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(<%= single_poll.get_option_b_img %>);
       color: #fff;
     }
 

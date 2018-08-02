@@ -11,14 +11,14 @@
   min-width: 170px;
   padding: 0;
   position: absolute;
-  top: 23%;
+  top: 25%;
   width: 50%;
 
   @media ($screen-sm-up) {
     left: auto;
     position: fixed;
     right: 3%;
-    top: 20%;
+    top: 30%;
     width: 10%;
   }
 }
@@ -71,7 +71,7 @@
       left: auto;
       padding: 4px 5px;
       right: -20px;
-      transition: transform 1s;
+      transition: transform 0.5s;
       width: 85px;
     }
 
@@ -94,7 +94,7 @@
       border-radius: 999px;
       content: 'Popular';
       transform: translateX(-100px);
-      transition: transform 1s;
+      transition: transform 0.5s;
     }
     &::before {
       content: none;
@@ -112,7 +112,7 @@
       padding: 4px 5px;
       right: -20px;
       transform: translateX(100px);
-      transition: transform 1s;
+      transition: transform 0.5s;
       width: 85px;
     }
     &::before {
