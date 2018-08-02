@@ -2,7 +2,7 @@ $(document).ready(function() {
   var titleField = document.querySelector('#poll-title')
   var titleChar = document.querySelector('#poll-char-count-title')
   const titleMinChar = 10
-  const titleMaxChar = 45
+  const titleMaxChar = 30
   if (titleField) {
     titleField.addEventListener('keyup', function(event) {
       changeCharCount(titleChar, titleMinChar, titleMaxChar, titleField.value.length)
