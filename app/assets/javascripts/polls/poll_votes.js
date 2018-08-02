@@ -40,6 +40,14 @@ function displayPercentages(response, optionA, optionB) {
   optionAText.innerHTML = response.optionAText
   optionBText.innerHTML = response.optionBText
 
+  if (response.option == 0) {
+    optionBBox.classList.remove('poll__options__option--selected')
+    optionABox.classList.add('poll__options__option--selected')
+  } else {
+    optionABox.classList.remove('poll__options__option--selected')
+    optionBBox.classList.add('poll__options__option--selected')
+  }
+
   if (!response.delete) {
     optionAPercentage.innerHTML = Math.round(response.optionA * 100) + '%'
     optionBPercentage.innerHTML = Math.round(response.optionB * 100) + '%'
@@ -48,16 +56,6 @@ function displayPercentages(response, optionA, optionB) {
     optionBBox.classList.remove('poll__options__option--selected')
     optionAPercentage.innerHTML = ''
     optionBPercentage.innerHTML = ''
-  }
-
-  if (response.option == 0) {
-    console.log('go left')
-    optionBBox.classList.remove('poll__options__option--selected')
-    optionABox.classList.add('poll__options__option--selected')
-  } else if (response.option == 1) {
-    console.log('go right')
-    optionABox.classList.remove('poll__options__option--selected')
-    optionBBox.classList.add('poll__options__option--selected')
   }
 
   optionA.style = 'width: ' + (response.optionA * 100) + '%'

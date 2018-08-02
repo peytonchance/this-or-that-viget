@@ -35,10 +35,10 @@
         }
       </script>
     <% else %>
-      <%= render 'shared/option-links', poll: poll, http_methodA: :post, http_methodB: :post , optionA: nil, optionB: nil, classNameA: '', classNameB: '' %>
+      <%= render 'shared/option-links', poll: poll, http_methodA: :post, http_methodB: :post %>
       </div>
     <% end %>
   <% else %>
-    <%= render 'shared/option-links', poll: poll, http_methodA: nil, http_methodB: nil, optionA: nil, optionB: nil %>
+    <%= render 'shared/option-links', poll: poll, http_methodA: nil, http_methodB: nil %>
     </div>
   <% end %>

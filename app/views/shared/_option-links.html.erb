@@ -1,3 +1,12 @@
+<%
+  optionA      ||= nil
+  optionB      ||= nil
+  classNameA   ||= ''
+  classNameB   ||= ''
+  http_methodA ||= nil
+  http_methodA ||= nil
+%>
+
 <% if http_methodA.present? && http_methodB.present?%>
   <%= link_to poll_option_a_path(poll), method: http_methodA, id: "option-a-#{poll.id}", class: "option-poll poll__options__option poll__options__option-a #{classNameA}", remote: true do %>
     <% if poll.get_option_a_img.present? %>
