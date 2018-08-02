@@ -65,7 +65,7 @@
     margin-left: 40px;
     min-height: 76px;
     padding: 0;
-    min-width: 250px;
+    min-width: 200px;
 
     @media ($screen-md-up) {
       align-items: flex-start;
@@ -334,7 +334,7 @@
 
 .poll__content h2 {
   font-weight: 500;
-  margin: 0 38px 50px;
+  margin: 0 29px 50px;
 
   @media ($screen-md-up) {
     margin: 20px 0;
