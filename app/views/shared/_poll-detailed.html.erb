@@ -77,7 +77,7 @@
       <% if single_poll.owned_by?(current_user) %>
         <li class="poll__actions__action">
         <%= link_to poll_path(single_poll), method: :delete, id: '', class: '' do %>
-            <i class="icon-link"></i>
+            <i class="icon-trash"></i>
             <span>delete poll</span>
         <% end %>
         </li>
