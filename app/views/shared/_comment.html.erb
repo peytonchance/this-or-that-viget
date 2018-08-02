@@ -1,13 +1,13 @@
 <div id="comment-<%= comment.id %>" class="comments__comment">
-    <p class="comments__comment__username"><%= comment.user.username %></p>
-    <p id="comment-body-<%= comment.id %>" class="comments__comment__text"><%= comment.body %></p>
+  <p class="comments__comment__username"><%= comment.user.username %></p>
   
   <div class="comments__new-comment">
     <%= form_tag poll_comment_path(@poll, comment), id: "edit-comment-form-#{comment.id}", class: 'comment-edit-form', method: :put, remote: true do %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <% end %>
   </div>
-  
+
+    <p id="comment-body-<%= comment.id %>" class="comments__comment__text"><%= comment.body %></p>
   
   <% if comment.owned_by?(current_user) %>
     <%= link_to 'Edit', 'javascript:void(0)', class: 'edit-comment', id: "comment-edit-#{comment.id}", commentID: comment.id %>

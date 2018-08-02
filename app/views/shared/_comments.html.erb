@@ -3,7 +3,7 @@
 
   </div>
   <div id="comment-field">
-    <%= render partial: 'shared/comment', collection: @poll.comments %>
+    <%= render partial: 'shared/comment', collection: @poll.comments.order(created_at: :asc) %>
   </div>
   <%= form_tag poll_comments_path(@poll), id: "comment-form" do %>
   <div class="comments__new-comment">

@@ -8,14 +8,33 @@ $(document).ready(function() {
   }
 
   $('.comment-edit-form').bind('ajax:success', function(evt, data, status, xhr) {
-    console.log(evt)
+    response = evt.detail[0]
+
+    form = document.getElementById(`edit-comment-form-${response.id}`)
+    form.removeChild(document.getElementById(`edit-comment-${response.id}`))
+    form.removeChild(document.getElementById(`edit-comment-submit-${response.id}`))
+
+    commentWrapper.appendChild(commentBody)
+    commentBody.innerHTML = response.body
+    commentWrapper.appendChild(editCommentButton)
+    commentWrapper.appendChild(deleteCommentButton)
+    $("#comment-error-messages").html('')
+
+    editCommentButton = null
+    deleteCommentButton = null
+    commentBody = null
+    commentWrapper = null
   }).bind('ajax:error', function(evt, xhr, status, error){
-    console.log("error")
+    console.log(evt)
+    response = evt.detail[0]
+    $("#comment-error-messages").html(response.message)
   });
 });
 
 var editCommentButton = null
 var deleteCommentButton = null
+var commentBody = null
+var commentWrapper = null
 
 
 function handleEditComment(e) {
