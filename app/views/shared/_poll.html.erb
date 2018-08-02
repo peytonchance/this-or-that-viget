@@ -1,7 +1,7 @@
 <style>
   <% if poll.get_option_a_img.present? %>
       #option-a-<%= poll.id %> {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= url_for(poll.get_option_a_img) %>);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(<%= url_for(poll.get_option_a_img) %>);
       }
       #option-a-<%= poll.id %>:after {
           background: radial-gradient(rgba(97, 183, 242, 1) 50%, rgba(97, 183, 242, 0.3));
@@ -12,10 +12,10 @@
           left: 5%;
       }
   <% end %>
-  
+
   <% if poll.get_option_b_img.present? %>
     #option-b-<%= poll.id %> {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(<%= url_for(poll.get_option_b_img) %>);
+      background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(<%= url_for(poll.get_option_b_img) %>);
     }
     #option-b-<%= poll.id %>:after {
       background: radial-gradient(rgba(252, 185, 44, 1) 50%, rgba(252, 185, 44, 0.6));
