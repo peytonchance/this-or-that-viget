@@ -12,8 +12,7 @@ $(document).ready(function() {
                 $('#comment-field').append(json["content"]);
                 document.querySelector('#new-comment').placeholder = "add a comment";
                 $(`#comment-form-wrapper-${json["id"]}`).html(
-                  `<%= j Erubis::Eruby.new(File.read(File.join(Rails.root, 'app/views/shared',
-        '_comment-form.html.erb'))).result(id: @form_comment_id) %>`
+
                 )
 
             }).error(function(json){
