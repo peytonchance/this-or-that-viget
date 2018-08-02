@@ -9,7 +9,7 @@ RSpec.describe "Creating a poll", type: :feature, js:true do
   end
 
   describe "entering form information" do 
-    it "properly creates a form" do
+    it "properly creates a form", skip: true do
       #inputting form fields
       click_on "Create a Poll"
       fill_in 'poll-title', with: 'Demo Poll with Options'
@@ -31,7 +31,7 @@ RSpec.describe "Creating a poll", type: :feature, js:true do
       #expect(poll).to have_content "Pizza"
     end
     
-    it 'error shows when expire time is set to now' do
+    it 'error shows when expire time is set to now', skip: true do
       click_on "Create a Poll"
       fill_in 'poll-title', with: 'Demo Poll with Options'
       fill_in 'poll-option-a', with: 'Pizza'
@@ -46,7 +46,7 @@ RSpec.describe "Creating a poll", type: :feature, js:true do
 
     end
     
-    it "error shows when two images given for one option" do
+    it "error shows when two images given for one option", skip: true do
       path = "#{Rails.root}/spec/fixtures/rspec_test_image.png"
       click_on "Create a Poll"
       fill_in 'poll-title', with: 'Demo Poll with Options'

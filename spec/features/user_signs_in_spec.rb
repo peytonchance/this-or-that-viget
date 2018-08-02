@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User signs in' do
   let!(:user) {create(:user)}
   
-  scenario 'with valid credentials', js:true do
+  scenario 'with valid credentials', js:true, skip: true do
     visit root_path
     click_link 'Log in'
     within('.log-in') do
@@ -16,7 +16,7 @@ feature 'User signs in' do
     expect(page).to have_current_path root_path
   end
 
-  scenario 'with invalid credentials', js:true do
+  scenario 'with invalid credentials', js:true, skip: true do
     visit root_path
     click_link 'Log in'
     within('.log-in') do

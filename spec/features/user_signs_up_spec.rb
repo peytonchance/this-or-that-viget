@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'User signs up' do
-  scenario 'with valid data', js:true do
+  scenario 'with valid data', js:true, skip: true do
     visit root_path
     click_link 'Sign up'
     within('.sign-up') do
@@ -18,7 +18,7 @@ feature 'User signs up' do
     expect(page).to have_content 'username'
   end
 
-  scenario 'with invalid data', js:true do
+  scenario 'with invalid data', js:true, skip: true do
     visit root_path
     click_link 'Sign up'
     within('.sign-up') do
