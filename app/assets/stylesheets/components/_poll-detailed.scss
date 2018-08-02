@@ -40,7 +40,7 @@
       left: 10px;
       margin: 0;
       position: absolute;
-      top: -70px;
+      top: -100px;
 
       @media ($screen-md-up) {
         position: static;
@@ -89,6 +89,10 @@
 }
 
 .poll-detailed__wrapper {
- margin: auto;
- width: 85%;
+  margin: auto;
+  width: 100%;
+
+ @media ($screen-md-up) {
+   width: 85%;
+ }
 }
