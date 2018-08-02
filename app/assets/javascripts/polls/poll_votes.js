@@ -58,8 +58,8 @@ function displayPercentages(response, optionA, optionB) {
     optionBPercentage.innerHTML = ''
   }
 
-  optionA.style = 'width: ' + (response.optionA * 100) + '%'
-  optionB.style = 'width: ' + (response.optionB * 100) + '%'
+  optionA.style.width = (response.optionA * 100) + '%'
+  optionB.style.width = (response.optionB * 100) + '%'
 
   if (response.optionA === 0) {
     optionAText.innerHTML = ''

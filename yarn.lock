@@ -2184,6 +2184,16 @@ find-up@^2.0.0, find-up@^2.1.0:
   dependencies:
     locate-path "^2.0.0"
 
+fit-text@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/fit-text/-/fit-text-2.0.1.tgz#b5351d39c34eb18cfdd18a178634c46456326f60"
+
+fittext@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/fittext/-/fittext-1.0.1.tgz#917ecb1a9fde42dc97cc12cfc006e7dda5ba7791"
+  dependencies:
+    hyphenation.de "*"
+
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
@@ -2621,6 +2631,16 @@ http-signature@~1.1.0:
 https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
+
+hyphenation.de@*:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/hyphenation.de/-/hyphenation.de-0.2.1.tgz#366b4a805884c44d59be851b9bf402ccf24e2434"
+  dependencies:
+    hypher "*"
+
+hypher@*:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/hypher/-/hypher-0.2.5.tgz#2fe456ed2a3fd4ed0d9e428617181c59f9a6dd02"
 
 iconv-lite@0.4.19:
   version "0.4.19"
