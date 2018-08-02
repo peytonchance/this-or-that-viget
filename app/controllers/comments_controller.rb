@@ -24,7 +24,6 @@ class CommentsController < ApplicationController
     end
 
   end
-  
     
   def destroy
     session[:return_to] ||= request.referer
