@@ -10,7 +10,8 @@ $(document).ready(function() {
 
             }).success(function(json){
                 $('#comment-field').append(json["content"]);
-                document.querySelector('#new-comment').placeholder = "add a comment";
+                el = document.querySelector('#comment-form')
+                el.reset()
 
             }).error(function(json){
                 response = json["responseJSON"]

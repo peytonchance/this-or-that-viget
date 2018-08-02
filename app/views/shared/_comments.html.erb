@@ -16,7 +16,7 @@
     </p>
 
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <%= text_field_tag "body", "add a comment", id: "new-comment", :autocomplete => :off %>
+    <%= text_field_tag "body", '', id: "new-comment", placeholder: "add a comment", :autocomplete => :off %>
 
   </div>
   <button type="submit" for="new-comment" id="comment-submit" class="comments__submit">comment</button>
