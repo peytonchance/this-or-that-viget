@@ -7,23 +7,23 @@ $('#all-polls').on('updated', function(event) {
 function copyLink() {
   $('.copy-link-poll').click( function(e) {
     
-    var target = document.createElement("textarea");
+    var copyValue = document.createElement("textarea");
     
-    target.style.position = "absolute";
-    target.style.left = "-9999px";
-    target.style.top = "0";
-    target.id = e.currentTarget.id;
+    copyValue.style.position = "absolute";
+    copyValue.style.left = "-9999px";
+    copyValue.style.top = "0";
+    copyValue.id = e.currentTarget.id;
     
-    document.body.appendChild(target);
+    document.body.appendChild(copyValue);
     location.href = '#' + e.currentTarget.id
-    target.textContent = e.currentTarget.getAttribute("value");
+    copyValue.textContent = e.currentTarget.getAttribute("value");
     
     // select the content
-    target.focus();
-    target.setSelectionRange(0, target.value.length);
+    copyValue.focus();
+    copyValue.setSelectionRange(0, copyValue.value.length);
     document.execCommand("copy");
     
-    document.body.removeChild(target)
+    document.body.removeChild(copyValue)
     e.currentTarget.focus()
     
     document.querySelector('#' + e.currentTarget.id.replace('link', 'span')).innerHTML = 'copied'

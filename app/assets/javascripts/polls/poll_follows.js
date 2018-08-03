@@ -5,7 +5,7 @@ $('#all-polls').on('updated', function(event) {
 });
 
 function follow() {
-  let $polls = $(".follow-poll")
+  var $polls = $(".follow-poll")
    $polls.bind('ajax:success', function(evt, data, status, xhr) {
       updateFollow(evt, data, status, xhr)
    }).bind('ajax:error', function(evt, xhr, status, error){

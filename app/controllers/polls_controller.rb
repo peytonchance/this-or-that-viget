@@ -3,15 +3,17 @@ class PollsController < ApplicationController
   def index
     if params[:filter]
       if params[:filter] == "mypolls"
-        @polls = current_user.polls.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
+        @polls = current_user.polls.order(created_at: :desc)
       else
-        @polls = current_user.followed_polls.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
+        @polls = current_user.followed_polls.order(created_at: :desc)
       end
     elsif params[:feed] && params[:feed] == "popular"
-      @polls = Poll.popular.paginate(page: params[:page], per_page: 5)
+      @polls = Poll.popular
     else
-      @polls = Poll.recent.paginate(page: params[:page], per_page: 5)
+      @polls = Poll.recent
     end
+    
+    @polls = @polls.paginate(page: params[:page], per_page: 5)
 
     respond_to do |format|
       format.html
