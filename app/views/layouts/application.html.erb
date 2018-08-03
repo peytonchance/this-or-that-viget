@@ -41,7 +41,9 @@
     </div>
     
     <div id="infinite-scrolling" class="paginator">
+      <% if @polls %>  
         <%= will_paginate %>
+      <% end %>
     </div>
     
     <% if !user_signed_in? %>

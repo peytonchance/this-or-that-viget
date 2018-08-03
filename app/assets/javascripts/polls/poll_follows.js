@@ -1,11 +1,17 @@
-$(document).ready(() => {
-   let $polls = $(".follow-poll")
+$(document).ready(follow);
+
+$('#all-polls').on('updated', function(event) {
+  follow()
+});
+
+function follow() {
+  let $polls = $(".follow-poll")
    $polls.bind('ajax:success', function(evt, data, status, xhr) {
       updateFollow(evt, data, status, xhr)
    }).bind('ajax:error', function(evt, xhr, status, error){
       handleFollowError(evt, xhr, status, error)
    });
-});
+}
 
 let updateFollow = (evt, data, status, xhr) => {
    let { pollId, content, icon, path, method } = evt.detail[0]

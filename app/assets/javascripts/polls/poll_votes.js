@@ -1,14 +1,20 @@
 var optionA
 var optionB
 
-$(document).ready(function() {
+$(document).ready(vote);
+
+$('#all-polls').on('updated', function(event) {
+  vote()
+});
+
+function vote() {
   var $options = $(".option-poll")
   $options.bind('ajax:success', function(evt, data, status, xhr) {
     updateOptions(evt, data, status, xhr);
   }).bind('ajax:error', function(evt, xhr, status, error){
     console.log("Unauthorized user")
   });
-});
+}
 
 function updateOptions(evt, data, status, xhr) {
   response = evt.detail[0]

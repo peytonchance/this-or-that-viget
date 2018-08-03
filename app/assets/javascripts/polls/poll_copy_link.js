@@ -1,4 +1,10 @@
-$(document).ready(function() {
+$(document).ready(copyLink);
+
+$('#all-polls').on('updated', function(event) {
+  copyLink()
+});
+
+function copyLink() {
   $('.copy-link-poll').click( function(e) {
     
     var target = document.createElement("textarea");
@@ -22,4 +28,4 @@ $(document).ready(function() {
     
     document.querySelector('#' + e.currentTarget.id.replace('link', 'span')).innerHTML = 'copied'
   });
-});
+}
