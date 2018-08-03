@@ -8,9 +8,9 @@ class PollsController < ApplicationController
         @polls = current_user.followed_polls.order(created_at: :desc)
       end
     elsif params[:feed] && params[:feed] == "popular"
-      @polls = Poll.popular
+      @polls = Poll.popular.paginate(page: params[:page], per_page: 10)
     else
-      @polls = Poll.recent
+      @polls = Poll.recent.paginate(page: params[:page], per_page: 10)
     end
   end
 
