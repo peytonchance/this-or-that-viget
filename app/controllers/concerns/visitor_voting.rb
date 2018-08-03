@@ -7,7 +7,8 @@ module VisitorVoting
     if vote.save
       render json: vote_success_json(poll).merge(
         "methodA": option == 0 ? "delete" : "put",
-        "methodB": option == 1 ? "delete" : "put"
+        "methodB": option == 1 ? "delete" : "put",
+        "option": option
       ), status: :accepted
     else
       render json: vote_error_json, status: :unprocessable_entity
@@ -20,7 +21,8 @@ module VisitorVoting
     if vote.update(option: option)
       render json: vote_success_json(poll).merge(
       "methodA": option == 0 ? "delete" : "put",
-      "methodB": option == 1 ? "delete" : "put"
+      "methodB": option == 1 ? "delete" : "put",
+        "option": option
     ), status: :accepted
     else
       render json: vote_error_json, status: :unprocessable_entity
