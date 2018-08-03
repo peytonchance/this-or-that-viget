@@ -43,7 +43,7 @@
       <% if poll.get_visitor_vote(@ip) == 0%>
         <%= render 'shared/option-links', poll: poll, http_methodA: :delete, http_methodB: :put, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1), pathA: poll_visitor_option_a_path(poll), pathB: poll_visitor_option_b_path(poll), classNameA: 'poll__options__option--selected', classNameB: '' %>
       <% else %>
-        <%= render 'shared/option-links', poll: poll, http_methodA: :put, http_methodB: :delete, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1), pathA: poll_visitor_option_a_path(poll), pathB: poll_visitor_option_b_path(poll), classNameB: 'poll__options__option--selected', classNameA: ''%>
+        <%= render 'shared/option-links', poll: poll, http_methodA: :put, http_methodB: :delete, optionA: poll.fraction_of_votes(0), optionB: poll.fraction_of_votes(1), pathA: poll_visitor_option_a_path(poll), pathB: poll_visitor_option_b_path(poll), classNameB: 'poll__options__option--selected', classNameA: '' %>
       <% end %>
       </div>
       <script>
@@ -60,6 +60,7 @@
         } else {
           optionAText.innerHTML = ''
           optionA.classList.add('poll__options__option--no-votes')
+          optionA.classList.remove('poll__options__option--selected')
         }
         if (<%= poll.fraction_of_votes(1) %> !== 0) {
           var optionBPercentageId = '#option-b__percentage-' + <%= poll.id %>;

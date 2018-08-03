@@ -197,13 +197,18 @@
   background-repeat: no-repeat;
   color: color(white);
   display: flex;
+  flex-direction: column-reverse;
   font-weight: 500;
   justify-content: center;
   overflow: hidden;
-  padding: 5px;
+  padding: 10px;
   position: relative;
   text-align: center;
   transition: background 1s;
+
+  @media ($screen-xs-up) {
+    flex-direction: row;
+  }
 
   @media ($screen-md-up) {
     padding: 20px;

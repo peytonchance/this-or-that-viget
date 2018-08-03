@@ -60,5 +60,10 @@
 })();
 
 var allPollOptions = $(".poll__options__option")
+fitText(allPollOptions, 1, { minFontSize: '25px' })
 
-fitText(allPollOptions, 1, { minFontSize: '20px' })
+window.addEventListener('resize', () => {
+  fitText(allPollOptions, 1, { minFontSize: '25px' })
+})
+
+
