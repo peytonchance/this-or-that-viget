@@ -33,7 +33,7 @@
 
     <div class="body__main">
       <%= render partial: 'shared/header' %>
-
+      <%= render partial: 'shared/canvas' %>
       <%= yield %>
 
       <%= render partial: 'shared/footer' %>
@@ -44,7 +44,7 @@
     <% else %>
       <%= render partial: 'shared/create' %>
     <% end %>
-    
+
     <% if @show_tutorial %>
       <%= render partial: 'shared/tutorial' %>
     <% end %>
