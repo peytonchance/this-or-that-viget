@@ -62,6 +62,13 @@
 var allPollOptions = $(".poll__options__option")
 fitText(allPollOptions, 1, { minFontSize: '25px' })
 
+$('#all-polls').on('updated', function(event) {
+  console.log("changed")
+  var allPollOptions = $(".poll__options__option")
+  fitText(allPollOptions, 1, { minFontSize: '25px' })
+});
+
+
 window.addEventListener('resize', () => {
   fitText(allPollOptions, 1, { minFontSize: '25px' })
 })
