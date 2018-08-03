@@ -3,21 +3,26 @@ class PollsController < ApplicationController
   def index
     if params[:filter]
       if params[:filter] == "mypolls"
-        @polls = current_user.polls.order(created_at: :desc)
+        @polls = current_user.polls.paginate(page: params[:page], per_page: 10).order(created_at: :desc)
       else
-        @polls = current_user.followed_polls.order(created_at: :desc)
+        @polls = current_user.followed_polls.paginate(page: params[:page], per_page: 10).order(created_at: :desc)
       end
     elsif params[:feed] && params[:feed] == "popular"
       @polls = Poll.popular.paginate(page: params[:page], per_page: 10)
     else
       @polls = Poll.recent.paginate(page: params[:page], per_page: 10)
     end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
     #basic information
     @poll = current_user.polls.new(poll_params.merge(expired: false))
-    
+
     if @poll.save 
       render json: {
         "status": "success"
@@ -29,7 +34,7 @@ class PollsController < ApplicationController
         }, status: :unprocessable_entity
     end
   end
-  
+
   def show
     @poll = Poll.find(params[:id])
   end
@@ -38,7 +43,7 @@ class PollsController < ApplicationController
     session[:return_to] ||= request.referer
     poll = current_user&.polls&.find(params[:id])
     poll&.destroy
-    
+
     redirect_to session.delete(:return_to)
   end
 

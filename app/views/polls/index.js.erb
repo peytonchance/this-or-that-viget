@@ -1,0 +1,7 @@
+$('#all-polls').append("<%= j render partial: 'shared/poll', collection: @polls, as: :poll, locals: {index: 0} %>");
+<% if @polls.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @polls %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>

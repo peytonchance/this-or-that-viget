@@ -1,0 +1,15 @@
+$(document).ready(function() {
+  if ($('#infinite-scrolling').size() > 0) {
+    $(window).on('scroll', function(event){
+      more_posts_url = $('.paginator .pagination .next_page').attr('href')
+      console.log(more_posts_url)
+      
+      if (more_posts_url && $(window).scrollTop() > $(document).height() - $(window).height() - 20) {
+        $('.pagination').html('<%= image_tag("ajax-loader.gif" ) %>')
+        $.getScript(more_posts_url)
+      }
+      return
+    });
+  }
+  return
+});
