@@ -50,11 +50,12 @@
       </ul>
     </div>
 
-    <% if single_poll.expired? %>
+    <% if single_poll.expired? || single_poll.owned_by?(current_user) %>
       <%= render 'shared/static-options', poll: single_poll %>
     <% else %>
       <%= render 'shared/options', poll: single_poll %>
     <% end %>
+    
     <ul class="poll__actions">
       <li class="poll__actions__comments poll__actions__action">
         <%= link_to single_poll do %>
