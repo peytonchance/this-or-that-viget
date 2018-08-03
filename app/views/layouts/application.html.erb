@@ -34,9 +34,16 @@
     <div class="body__main">
       <%= render partial: 'shared/header' %>
       <%= yield %>
-
+      
+      
+      
       <%= render partial: 'shared/footer' %>
     </div>
+    
+    <div id="infinite-scrolling" class="paginator">
+        <%= will_paginate %>
+    </div>
+    
     <% if !user_signed_in? %>
       <%= render partial: 'shared/signup' %>
       <%= render partial: 'shared/login' %>

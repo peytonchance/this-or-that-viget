@@ -7,10 +7,6 @@
     <% end %>
   </div>
 
-  <div id="infinite-scrolling" class="paginator">
-    <%= will_paginate %>
-  </div>
-
   <% if !params[:filter] || params[:filter]&.empty? %>
     <%= render partial: 'shared/popular-recent' %>
   <% end %>
