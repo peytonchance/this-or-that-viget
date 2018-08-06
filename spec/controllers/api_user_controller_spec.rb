@@ -33,5 +33,40 @@ RSpec.describe Api::UsersController, type: :controller do
       
       expect(response.status).to eq(200)
     end
+    
+    context "with polls already created" do
+      let!(:mypoll) {create(:poll, title: "Users poll", user: user)}
+      let!(:followingpoll) {create(:poll, title: "Following poll")}
+      let!(:follow) {create(:follow, poll: followingpoll, user: user)}
+
+      
+      it 'shows the users polls' do
+        get :show, params: {
+          token: token,
+          id: user.id,
+          filter: "mypolls"
+        }
+        
+        expect(response.body).to eq({
+          status: "success",  
+          poll: [mypoll]
+        }.to_json)
+        expect(response.status).to eq(200)
+      end
+      
+      it 'shows the users followed polls' do
+        get :show, params: {
+          token: token,
+          id: user.id,
+          filter: "following"
+        }
+        
+        expect(response.body).to eq({
+          status: "success",  
+          poll: [followingpoll]
+        }.to_json)
+        expect(response.status).to eq(200)
+      end
+    end
   end
 end
