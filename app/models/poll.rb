@@ -102,4 +102,10 @@ class Poll < ApplicationRecord
   def get_visitor_vote(ip)
     visitor_votes.find_by(ip_address: ip)
   end
+  
+  def as_json(opts={})
+    super.merge(
+      time: self.time_left  
+    )
+  end
 end
