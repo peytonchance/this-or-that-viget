@@ -11,7 +11,7 @@
         border-top-left-radius: 100%;
         border-top-right-radius: 100%;
         bottom: -50%;
-        content: '<%= single_poll.option_a %>';
+        content: "<%= single_poll.option_a.html_safe %>";
     }
 
     #option-b-<%= single_poll.id %> {
@@ -23,7 +23,7 @@
       background: radial-gradient(rgba(252, 185, 44, 1) 50%, rgba(252, 185, 44, 0.6));
       border-radius: 20px;
       bottom: -52%;
-      content: '<%= single_poll.option_b %>';
+      content: "<%= single_poll.option_b.html_safe %>";
     }
   </style>
 <% end %>
