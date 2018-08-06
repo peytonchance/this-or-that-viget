@@ -32,6 +32,7 @@ Rails.application.configure do
   config.assets.compile = false
   
   config.action_mailer.default_url_options = { host: 'this-or-that.co' }
+  config.action_controller.default_url_options = { host: 'this-or-that.co'}
   
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
