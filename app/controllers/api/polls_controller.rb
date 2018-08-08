@@ -3,10 +3,17 @@ class Api::PollsController < Api::ApiController
   before_action :verify_poll_id, only: :show
 
   def index
-    render json: {
-      status: "success",
-      poll: Poll.recent
-      }, status: :accepted
+    if params[:filter] == "popular" 
+      render json: {
+        status: "success",
+        poll: Poll.popular
+        }, status: :accepted
+    else
+      render json: {
+        status: "success",
+        poll: Poll.recent
+        }, status: :accepted
+    end
   end
 
   def create
