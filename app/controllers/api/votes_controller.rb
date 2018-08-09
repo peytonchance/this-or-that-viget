@@ -16,7 +16,7 @@ class Api::VotesController < Api::ApiController
     if vote.save
       render json: vote_success_json(@poll, @option), status: :ok
     else
-      respond_with_error("Vote unable to be saved")
+      respond_with_error("Vote unable to be created")
     end
   end
 
@@ -44,11 +44,26 @@ class Api::VotesController < Api::ApiController
     if vote.update(option: @option)
       render json: vote_success_json(@poll, @option), status: :ok
     else
-      respond_with_error("Vote unable to be saved")
+      respond_with_error("Vote unable to be updated")
     end
   end
 
   def destroy
+    if @type == "visitor"
+      vote = @poll.visitor_votes.find_by(ip_address: @ip)
+    else
+      vote = @poll.votes.find_by(user_id: @user.id)
+    end
+    
+    if vote.destroy
+      render json: vote_success_json(@poll, @option).merge(
+        "delete": true,
+        "optionA": 0.5,
+        "optionB": 0.5
+      )
+    else
+      respond_with_error("Vote unable to be deleted")
+    end
   end
 
   private
@@ -90,7 +105,6 @@ class Api::VotesController < Api::ApiController
       status: "success",
       has_vote: false,
       poll: @poll.id,
-      vote: {}
     }, status: :ok
   end
 
@@ -99,9 +113,7 @@ class Api::VotesController < Api::ApiController
       status: "success",
       has_vote: true,
       poll: @poll.id,
-      vote: {
-        option: option
-      }
+      option: option
     }, status: :ok
   end
 
