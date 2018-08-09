@@ -1,7 +1,6 @@
 class Api::VotesController < Api::ApiController
   include ActionView::Helpers::TextHelper
 
-
   before_action :verify_poll_id
   before_action :verify_vote_type
   before_action :verify_ip_or_user
@@ -36,6 +35,17 @@ class Api::VotesController < Api::ApiController
   end
 
   def update
+    if @type == "visitor"
+      vote = @poll.visitor_votes.find_by(ip_address: @ip)
+    else
+      vote = @poll.votes.find_by(user_id: @user.id)
+    end
+    
+    if vote.update(option: @option)
+      render json: vote_success_json(@poll, @option), status: :ok
+    else
+      respond_with_error("Vote unable to be saved")
+    end
   end
 
   def destroy
