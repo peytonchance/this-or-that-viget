@@ -8,7 +8,7 @@ class Api::VotesController < Api::ApiController
 
   def create
     if @type == "visitor"
-      vote = @poll.visitor_votes.new(ip_address: @ip, option: @option)
+      vote = @poll.visitor_votes.new(ip_address: @ip_address, option: @option)
     else
       vote = @poll.votes.new(user: @user, option: @option)
     end
@@ -22,7 +22,7 @@ class Api::VotesController < Api::ApiController
 
   def show
     if @type == "visitor"
-      vote = @poll.get_visitor_vote(@ip)
+      vote = @poll.get_visitor_vote(@ip_address)
     else
       vote = @user.get_vote(@poll.id)
     end
@@ -36,7 +36,7 @@ class Api::VotesController < Api::ApiController
 
   def update
     if @type == "visitor"
-      vote = @poll.visitor_votes.find_by(ip_address: @ip)
+      vote = @poll.visitor_votes.find_by(ip_address: @ip_address)
     else
       vote = @poll.votes.find_by(user_id: @user.id)
     end
@@ -50,7 +50,7 @@ class Api::VotesController < Api::ApiController
 
   def destroy
     if @type == "visitor"
-      vote = @poll.visitor_votes.find_by(ip_address: @ip)
+      vote = @poll.visitor_votes.find_by(ip_address: @ip_address)
     else
       vote = @poll.votes.find_by(user_id: @user.id)
     end
@@ -76,7 +76,7 @@ class Api::VotesController < Api::ApiController
 
   def verify_vote_type
     @type = params[:type]
-    if !@type.present?
+    if !@type.present? || (@type != "visitor" && @type != "user")
       respond_with_error("Invalid voting type")
     end
   end
